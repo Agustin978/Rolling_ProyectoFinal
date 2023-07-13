@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Menu = () => {
     return (
-        <Navbar className='colorBase' variant="dark" expand="lg">
+        <Navbar bg='info' variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to={'/'}>Ingresar Titulo</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
