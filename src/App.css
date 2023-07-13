@@ -8,3 +8,8 @@
   flex-grow: 1;
   overflow: hidden;
 }
+
+.colorBase
+{
+  background-color: rgb(141, 32, 32);
+}
