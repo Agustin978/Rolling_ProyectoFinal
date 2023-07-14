@@ -36,3 +36,61 @@ export const login = async (usuario) =>
         return null;
     }
 }
+
+export const registrarUsuario = async (nuevoUsuario) =>
+{
+    try
+    {
+        const respuesta = await fetch(URL_usuario);
+        const listaUsuarios = await respuesta.json();
+        const existeNombreUsuario = listaUsuarios.find((itemUsuario) => itemUsuario.nombreUsuario === nuevoUsuario.nombreUsuario);
+        const existeEmailUsuario = listaUsuarios.find((itemUsuario) => itemUsuario.email === nuevoUsuario.email);
+        if(!existeEmailUsuario && !existeNombreUsuario)
+        {
+            if(nuevoUsuario.password === nuevoUsuario.password_r)
+            {
+                delete nuevoUsuario.password_r;
+                nuevoUsuario.type = 'user';
+                APICreaUsuario(nuevoUsuario);
+                return 200;
+            }else
+            {
+                return 'La confirmacion de la contraseña no coincide con la contraseña ingresada inicialmente.';
+            }
+        }else
+        {
+            if(existeEmailUsuario && !existeNombreUsuario)
+            {
+                return 'El email ingresado ya se encuentra registrado.';
+            }else if(!existeEmailUsuario && existeNombreUsuario)
+            {
+                return'El nombre de usuario ingresado ya se encuentra registrado.';
+            }else if(existeEmailUsuario && existeNombreUsuario)
+            {
+                return 'El nombre de usuario y el mail ingresados ya se encuentran registrados.';
+            }
+        }
+    }catch(error)
+    {
+        console.log('A ocurrido un error. Info: '+error);
+        return null;
+    }
+}
+
+const APICreaUsuario = async (nuevoUsuario) => 
+{
+    try
+    {
+        const respuesta = await fetch(URL_usuario, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(nuevoUsuario)
+        });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error en metodo APICreaUsuario. Info de error: '+error);
+    }
+}
