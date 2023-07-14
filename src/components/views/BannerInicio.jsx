@@ -17,7 +17,7 @@ const BannerInicio = () => {
                 <input
                     type="text"
                     placeholder="Buscar"
-                    className="form-control position-absolute bottom-0 mb-4 mb-sm-5 start-50 translate-middle-x mt-3 customInput"
+                    className="form-control form-control-lg position-absolute bottom-0 mb-4 mb-sm-5 start-50 translate-middle-x mt-3 customInput"
                 />
             </Container>
         </section>
