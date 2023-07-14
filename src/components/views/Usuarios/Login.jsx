@@ -2,13 +2,32 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
+import { login } from "../../helpers/queries";
+import Swal from 'sweetalert2';
 
-const Login = ({show, handleClose}) => {
+const Login = ({show, handleClose, setUsuarioLogueado}) => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();
     const navigate = useNavigate();
 
     const onSubmit = (usuario) => {
-        console.log(usuario);
+        login(usuario).then(respuesta => 
+            {
+                if(respuesta && respuesta != 0)
+                {
+                    sessionStorage.setItem('user', JSON.stringify(respuesta));
+                    setUsuarioLogueado(respuesta);
+                    Swal.fire('Bienvenido', ':)', 'success');
+                    navigate('/');
+                    handleClose();
+                }else if(respuesta === 0)
+                {
+                    Swal.fire('Error', 'Email o password incorrectos.', 'error');
+                    reset();
+                }else
+                {
+                    Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
+                }
+            });
     }
 
     return (
