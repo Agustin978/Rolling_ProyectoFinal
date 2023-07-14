@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../helpers/queries";
 import Swal from 'sweetalert2';
 
-const Login = ({show, handleClose, setUsuarioLogueado}) => {
+const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();
     const navigate = useNavigate();
 
@@ -28,6 +28,13 @@ const Login = ({show, handleClose, setUsuarioLogueado}) => {
                     Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
                 }
             });
+    }
+
+    const abreRegistrarse = () => 
+    {
+        reset();
+        handleClose();
+        handleShowRegistro();
     }
 
     return (
@@ -89,13 +96,15 @@ const Login = ({show, handleClose, setUsuarioLogueado}) => {
                         </Form.Text>
                     </Form.Group>
                     <div className="text-end">
+                        <Button variant="secondary" onClick={abreRegistrarse} className="me-2">
+                            Registrarse
+                        </Button>
                         <Button variant="primary" type="submit">
-                            Ingresar
+                            Iniciar Sesion
                         </Button>
                     </div>
                 </Form>
             </Modal.Body>
-            <Modal.Footer></Modal.Footer>
         </Modal>
     );
 };
