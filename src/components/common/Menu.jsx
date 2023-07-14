@@ -2,12 +2,16 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
+import Registrarse from '../views/Usuarios/Registrarse';
 
 const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
-    const [show, setShow] = useState(false);
+    const [showLogin, setShowLogin] = useState(false);
+    const [showRegistro, setshowRegistro] = useState();
     const navigate = useNavigate();
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseLogin = () => setShowLogin(false);
+    const handleShowLogin = () => setShowLogin(true);
+    const handleCloseRegistro = () => setshowRegistro(false);
+    const handleShowRegistro = () => setshowRegistro(true);
 
     const logout = () => 
     {
@@ -43,11 +47,14 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                             </>
                         ):(
                             <>
-                                <NavLink end className='nav-item nav-link' onClick={handleShow}>Login</NavLink>
+                                <NavLink end className='nav-item nav-link' onClick={handleShowLogin}>Login</NavLink>
                                 {
-                                    show  && <Login show={show} handleClose={handleClose} setUsuarioLogueado={setUsuarioLogueado}></Login>
+                                    showLogin  && <Login show={showLogin} handleClose={handleCloseLogin} setUsuarioLogueado={setUsuarioLogueado} handleShowRegistro={handleShowRegistro}></Login>
                                 }
-                                <NavLink end className='nav-item nav-link' to={'/registrarse'}>Registrarse</NavLink>
+                                <NavLink end className='nav-item nav-link' onClick={handleShowRegistro}>Registrarse</NavLink>
+                                {
+                                    showRegistro && <Registrarse show={showRegistro} handleClose={handleCloseRegistro} setUsuarioLogueado={setUsuarioLogueado}></Registrarse>
+                                }
                             </>
                         )
                     }        
