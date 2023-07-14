@@ -7,12 +7,15 @@ import Inicio from './components/views/Inicio';
 import Registrarse from './components/views/Usuarios/Registrarse';
 import Error404 from './components/views/Error404';
 import RutasAdministrador from './components/Routes/RutasAdministrador';
+import { useState } from 'react';
 
 function App() {
+  const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioEnLocalStorage);
 
   return (
     <BrowserRouter>
-      <Menu/>
+      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}/>
       <Routes>
         <Route exact path='/' element={<Inicio></Inicio>}></Route>
         <Route path='/administrador/*' element={
