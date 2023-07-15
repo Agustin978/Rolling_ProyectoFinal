@@ -24,8 +24,8 @@ const Detalle = () => {
                     <p className='pb-xl-4'> Estos suaves ñoquis caseros son acompañados con una rica salsa de tomate preparada con ingredientes
                          frescos y especias seleccionadas, creando una combinación perfecta de sabores que te dejará deseando más.</p>
                     <div className='d-flex'>
-                        <p className='pe-5 fw-bold'>Precio: $0,00</p>
-                        <p className='fw-bold text-decoration-line-through text-danger'>Antes: $0,00</p>
+                        <p className='pe-5 fw-bold fs-5'>Precio: $0,00</p>
+                        <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: $0,00</p>
                     </div>
                     <>
                     <Form>
