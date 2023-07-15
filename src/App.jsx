@@ -6,6 +6,7 @@ import Footer from './components/common/Footer';
 import Inicio from './components/views/Inicio';
 import Registrarse from './components/views/Usuarios/Registrarse';
 import Error404 from './components/views/Error404';
+import Detalle from './components/views/Detalle';
 import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/administrador/*' element={
           <RutasAdministrador></RutasAdministrador>
         }></Route>
+        <Route exact path="/detalle" element={<Detalle></Detalle>}></Route>
         <Route exact path='/registrarse' element={<Registrarse></Registrarse>}></Route>
         <Route exact path='*' element={<Error404></Error404>}></Route>
       </Routes>
