@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <Container fluid className="bg-about-us">
       <div>
-        <h1 className="name-restaurante">Mr Chef</h1>
+        <h1 className="name-restaurante">RollingFoods</h1>
         <h2 className="text-about-us">
           El punto de encuentro donde compartir buenos momentos. <br />
           Servimos comida y vinos trabajando en una estrecha relación con
