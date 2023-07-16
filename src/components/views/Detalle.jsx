@@ -14,9 +14,9 @@ const Detalle = () => {
     } = useForm();
     return (
         <Container>
-            <Row className='mt-3'>
+            <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src="https://i.pinimg.com/564x/05/33/02/053302a9710640c0d1c1a93b6801ead8.jpg" className='p-md-3 imgDetail' alt="ñoquis" />
+                    <img src="https://i.pinimg.com/564x/05/33/02/053302a9710640c0d1c1a93b6801ead8.jpg" className='p-md-3 colorBase imgDetail' alt="ñoquis" />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
