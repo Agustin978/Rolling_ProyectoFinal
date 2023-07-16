@@ -26,12 +26,38 @@
     {
       "nombreProducto": "Pulpo a la plancha",
       "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "precio": "3",
-      "precioAnterior": "5",
+      "precioNuevo": "3",
+      "precioViejo": "4",
       "descripcion": "Pulpo cocido 3 tentáculos o patas-Puré de patatas al gusto-Dientes de ajo para la ajada 2-Pimentón dulce para la ajada-Aceite de oliva virgen extra para la ajada, 4 cucharadas soperas-Sal en escamas para servir",
-      "categoria": "comida",
-      "estado": "",
+      "categoria": "salado",
       "id": 1
+    },
+    {
+      "nombreProducto": "asdsdf df",
+      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "precioNuevo": "345",
+      "precioViejo": "567",
+      "Descripcion": "wertvwb r t srg",
+      "categoria": "salado",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Medialuna",
+      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "precioNuevo": "454",
+      "precioViejo": "768",
+      "descripcion": "ertydht dfgh g h d",
+      "categoria": "salado",
+      "id": 3
+    },
+    {
+      "nombreProducto": "Medialuna",
+      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
+      "precioNuevo": "456",
+      "precioViejo": "5788",
+      "descripcion": "fghd dfhgd dgh",
+      "categoria": "salado",
+      "id": 4
     }
   ]
 }

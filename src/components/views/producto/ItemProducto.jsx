@@ -63,7 +63,7 @@ const ItemProducto = ({producto,setProductos}) => {
       <tr>
       <td>{producto.id}</td>
       <td>{producto.nombreProducto}</td>
-      <td>{producto.precio}</td>
+      <td>{producto.precioNuevo}</td>
       <td>
         <img
           src={producto.imagen}
