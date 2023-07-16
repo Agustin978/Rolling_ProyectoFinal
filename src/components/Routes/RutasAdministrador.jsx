@@ -22,8 +22,16 @@ const RutasAdministrador = () => {
         path="/editar/:id"
         element={<EditarProducto></EditarProducto>}
       ></Route>
+      <Route
+        exact
+        path="/usuarios"
+        
+      ></Route>
+      <Route
+        exact
+        path="/pedidos"
+      ></Route>
       </Routes>
-     
     </>
   );
 };

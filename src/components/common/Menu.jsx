@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
@@ -23,7 +23,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     return (
         <Navbar className='colorBase' variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to={'/'}>Ingresar Titulo</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>RollingFoods</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
@@ -35,7 +35,12 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                 {
                                     usuarioLogueado.type === 'admin' ?(
                                         <>
-                                            <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
+                                            {/*<NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>*/}
+                                            <NavDropdown title='Administrador' className='' id="dropdownAdministrador">
+                                                <NavDropdown.Item href='/administrador'>Platillos</NavDropdown.Item>
+                                                <NavDropdown.Item href='administrador/pedidos'>Pedidos</NavDropdown.Item>
+                                                <NavDropdown.Item href='administrador/usuarios'>Usuarios</NavDropdown.Item>
+                                            </NavDropdown>
                                             <Button variant="dark" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
