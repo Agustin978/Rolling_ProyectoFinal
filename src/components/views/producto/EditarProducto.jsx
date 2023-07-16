@@ -100,7 +100,7 @@ const onSubmit=(productoEditado)=>{
             type="number"
             placeholder="Ingrese el precio nuevo"
             min={1}
-            {...register("precio", {
+            {...register("precioNuevo", {
               required: "El precio del producto es obligatorio",
               min: {
                 value: 50,
@@ -113,7 +113,7 @@ const onSubmit=(productoEditado)=>{
             })}
           />
           <Form.Text className="text-danger">
-            {errors.precio?.message}
+            {errors.precioNuevo?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPlatoPrecioViejo">
