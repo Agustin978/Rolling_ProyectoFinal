@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
@@ -35,7 +35,10 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                 {
                                     usuarioLogueado.type === 'admin' ?(
                                         <>
-                                            <NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>
+                                            {/*<NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>*/}
+                                            <NavDropdown title='Administrador' className='' id="dropdownAdministrador">
+                                                <NavDropdown.Item href='/administrador'>Platillos</NavDropdown.Item>
+                                            </NavDropdown>
                                             <Button variant="dark" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
