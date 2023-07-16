@@ -23,7 +23,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     return (
         <Navbar className='colorBase' variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to={'/'}>Ingresar Titulo</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>RollingFoods</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
