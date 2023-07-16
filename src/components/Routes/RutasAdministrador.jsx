@@ -25,6 +25,7 @@ const RutasAdministrador = () => {
       <Route
         exact
         path="/usuarios"
+        
       ></Route>
       <Route
         exact
