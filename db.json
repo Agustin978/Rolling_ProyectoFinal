@@ -29,9 +29,18 @@
       "precio": "3",
       "precioAnterior": "5",
       "descripcion": "Pulpo cocido 3 tentáculos o patas-Puré de patatas al gusto-Dientes de ajo para la ajada 2-Pimentón dulce para la ajada-Aceite de oliva virgen extra para la ajada, 4 cucharadas soperas-Sal en escamas para servir",
-      "categoria": "comida",
+      "categoria": "plato fuerte",
       "estado": "",
       "id": 1
+    },
+    {
+      "nombreProducto": "Carne a la parrilla",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "precio": "1800",
+      "precioAnterior": "1500",
+      "descripcion": "Carne a la parrilla.\nIngredientes: -Vacío - Cebolla - Ajo - Papas criollas",
+      "categoria": "plato fuerte",
+      "id": 2
     }
   ]
 }
