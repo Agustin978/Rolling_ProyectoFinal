@@ -9,14 +9,14 @@ const ItemProducto = ({producto,setProductos}) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        cancelButton: 'btn btn-danger mx-2'
       },
       buttonsStyling: false
     })
     
     swalWithBootstrapButtons.fire({
       title: `¿esta seguro de eliminar la receta: ${producto.nombreProducto}?`,
-      text: "no se puede revertir este paso",
+      text: "No se puede revertir este paso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'si',
@@ -29,7 +29,7 @@ const ItemProducto = ({producto,setProductos}) => {
        eliminarProductoSeccionStorage(producto.id).then((result)=>{
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
-            'Borrado !',
+            'Producto borrado del menu!',
             `Receta ${producto.nombreProducto}  borrada correctamente.`, 
            'success'
          );
@@ -75,18 +75,12 @@ const ItemProducto = ({producto,setProductos}) => {
         {producto.categoria}
       </td>
       <td>
-        <div>
-          {" "}
-          <Link className="ms-auto btnAgregar btn btn-warning" to={`/administrador/editar/${producto.id}`}>
-            Editar
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <Button variant="danger" className="ms-auto btnAgregar" onClick={()=>borrarProducto(producto)}>
-            Borrar
-          </Button>{" "}
-        </div>
+        <Link className="ms-auto btnAgregar btn btn-warning mx-2" to={`/administrador/editar/${producto.id}`}>
+          Editar
+        </Link>
+        <Button variant="danger" className="ms-auto btnAgregar" onClick={()=>borrarProducto(producto)}>
+          Borrar
+        </Button>
       </td>
     </tr>
     );
