@@ -9,6 +9,8 @@ import Detalle from './components/views/Detalle';
 import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
+import SobreNosotros from './components/views/SobreNosotros';
+import favicon from './assets/miniPng.png';
 
 function App() {
   const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
@@ -19,6 +21,7 @@ function App() {
       <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}/>
       <Routes>
         <Route exact path='/' element={<Inicio></Inicio>}></Route>
+        <Route exact path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
         <Route path='/administrador/*' element={
           <RutasProtegidas>
             <RutasAdministrador></RutasAdministrador>
@@ -27,6 +30,7 @@ function App() {
         <Route exact path="/detalle" element={<Detalle></Detalle>}></Route>
         <Route exact path='*' element={<Error404></Error404>}></Route>
       </Routes>
+     
       <Footer/>
     </BrowserRouter>
   )
