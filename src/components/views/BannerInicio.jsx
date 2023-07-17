@@ -11,7 +11,7 @@ const BannerInicio = () => {
       <Container className="d-flex justify-content-end position-relative">
         <Col sm={9} md={10} lg={8} className="colTitle pt-4 pt-sm-2 pt-md-5 pt-lg-5 text-center">
           <p className="text-white mainTitle position-relative pt-4 pt-md-5 fw-md-bold fs-1">
-            "Una experiencia gastronómica que deleitará tus sentidos, déjate llevar y probemos juntos la mejor versión de nosotros."
+            ´´Una experiencia gastronómica que deleitará tus sentidos, déjate llevar y probemos juntos la mejor versión de nosotros.´´
           </p>
         </Col>
         <input
