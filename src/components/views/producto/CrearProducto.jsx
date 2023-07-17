@@ -1,11 +1,13 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/esm/Button";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { crearProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -14,6 +16,7 @@ const CrearProducto = () => {
   } = useForm();
   const navigate = useNavigate();
   const onSubmit = (productoNuevo) => {
+    crearProducto(productoNuevo).then((respuesta) => {
     crearProducto(productoNuevo).then((respuesta) => {
       console.log(respuesta.status);
       if (respuesta.status == 201) {
@@ -140,6 +143,7 @@ const CrearProducto = () => {
           />
           <Form.Text className="text-danger">
             {errors.descripcion?.message}
+            {errors.descripcion?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPlatoCategoria">
@@ -150,7 +154,7 @@ const CrearProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
+            <option value="bebida caliente">Ensaladas</option>
             <option value="bebida fria">Bebida fria</option>
             <option value="bebida con alcohol">Bebida con alcohol</option>
             <option value="entrada">Entrada</option>
