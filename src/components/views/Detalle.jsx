@@ -34,7 +34,7 @@ const Detalle = () => {
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
-                    <h3 className='pt-4 pb-2 py-xl-4'>{producto.nombreProducto}</h3>
+                    <h3 className='pt-4 pb-2 py-xl-4 fw-bold'>{producto.nombreProducto}</h3>
                     <p className='pb-xl-4'>{producto.descripcion}</p>
                     <div className='d-flex'>
                         <p className='pe-5 fw-bold fs-5'>Precio: ${producto.precioNuevo}</p>

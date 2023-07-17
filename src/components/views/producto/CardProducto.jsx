@@ -16,7 +16,7 @@ const CardProducto = ({producto}) => {
          
           </Link>
           <Card.Body className="text-white px-0 pb-0">
-            <Card.Title className="pb-1 text-dark">{producto.nombreProducto}</Card.Title>
+            <Card.Title className="pb-1 text-dark fw-bold">{producto.nombreProducto}</Card.Title>
           </Card.Body>
           <Card.Footer className="border-0 bg-white">
           <Card.Text className="pb-1 text-dark">
