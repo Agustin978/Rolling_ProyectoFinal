@@ -49,53 +49,6 @@
       "descripcion": "Sanguche de Milanesa.\nIngredientes: - Pan - Milanesas - Lechuga - Cebolla - Papas fritas",
       "categoria": "plato fuerte",
       "id": 3
-      "categoria": "pescados y mariscos",
-      "id": 1
-    },
-    {
-      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
-      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
-      "precioNuevo": "345",
-      "precioViejo": "567",
-      "descripcion": "iuopiu ñiupi",
-      "categoria": "platos regionales",
-      "id": 2
-    },
-    {
-      "nombreProducto": "Empanadas de Carne Criolla",
-      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
-      "precioNuevo": "454",
-      "precioViejo": "768",
-      "descripcion": "ertydht dfgh g h d",
-      "categoria": "platos regionales",
-      "id": 3
-    },
-    {
-      "nombreProducto": "Asado de carne vacuna",
-      "imagen": "https://www.clarin.com/img/2022/03/07/nt5D4YWDb_1256x620__2.jpg",
-      "precioNuevo": "456",
-      "precioViejo": "5788",
-      "descripcion": "fghd dfhgd dgh",
-      "categoria": "parrilla o asados",
-      "id": 4
-    },
-    {
-      "nombreProducto": "Ñoquis con Salsa Bolognesa",
-      "imagen": "https://www.cronista.com/files/image/344/344537/6102a22b72760.jpg",
-      "precioNuevo": "999",
-      "precioViejo": "1299",
-      "descripcion": "klsjf añslkdj",
-      "categoria": "pastas",
-      "id": 5
-    },
-    {
-      "nombreProducto": "Tallarines con Tuco",
-      "imagen": "https://www.organizacionsolarte.com.co/cms/sites/default/files/spaghettibolognesa.png",
-      "precioNuevo": "834",
-      "precioViejo": "960",
-      "descripcion": "fgki fkjg ifj",
-      "categoria": "pastas",
-      "id": 6
     }
   ]
 }
