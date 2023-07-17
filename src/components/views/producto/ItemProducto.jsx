@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { eliminarProductoSeccionStorage, obtenerProductos } from '../../helpers/queries';
+import notImage from "../../../assets/notImage.png"
 const ItemProducto = ({producto,setProductos}) => {
 
   const borrarProducto = (producto)=>{
@@ -15,8 +16,8 @@ const ItemProducto = ({producto,setProductos}) => {
     })
     
     swalWithBootstrapButtons.fire({
-      title: `¿esta seguro de eliminar la receta: ${producto.nombreProducto}?`,
-      text: "No se puede revertir este paso",
+      title: `¿esta seguro de eliminar el producto: ${producto.nombreProducto}?`,
+      text: "no se puede revertir este paso",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'si',
@@ -30,7 +31,7 @@ const ItemProducto = ({producto,setProductos}) => {
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
             'Producto borrado del menu!',
-            `Receta ${producto.nombreProducto}  borrada correctamente.`, 
+            `Producto ${producto.nombreProducto}  borrad correctamente.`, 
            'success'
          );
          //se actualiza el state para recargar los productos
@@ -51,7 +52,7 @@ const ItemProducto = ({producto,setProductos}) => {
       ) {
         swalWithBootstrapButtons.fire(
           'Cancelado',
-          `No se elimino la receta: ${producto.nombreProducto} :)`,
+          `No se eliminó el producto: ${producto.nombreProducto} :)`,
           'error'
         )
       }
@@ -66,8 +67,7 @@ const ItemProducto = ({producto,setProductos}) => {
       <td>{producto.precioNuevo}</td>
       <td>
         <img
-          src={producto.imagen}
-          alt=""
+           src={producto.imagen ? producto.imagen : notImage} alt={producto.nombreProducto}
           className="imgAdministrador"
         />
       </td>
