@@ -149,17 +149,13 @@ const CrearProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="pastas">Pastas</option>
-            <option value="parrilla o asados">Parrilla o Asados</option>
-            <option value="pescados y mariscos">Pescados y Mariscos</option>
-            <option value="vegetariano o vegano">Vegetariano o Vegano</option>
-            <option value="ensaladas y platos frescos">Ensaladas y Platos Frescos</option>
-            <option value="pizzas">Pizzas</option>
-            <option value="tartas">Tartas</option>
-            <option value="sandwiches">Sandwiches</option>
-            <option value="hamburguesas">Hamburguesas</option>
-            <option value="platos regionales">Platos Regionales</option>
-            <option value="postres">Postres</option>
+            <option value="bebida caliente">Bebida caliente</option>
+            <option value="bebida fria">Bebida fria</option>
+            <option value="bebida con alcohol">Bebida con alcohol</option>
+            <option value="entrada">Entrada</option>
+            <option value="plato fuerte">Plato Fuerte</option>
+            <option value="acompaniamientos">Acompañamiento</option>
+            <option value="postre">Postre</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}
