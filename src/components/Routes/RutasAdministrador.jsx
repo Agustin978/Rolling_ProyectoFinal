@@ -3,7 +3,7 @@ import Administrador from "../views/producto/Administrador";
 import CrearProducto from "../views/producto/CrearProducto";
 import EditarProducto from "../views/producto/EditarProducto";
 import AdministradorUsuario from "../views/Usuarios/AdministradorUsuario";
-import EditarUsario from "../views/Usuarios/EditarUsario";
+
 
 const RutasAdministrador = () => {
   return (
