@@ -29,7 +29,6 @@
       "precioNuevo": "3",
       "precioViejo": "4",
       "descripcion": "Pulpo cocido 3 tentáculos o patas-Puré de patatas al gusto-Dientes de ajo para la ajada 2-Pimentón dulce para la ajada-Aceite de oliva virgen extra para la ajada, 4 cucharadas soperas-Sal en escamas para servir",
-<<<<<<< HEAD
       "categoria": "plato fuerte",
       "id": 1
     },
@@ -50,7 +49,6 @@
       "descripcion": "Sanguche de Milanesa.\nIngredientes: - Pan - Milanesas - Lechuga - Cebolla - Papas fritas",
       "categoria": "plato fuerte",
       "id": 3
-=======
       "categoria": "pescados y mariscos",
       "id": 1
     },
@@ -98,7 +96,6 @@
       "descripcion": "fgki fkjg ifj",
       "categoria": "pastas",
       "id": 6
->>>>>>> mostrarInicioDetalle
     }
   ]
 }
