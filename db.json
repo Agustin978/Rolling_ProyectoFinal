@@ -67,6 +67,15 @@
       "descripcion": "klsjf añslkdj",
       "categoria": "pastas",
       "id": 5
+    },
+    {
+      "nombreProducto": "Tallarines con Tuco",
+      "imagen": "https://www.organizacionsolarte.com.co/cms/sites/default/files/spaghettibolognesa.png",
+      "precioNuevo": "834",
+      "precioViejo": "960",
+      "descripcion": "fgki fkjg ifj",
+      "categoria": "pastas",
+      "id": 6
     }
   ]
 }
