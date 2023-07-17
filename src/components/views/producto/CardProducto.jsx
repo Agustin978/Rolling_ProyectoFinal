@@ -5,10 +5,6 @@ import notImage from "../../../assets/notImage.png"
 
 const CardProducto = ({producto}) => {
   const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
-  const formatearMoneda = (value) => {
-    const valorFormateado = isNaN(value) ? 0 : parseFloat(value).toFixed(2);
-    return `$${valorFormateado}`;
-  };
     return (
         <Col sm={6} md={4} lg={3} className="mb-3">
         <Card className="rounded-0 border-0 h-100 shadow p-3 p-md-2 p-lg-3">
@@ -26,10 +22,10 @@ const CardProducto = ({producto}) => {
           <Card.Text className="pb-1 text-dark">
             {precioViejo > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
-                {formatearMoneda(precioViejo)}
+                ${producto.precioViejo}
               </span>
             )}
-            <span className="fs-4 fw-bolder">{formatearMoneda(precioNuevo)}</span>
+            <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
           </Card.Text>
           <Button variant="dark" className="w-100 rounded-0 py-3 fs-5">Agregar al carrito</Button>
           </Card.Footer>
