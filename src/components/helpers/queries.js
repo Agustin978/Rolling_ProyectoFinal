@@ -110,8 +110,9 @@ export const crearProducto = async (producto) => {
       console.log(error);
       return null;
     }
-  };
-  export  const  obtenerProductos = async ()=>{
+  }
+
+export  const  obtenerProductos = async ()=>{
     try {
         const respuesta=await fetch(URL_PRODUCTO);
         const listaProducto = await respuesta.json();
@@ -121,6 +122,7 @@ export const crearProducto = async (producto) => {
         return null;
     }
 }
+
 export  const  obtenerProductosEditar = async (id)=>{
     try {
         const respuesta = await fetch(`${URL_PRODUCTO}/${id}`);
@@ -131,6 +133,7 @@ export  const  obtenerProductosEditar = async (id)=>{
         
     }
 }
+
 export const editarProducto = async(producto ,id)=>{
     try{
         const respuesta = await fetch(URL_PRODUCTO+'/'+id, {
@@ -145,6 +148,7 @@ export const editarProducto = async(producto ,id)=>{
         console.log(error);
     }
 }
+
 export const eliminarProductoSeccionStorage =async(id)=>{
     try {
         //para borrar debemos crear una peticion con un id para borrar 
