@@ -4,10 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { crearProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
-  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,23 +13,24 @@ const CrearProducto = () => {
     reset,
   } = useForm();
   const navigate = useNavigate();
-  const onSubmit = (productoNuevo) => {
-    crearProducto(productoNuevo).then((respuesta) => {
-    crearProducto(productoNuevo).then((respuesta) => {
-      console.log(respuesta.status);
-      if (respuesta.status == 201) {
-        Swal.fire(
-          "Receta Creada !",
-          `la Receta ${productoNuevo.nombreProducto} correctamente.`,
-          "success"
-        );
-        reset();
-        navigate('/administrador');
-      } else {
-        Swal.fire("ERROR !", `Intente nueva mente`, "error");
-      }
-    });
-  };
+
+const onSubmit = (productoNuevo) => {
+  crearProducto(productoNuevo).then((respuesta) => {
+    console.log(respuesta.status);
+    if (respuesta.status == 201) {
+      Swal.fire(
+        "Receta Creada !",
+        `la Receta ${productoNuevo.nombreProducto} correctamente.`,
+        "success"
+      );
+      reset();
+      navigate('/administrador');
+    } else {
+      Swal.fire("ERROR !", `Intente nueva mente`, "error");
+    }
+  });
+}
+
   return (
     <div className="container mainSection ">
       <h1 className="text-center">Nuevo Producto</h1>
