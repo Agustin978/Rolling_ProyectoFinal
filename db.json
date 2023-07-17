@@ -29,7 +29,7 @@
       "precioNuevo": "3",
       "precioViejo": "4",
       "descripcion": "Pulpo cocido 3 tentáculos o patas-Puré de patatas al gusto-Dientes de ajo para la ajada 2-Pimentón dulce para la ajada-Aceite de oliva virgen extra para la ajada, 4 cucharadas soperas-Sal en escamas para servir",
-      "categoria": "salado",
+      "categoria": "pescados y mariscos",
       "id": 1
     },
     {
@@ -38,7 +38,7 @@
       "precioNuevo": "345",
       "precioViejo": "567",
       "descripcion": "iuopiu ñiupi",
-      "categoria": "salado",
+      "categoria": "hamburguesas",
       "id": 2
     },
     {
@@ -47,7 +47,7 @@
       "precioNuevo": "454",
       "precioViejo": "768",
       "descripcion": "ertydht dfgh g h d",
-      "categoria": "salado",
+      "categoria": "postres",
       "id": 3
     },
     {
@@ -56,7 +56,7 @@
       "precioNuevo": "456",
       "precioViejo": "5788",
       "descripcion": "fghd dfhgd dgh",
-      "categoria": "salado",
+      "categoria": "vegetariano o vegano",
       "id": 4
     }
   ]

@@ -171,10 +171,16 @@ const EditarProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
-            <option value="bebida fria">Bebida fria</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="pastas">Pastas</option>
+            <option value="parrilla o asados">Parrilla o Asados</option>
+            <option value="pescados y mariscos">Pescados y Mariscos</option>
+            <option value="vegetariano o vegano">Vegetariano o Vegano</option>
+            <option value="ensaladas y platos frescos">Ensaladas y Platos Frescos</option>
+            <option value="pizzas">Pizzas</option>
+            <option value="tartas">Tartas</option>
+            <option value="sandwiches">Sandwiches</option>
+            <option value="hamburguesas">Hamburguesas</option>
+            <option value="postres">Postres</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}
