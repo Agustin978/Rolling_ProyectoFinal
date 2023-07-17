@@ -160,7 +160,6 @@ const EditarProducto = () => {
           />
           <Form.Text className="text-danger">
             {errors.descripcion?.message}
-            {errors.descripcion?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">

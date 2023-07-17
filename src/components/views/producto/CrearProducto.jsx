@@ -138,7 +138,6 @@ const CrearProducto = () => {
           />
           <Form.Text className="text-danger">
             {errors.descripcion?.message}
-            {errors.descripcion?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPlatoCategoria">
@@ -158,8 +157,7 @@ const CrearProducto = () => {
             <option value="postre">Postre</option>
           </Form.Select>
           <Form.Text className="text-danger">
-            {errors.categoria?.message}
-            
+            {errors.categoria?.message}        
           </Form.Text>
         </Form.Group>
         <Button variant="primary" type="submit">
