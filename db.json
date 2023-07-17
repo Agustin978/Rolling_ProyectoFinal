@@ -1,24 +1,24 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "type": "admin",
       "nombreUsuario": "admin",
       "email": "admin@admin.com",
       "password": "HolAdmin$45",
-      "type": "admin"
+      "id": 1
     },
     {
+      "type": "user",
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
       "password": "HolAdmin$45",
-      "type": "user",
       "id": 2
     },
     {
+      "type": "user",
       "nombreUsuario": "usuario2",
       "email": "usuario2@usuario2.com",
       "password": "HolAdmin$45",
-      "type": "user",
       "id": 3
     }
   ],
