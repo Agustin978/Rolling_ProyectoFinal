@@ -1,18 +1,22 @@
+import { obtenerProductos } from "../helpers/queries";
 import BannerInicio from "./BannerInicio";
 import CardProducto from "./producto/CardProducto";
 import { Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 const Inicio = () => {
+  const [productos, setProductos] = useState([]);
+  useEffect(() => {
+    obtenerProductos().then((resp) => {
+          setProductos(resp);
+      });
+  }, []);
   return (
     <section>
       <BannerInicio></BannerInicio>
       <Container>
         <Row className="mt-3">
-          <CardProducto></CardProducto>
-          <CardProducto></CardProducto>
-          <CardProducto></CardProducto>
-          <CardProducto></CardProducto>
-          <CardProducto></CardProducto>
+          <CardProducto productos={productos}></CardProducto>
         </Row>
         <section className="mb-0">
           <iframe
