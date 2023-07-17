@@ -95,6 +95,7 @@ const APICreaUsuario = async (nuevoUsuario) =>
         console.log('A ocurrido un error en metodo APICreaUsuario. Info de error: '+error);
     }
 }
+/*Admin PRODUCTOS */
 export const crearProducto = async (producto) => {
     try {
       const respuesta = await fetch(URL_PRODUCTO, {
@@ -155,5 +156,30 @@ export const eliminarProductoSeccionStorage =async(id)=>{
     } catch (error) {
         console.log(error);
         return null;
+    }
+}
+/*Admin Usuarios */
+export  const  obtenerUsuario = async ()=>{
+    try {
+        const respuesta=await fetch(URL_usuario);
+        const listaProducto = await respuesta.json();
+        return listaProducto;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+export const editarUsuario = async(usuario ,id)=>{
+    try{
+        const respuesta = await fetch(URL_usuario+'/'+id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(usuario)
+        });
+        return respuesta;
+    }catch (error){
+        console.log(error);
     }
 }

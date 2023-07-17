@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import ItemProducto from "./ItemProducto";
+
 import { useEffect , } from "react";
-import { obtenerProductos } from "../../helpers/queries";
+import { obtenerUsuario } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ItemUsarios from "./ItemUsarios";
 
 const AdministradorUsuario = () => {
     const navegacion = useNavigate();
   
-    const [producto ,setProductos] = useState([])
+    const [usuario ,setUsuario] = useState([])
     useEffect(()=>{
-      obtenerProductos().then((respuesta)=>{
+      obtenerUsuario().then((respuesta)=>{
         console.log(respuesta)
         if(respuesta){
-          setProductos(respuesta);
+          setUsuario(respuesta);
         }else{
           navegacion('/error404');
         }
@@ -29,10 +30,8 @@ const AdministradorUsuario = () => {
    
       <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
-        <h1 className="display-4 ">Productos disponibles</h1>
-        <Link className="btn btn-primary" to='/administrador/crear'>
-          Agregar
-        </Link>
+        <h1 className="display-4 ">Administrador Usuarios</h1>
+       
       </div>
       <hr />
       <Table responsive striped bordered hover>
@@ -40,17 +39,18 @@ const AdministradorUsuario = () => {
         <tr>
               <th>Cod</th>
               <th>Nombre</th>
-              <th>Precio Final</th>
-              <th>Img</th>
-              <th className="">Categoria</th>
+              <th>email</th>
+              <th>Tipo</th>
               <th>Opciones</th>
             </tr>
         </thead>
         <tbody>{
-          producto.map((prod )=> <ItemProducto key={prod.id} producto={prod} setProductos={setProductos}></ItemProducto>)
-          }
+        usuario.map((usu )=> <ItemUsarios key={usu.id} usuario={usu} setUsuario={setUsuario}></ItemUsarios>)
+        }
+      
+      </tbody>
         
-        </tbody>
+ 
       </Table>
     </section>
     )
