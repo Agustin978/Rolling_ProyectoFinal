@@ -40,6 +40,15 @@
       "descripcion": "Carne a la parrilla.\nIngredientes: -Vacío - Cebolla - Ajo - Papas criollas",
       "categoria": "plato fuerte",
       "id": 2
+    },
+    {
+      "nombreProducto": "Sanguche de milanesa",
+      "imagen": "https://www.eltucumano.com/fotos/cache/notas/2023/02/28/818x460_230228193026_74237.jpg",
+      "precioNuevo": "1800",
+      "precioAnterior": "",
+      "descripcion": "Sanguche de Milanesa.\nIngredientes: - Pan - Milanesas - Lechuga - Cebolla - Papas fritas",
+      "categoria": "plato fuerte",
+      "id": 3
     }
   ]
 }
