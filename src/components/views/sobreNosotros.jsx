@@ -1,8 +1,7 @@
-import React from "react";
 import { Container } from "react-bootstrap";
-import "./sobreNosotros.css";
 
-const AboutUs = () => {
+
+const SobreNosotros = () => {
   return (
     <Container fluid className="bg-about-us">
       <div>
@@ -20,4 +19,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default SobreNosotros;

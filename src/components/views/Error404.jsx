@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="text-center">
-        <img src={error404Image} alt="Error 404" />
+        <img src={error404Image} alt="Error 404"/>
         <p className="fs-3">
           {" "}
           <span className="text-danger">Opps!</span> Página no encontrada.
