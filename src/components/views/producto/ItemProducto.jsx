@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { eliminarProductoSeccionStorage, obtenerProductos } from '../../helpers/queries';
+import notImage from "../../../assets/notImage.png"
 const ItemProducto = ({producto,setProductos}) => {
 
   const borrarProducto = (producto)=>{
@@ -66,8 +67,7 @@ const ItemProducto = ({producto,setProductos}) => {
       <td>{producto.precioNuevo}</td>
       <td>
         <img
-          src={producto.imagen}
-          alt=""
+           src={producto.imagen ? producto.imagen : notImage} alt={producto.nombreProducto}
           className="imgAdministrador"
         />
       </td>

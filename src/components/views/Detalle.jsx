@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import "./Detalle.css"
 import { obtenerProductosEditar } from '../helpers/queries';
+import notImage from "../../assets/notImage.png";
 
 const Detalle = () => {
     const {
@@ -29,7 +30,7 @@ const Detalle = () => {
         <Container>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src={producto.imagen} className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
+                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
