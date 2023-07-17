@@ -1,4 +1,3 @@
-import React from "react";
 import BannerInicio from "./BannerInicio";
 import CardProducto from "./producto/CardProducto";
 import { Container, Row } from "react-bootstrap";

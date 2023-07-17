@@ -2,10 +2,12 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/esm/Button";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { crearProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const CrearProducto = () => {
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -13,7 +15,7 @@ const CrearProducto = () => {
     reset,
   } = useForm();
   const onSubmit = (productoNuevo) => {
-    CrearProducto(productoNuevo).then((respuesta) => {
+    crearProducto(productoNuevo).then((respuesta) => {
       console.log(respuesta.status);
       if (respuesta.status == 201) {
         Swal.fire(
@@ -21,6 +23,7 @@ const CrearProducto = () => {
           `la Receta ${productoNuevo.nombreProducto} correctamente.`,
           "success"
         );
+        reset();
       } else {
         Swal.fire("ERROR !", `Intente nueva mente`, "error");
       }
@@ -122,7 +125,7 @@ const CrearProducto = () => {
             placeholder="ingrese separado por un - los ingredientes"
             as="textarea"
             rows={3}
-            {...register("Descripcion", {
+            {...register("descripcion", {
               required: "la Descripcion del Producto es obligatorio",
               minLength: {
                 value: 10,
@@ -137,7 +140,7 @@ const CrearProducto = () => {
             })}
           />
           <Form.Text className="text-danger">
-            {errors.ingredientes?.message}
+            {errors.descripcion?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
@@ -148,7 +151,7 @@ const CrearProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="bebida caliente">Bebida caliente</option>
+            <option value="bebida caliente">Ensaladas</option>
             <option value="bebida fria">Bebida fria</option>
             <option value="dulce">Dulce</option>
             <option value="salado">Salado</option>

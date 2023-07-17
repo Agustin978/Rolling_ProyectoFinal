@@ -40,7 +40,7 @@ const Administrador = () => {
       <tr>
             <th>Cod</th>
             <th>Nombre</th>
-            <th>Precio</th>
+            <th>Precio Final</th>
             <th>Img</th>
             <th className="">Categoria</th>
             <th>Opciones</th>
