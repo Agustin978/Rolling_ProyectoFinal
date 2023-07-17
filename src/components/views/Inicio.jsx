@@ -16,7 +16,10 @@ const Inicio = () => {
       <BannerInicio></BannerInicio>
       <Container>
         <Row className="mt-3">
-          <CardProducto productos={productos}></CardProducto>
+          {
+            
+        productos.map((producto)=>  <CardProducto key={producto.id} producto={producto}></CardProducto>)
+          }
         </Row>
         <section className="mb-0">
           <iframe

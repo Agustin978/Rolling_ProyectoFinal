@@ -1,31 +1,43 @@
 import React from 'react';
 import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import "./Detalle.css"
+import { obtenerProductosEditar } from '../helpers/queries';
 
 const Detalle = () => {
-    const navegacion = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
     } = useForm();
+
+    const {id} = useParams();
+    const [producto, setProductos] =  useState({});
+  
+    useEffect(()=>{
+        obtenerProductosEditar(id).then((respuesta)=>{
+        if(respuesta){
+          setProductos(respuesta);
+        }
+      })
+    }, [])
+
     return (
         <Container>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src="https://i.pinimg.com/564x/05/33/02/053302a9710640c0d1c1a93b6801ead8.jpg" className='p-md-3 colorBase imgDetail' alt="ñoquis" />
+                    <img src={producto.imagen} className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
-                    <h3 className='pt-4 pb-2 py-xl-4'>Ñoquis de Papa en Salsa de Tomate Casera</h3>
-                    <p className='pb-xl-4'> Estos suaves ñoquis caseros son acompañados con una rica salsa de tomate preparada con ingredientes
-                         frescos y especias seleccionadas, creando una combinación perfecta de sabores que te dejará deseando más.</p>
+                    <h3 className='pt-4 pb-2 py-xl-4'>{producto.nombreProducto}</h3>
+                    <p className='pb-xl-4'>{producto.descripcion}</p>
                     <div className='d-flex'>
-                        <p className='pe-5 fw-bold fs-5'>Precio: $0,00</p>
-                        <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: $0,00</p>
+                        <p className='pe-5 fw-bold fs-5'>Precio: ${producto.precioNuevo}</p>
+                        <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioViejo}</p>
                     </div>
                     <>
                     <Form>
