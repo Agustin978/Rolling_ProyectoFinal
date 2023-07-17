@@ -160,6 +160,7 @@ const CrearProducto = () => {
             <option value="tartas">Tartas</option>
             <option value="sandwiches">Sandwiches</option>
             <option value="hamburguesas">Hamburguesas</option>
+            <option value="platos regionales">Platos Regionales</option>
             <option value="postres">Postres</option>
           </Form.Select>
           <Form.Text className="text-danger">

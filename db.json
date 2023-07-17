@@ -33,30 +33,30 @@
       "id": 1
     },
     {
-      "nombreProducto": "asdsdf df",
-      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
+      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
+      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
       "precioNuevo": "345",
       "precioViejo": "567",
       "descripcion": "iuopiu ñiupi",
-      "categoria": "hamburguesas",
+      "categoria": "platos regionales",
       "id": 2
     },
     {
-      "nombreProducto": "Medialuna",
-      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      "nombreProducto": "Empanadas de Carne Criolla",
+      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
       "precioNuevo": "454",
       "precioViejo": "768",
       "descripcion": "ertydht dfgh g h d",
-      "categoria": "postres",
+      "categoria": "platos regionales",
       "id": 3
     },
     {
-      "nombreProducto": "Medialuna",
-      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
+      "nombreProducto": "Asado",
+      "imagen": "https://www.clarin.com/img/2022/03/07/nt5D4YWDb_1256x620__2.jpg",
       "precioNuevo": "456",
       "precioViejo": "5788",
       "descripcion": "fghd dfhgd dgh",
-      "categoria": "vegetariano o vegano",
+      "categoria": "parrilla o asados",
       "id": 4
     }
   ]
