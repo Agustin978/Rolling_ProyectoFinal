@@ -19,8 +19,8 @@ const CrearProducto = () => {
       console.log(respuesta.status);
       if (respuesta.status == 201) {
         Swal.fire(
-          "Receta Creada !",
-          `la Receta ${productoNuevo.nombreProducto} correctamente.`,
+          "Producto Creado !",
+          `el producto ${productoNuevo.nombreProducto} se creó correctamente.`,
           "success"
         );
         reset();

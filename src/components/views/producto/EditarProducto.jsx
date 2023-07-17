@@ -34,8 +34,8 @@ const EditarProducto = () => {
     editarProducto(productoEditado, id).then((result) => {
       if (result.status === 200 && result) {
         Swal.fire(
-          "Receta Editada !",
-          `la Receta ${productoEditado.nombreProducto}  se edito correctamente.`,
+          "Producto Editado !",
+          `el producto ${productoEditado.nombreProducto}  se edito correctamente.`,
           "success"
         );
         navegacion('/administrador');

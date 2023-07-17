@@ -16,7 +16,7 @@ const ItemProducto = ({producto,setProductos}) => {
     })
     
     swalWithBootstrapButtons.fire({
-      title: `¿esta seguro de eliminar la receta: ${producto.nombreProducto}?`,
+      title: `¿esta seguro de eliminar el producto: ${producto.nombreProducto}?`,
       text: "no se puede revertir este paso",
       icon: 'warning',
       showCancelButton: true,
@@ -31,7 +31,7 @@ const ItemProducto = ({producto,setProductos}) => {
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
             'Borrado !',
-            `Receta ${producto.nombreProducto}  borrada correctamente.`, 
+            `Producto ${producto.nombreProducto}  borrada correctamente.`, 
            'success'
          );
          //se actualiza el state para recargar los productos
@@ -52,7 +52,7 @@ const ItemProducto = ({producto,setProductos}) => {
       ) {
         swalWithBootstrapButtons.fire(
           'Cancelado',
-          `No se elimino la receta: ${producto.nombreProducto} :)`,
+          `No se eliminó el producto: ${producto.nombreProducto} :)`,
           'error'
         )
       }

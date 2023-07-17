@@ -58,6 +58,15 @@
       "descripcion": "fghd dfhgd dgh",
       "categoria": "parrilla o asados",
       "id": 4
+    },
+    {
+      "nombreProducto": "Ñoquis con Salsa Bolognesa",
+      "imagen": "https://www.cronista.com/files/image/344/344537/6102a22b72760.jpg",
+      "precioNuevo": "999",
+      "precioViejo": "1299",
+      "descripcion": "klsjf añslkdj",
+      "categoria": "pastas",
+      "id": 5
     }
   ]
 }
