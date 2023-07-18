@@ -3,7 +3,7 @@ import Administrador from "../views/producto/Administrador";
 import CrearProducto from "../views/producto/CrearProducto";
 import EditarProducto from "../views/producto/EditarProducto";
 import AdministradorUsuario from "../views/Usuarios/AdministradorUsuario";
-import Pedidos from "../views/Pedidos";
+import AdministradorPedidos from "../views/pedidos/AdministradorPedidos";
 
 
 const RutasAdministrador = () => {
@@ -35,7 +35,7 @@ const RutasAdministrador = () => {
       <Route
         exact
         path="/pedidos"
-        element={<Pedidos></Pedidos>}
+        element={<AdministradorPedidos></AdministradorPedidos>}
       ></Route>
       </Routes>
     </>
