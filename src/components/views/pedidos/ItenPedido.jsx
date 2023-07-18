@@ -2,16 +2,15 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
-import { editarPedidos, editarUsuario } from "../../helpers/queries";
+import { editarPedidos } from "../../helpers/queries";
 import Modal from "react-bootstrap/Modal";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 
-const ItenProducto = (pedido,setPedido) => {
+const ItenProducto = (pedido,) => {
     const [show, setShow] = useState(false);
-    const navegacion = useNavigate();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
@@ -31,16 +30,16 @@ const ItenProducto = (pedido,setPedido) => {
 
   const onSubmit = (pedidoEditado) => {
 
-    pedidoEditado.fecha=`${pedido.fecha}`
-    pedidoEditado.nombreUsuario=`${pedido.nombreUsuario}`
-    pedidoEditado.email=`${pedido.email}`
-    pedidoEditado.detalleProducto=`${pedido.detalleProducto}`
+    pedidoEditado.fecha=`${pedido.pedido.fecha}`
+    pedidoEditado.nombreUsuario=`${pedido.pedido.nombreUsuario}`
+    pedidoEditado.email=`${pedido.pedido.email}`
+    pedidoEditado.detallePedido=`${pedido.pedido.detallePedido}`
 
     
    
     
 
-    editarPedidos(pedidoEditado, pedido.id).then((result) => {
+    editarPedidos(pedidoEditado, pedido.pedido.id).then((result) => {
       if (result.status === 200 && result) {
         Swal.fire(
           "Usuario Editada !",
@@ -82,13 +81,14 @@ const ItenProducto = (pedido,setPedido) => {
             >
                <Form.Select
                     aria-label="Default select example"
-                    {...register("type", {
-                        required: "la categoria es obligatoria",
+                    {...register("estado", {
+                        required: "el estado es obligatorio",
                       })}
                     
                   >
-                    <option value={pedido.estado}>{pedido.estado}</option>
-                    <option value={formularioTxt()}>{formularioTxt()}</option>
+                    <option value="Entregado">Entregado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Cancelado">Cancelado</option>
                   </Form.Select>
             </Form.Group>
             <Button variant="secondary" onClick={handleClose}>
