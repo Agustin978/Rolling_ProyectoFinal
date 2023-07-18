@@ -11,6 +11,7 @@ import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
 import SobreNosotros from './components/views/SobreNosotros';
 import favicon from './assets/miniPng.png';
+import Pedidos from './components/views/Pedidos';
 
 function App() {
   const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Inicio></Inicio>}></Route>
         <Route exact path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
+        <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
         <Route path='/administrador/*' element={
           <RutasProtegidas>
             <RutasAdministrador></RutasAdministrador>

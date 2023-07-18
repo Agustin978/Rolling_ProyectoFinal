@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
 import sobreNosotros from '../views/SobreNosotros';
+import { Cart4 } from 'react-bootstrap-icons';
+
 
 const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     const [showLogin, setShowLogin] = useState(false);
@@ -31,6 +33,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                     <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
                     <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
                     <NavLink end className='nav-item nav-link' to={'/sobreNosotros'}>Sobre Nosotros</NavLink>
+                    <NavLink end className='nav-item nav-link' to={'/pedidos'}><Cart4/></NavLink>
                     {
                         usuarioLogueado.type ?(
                             <>
