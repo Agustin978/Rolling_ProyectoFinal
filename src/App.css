@@ -52,6 +52,34 @@
   word-spacing: 3px;
   line-height: 140%;
 }
+/* Media queries */
+@media only screen and (max-width: 768px) {
+  .bg-about-us {
+    padding: 50px;
+  }
+
+  .name-restaurante {
+    font-size: 3rem;
+  }
+
+  .text-about-us {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .bg-about-us {
+    padding: 20px;
+  }
+
+  .name-restaurante {
+    font-size: 2rem;
+  }
+
+  .text-about-us {
+    font-size: 0.9rem;
+  }
+}
 
 /*Aqui pongo todo el css de error 404*/
 
