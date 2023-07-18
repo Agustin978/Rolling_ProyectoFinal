@@ -116,7 +116,7 @@ const EditarProducto = () => {
             {errors.precioNuevo?.message}
           </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formPlatoPrecioViejo">
+        <Form.Group className="mb-3" controlId="formPlatoPrecioAnterior">
           <Form.Label>Precio Anterior</Form.Label>
           <Form.Control
             type="number"
