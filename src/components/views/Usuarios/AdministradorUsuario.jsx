@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
-
 import { useEffect , } from "react";
 import { obtenerUsuario } from "../../helpers/queries";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import ItemUsarios from "./ItemUsarios";
-
 const AdministradorUsuario = () => {
     const navegacion = useNavigate();
   

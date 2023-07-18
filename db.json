@@ -50,5 +50,31 @@
       "categoria": "plato fuerte",
       "id": 3
     }
+  ],
+  "pedidos": [
+    {
+      "fecha":"18/06/2023",
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "detallePedido": "3 Pulpo cocido , 2 Carne a la parrilla",
+      "estado":"entregado",
+      "id": 1
+    },
+    { 
+      "fecha":"17/06/2023",  
+    "nombreUsuario": "usuario2",
+    "email": "usuario2@usuario2.com",
+      "detallePedido": "2 Carne a la parrilla ,1 Sanguche de milanesa",
+      "estado":"pendiente",
+      "id": 2
+    },
+    { 
+      "fecha":"16/06/2023",
+      "nombreUsuario": "usuario2",
+    "email": "usuario2@usuario2.com",
+      "detallePedido": "1 Sanguche de milanesa",
+      "estado":"cancelado",
+      "id": 3
+  }
   ]
 }
