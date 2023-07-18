@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import "./detalle.css"
-import { obtenerProductosEditar } from '../helpers/queries';
-import notImage from "../../assets/notImage.png";
+import { obtenerProductosEditar } from '../../helpers/queries';
+import notImage from "../../../assets/notImage.png";
 
 const Detalle = () => {
     const {

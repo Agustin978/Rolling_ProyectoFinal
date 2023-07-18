@@ -1,7 +1,7 @@
 import { Card, Col, Row, Button } from "react-bootstrap";
 import "./cardProducto.css"; 
 import { Link } from "react-router-dom";
-import notImage from "../../../assets/notImage.png"
+import notImage from "../../../../assets/notImage.png"
 
 const CardProducto = ({producto}) => {
   const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};

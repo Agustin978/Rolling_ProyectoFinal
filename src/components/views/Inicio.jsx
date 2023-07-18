@@ -1,6 +1,7 @@
 import { obtenerProductos } from "../helpers/queries";
 import BannerInicio from "./BannerInicio";
-import CardProducto from "./producto/CardProducto";
+import CardProducto from "./producto/cardProducto/CardProducto";
+import Categorias from "./Categorias";
 import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
@@ -15,6 +16,7 @@ const Inicio = () => {
     <section>
       <BannerInicio></BannerInicio>
       <Container>
+        <Categorias></Categorias>
         <Row className="mt-3">
           {
             
