@@ -53,19 +53,19 @@
   ],
   "pedidos": [
     {
+      "estado": "Entregado",
       "fecha": "18/06/2023",
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
       "detallePedido": "3 Pulpo cocido , 2 Carne a la parrilla",
-      "estado": "entregado",
       "id": 1
     },
     {
+      "estado": "Pendiente",
       "fecha": "17/06/2023",
       "nombreUsuario": "usuario2",
       "email": "usuario2@usuario2.com",
       "detallePedido": "2 Carne a la parrilla ,1 Sanguche de milanesa",
-      "estado": "pendiente",
       "id": 2
     },
     {

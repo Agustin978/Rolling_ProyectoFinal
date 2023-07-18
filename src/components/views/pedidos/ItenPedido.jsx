@@ -14,13 +14,7 @@ const ItenProducto = (pedido,) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
-  function formularioTxt() {
-    if (pedido.estado == "admin") {
-      return "user";
-    } else {
-      return "admin";
-    }
-  }
+
   const {
     register,
     handleSubmit,
@@ -43,7 +37,7 @@ const ItenProducto = (pedido,) => {
       if (result.status === 200 && result) {
         Swal.fire(
           "Usuario Editada !",
-          `El usuario ${pedido.id}  es ${pedidoEditado.type}`,
+          `El usuario ${pedido.pedido.id}  es ${pedidoEditado.estado}`,
           "success"
         );
         window.location.href = window.location.href;
@@ -100,12 +94,6 @@ const ItenProducto = (pedido,) => {
           </Form>
         </Modal.Body>
       </Modal>
-        </div>
-        <div>
-          {" "}
-          <Button variant="danger" className="ms-auto btnAgregar">
-            Borrar
-          </Button>{" "}
         </div>
       </td>
       
