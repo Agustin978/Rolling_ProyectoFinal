@@ -1,54 +1,50 @@
 @media all and (max-width: 575px){
-    .imgBanner{
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
+    .imgBannerInicio{
+        display: none;
     }
-    .mainTitle{
-        font-size: 16px;
+    .mainTitleInicio{
+        font-size: 22px;
     }
-    .colTitle{
-        height: 250px;
-    }
-    .customInput {
-        max-width: 90%;
-        width: 250px;
-      }
-}
-@media all and (min-width: 575px)and (max-width: 767px){
-    .imgBanner{
-        width: 100%;
+    .colTitleInicio{
         height: 300px;
-        object-fit: cover;
     }
-    .mainTitle{
-        font-size: 30px;
+    .customInputInicio {
+        max-width: 90%;
+        width: 260px;
+    }
+}
+@media all and (min-width: 575px)and (max-width: 912px){
+    .imgBannerInicio{
+        display: none;
+    }
+    .mainTitleInicio{
+        font-size: 25px;
         font-weight: bolder;
     }
-    .colTitle{
+    .colTitleInicio{
         height: 300px;
     }
-    .customInput {
+    .customInputInicio {
         max-width: 90%;
         width: 450px;
       }
 }
-@media all and (min-width: 768px){
-    .imgBanner{
+@media all and (min-width: 913px){
+    .imgBannerInicio{
         width: 100%;
         height: 480px;
         object-fit: cover;
     }
-    .mainTitle{
+    .mainTitleInicio{
         font-size: 35px;
         font-weight: bold;
         
     }
-    .colTitle{
+    .colTitleInicio{
         height: 480px;
         text-align: right;
     }
-    .customInput {
+    .customInputInicio {
         max-width: 90%;
         width: 550px;
       }
