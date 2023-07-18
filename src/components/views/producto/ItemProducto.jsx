@@ -31,7 +31,7 @@ const ItemProducto = ({producto,setProductos}) => {
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
             'Producto borrado del menu!',
-            `Producto ${producto.nombreProducto}  borrad correctamente.`, 
+            `Producto ${producto.nombreProducto}  borrado correctamente.`, 
            'success'
          );
          //se actualiza el state para recargar los productos
