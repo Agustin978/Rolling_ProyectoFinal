@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
-import { editarUsuario } from "../../helpers/queries";
+import { editarUsuario, obtenerUsuario, eliminarUsuariosAdministrador } from "../../helpers/queries";
 import Modal from "react-bootstrap/Modal";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -12,18 +12,64 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const ItemUsarios = ({ usuario, setUsaurio }) => {
+const ItemUsarios = ({ usuario, setUsuario }) => {
     const [show, setShow] = useState(false);
     const navegacion = useNavigate();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
-  function formularioTxt() {
-    if (usuario.type == "admin") {
-      return "user";
-    } else {
-      return "admin";
-    }
+  const borrarUsuario = (usu)=>{
+    console.log(usuario.nombreUsuario);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger mx-2'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: `¿esta seguro de eliminar el Usuario: ${usuario.nombreUsuario}?`,
+      text: "no se puede revertir este paso",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'si',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+       //aqui realizo la peticion delete
+       eliminarUsuariosAdministrador(usu.id).then((result)=>{
+        if(result.status === 200){
+          swalWithBootstrapButtons.fire(
+            'Usuario borrado del Sistema!',
+            `Usuario ${usu.nombreUsuario}  borrado correctamente.`, 
+           'success'
+         );
+         //se actualiza el state para recargar los productos
+         obtenerUsuario().then((result)=>setUsuario(result))
+
+        }
+        else{
+          swalWithBootstrapButtons.fire(
+            'ERROR !',
+               `Intente nueva mente`, 
+           'error'
+         )
+        }
+       })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          `No se eliminó el producto: ${usuario.nombreUsuario} :)`,
+          'error'
+        )
+      }
+    })
   }
 
 
@@ -89,8 +135,9 @@ const ItemUsarios = ({ usuario, setUsaurio }) => {
                       })}
                     
                   >
-                    <option value={usuario.type}>{usuario.type}</option>
-                    <option value={formularioTxt()}>{formularioTxt()}</option>
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
+                    <option value="bloqueado">Bloqueado</option>
                   </Form.Select>
             </Form.Group>
             <Button variant="secondary" onClick={handleClose}>
@@ -105,7 +152,7 @@ const ItemUsarios = ({ usuario, setUsaurio }) => {
         </div>
         <div>
           {" "}
-          <Button variant="danger" className="ms-auto btnAgregar">
+          <Button variant="danger" className="ms-auto btnAgregar" onClick={()=> borrarUsuario(usuario)}>
             Borrar
           </Button>{" "}
         </div>
