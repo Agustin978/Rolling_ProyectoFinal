@@ -18,7 +18,7 @@ const CardProducto = ({producto}) => {
           <Card.Body className="text-white px-0 pb-0">
             <Card.Title className="pb-1 text-dark fw-bold">{producto.nombreProducto}</Card.Title>
           </Card.Body>
-          <Card.Footer className="border-0 bg-white">
+          <Card.Footer className="border-0 bg-white px-0">
           <Card.Text className="pb-1 text-dark">
             {precioViejo > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
@@ -27,7 +27,7 @@ const CardProducto = ({producto}) => {
             )}
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
           </Card.Text>
-          <Button variant="dark" className="w-100 rounded-0 py-3 fs-5">Agregar al carrito</Button>
+          <Button variant="dark" className="w-100 rounded-0 py-3 fs-md-6 fs-lg-5">Agregar al carrito</Button>
           </Card.Footer>
          
         </Card>
