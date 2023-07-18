@@ -3,7 +3,7 @@ import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import "./Detalle.css"
+import "./detalle.css"
 import { obtenerProductosEditar } from '../helpers/queries';
 import notImage from "../../assets/notImage.png";
 

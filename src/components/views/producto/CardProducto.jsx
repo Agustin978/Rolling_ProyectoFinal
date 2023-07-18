@@ -1,5 +1,5 @@
 import { Card, Col, Row, Button } from "react-bootstrap";
-import "./CardProducto.css"; 
+import "./cardProducto.css"; 
 import { Link } from "react-router-dom";
 import notImage from "../../../assets/notImage.png"
 
