@@ -23,7 +23,7 @@ const EditarProducto = () => {
       setValue('nombreProducto', respuesta.nombreProducto);
       setValue('imagen', respuesta.imagen);
       setValue('precioNuevo', respuesta.precioNuevo);
-      setValue('precioViejo', respuesta.precioViejo);
+      setValue('precioAnterior', respuesta.precioAnterior);
       setValue('descripcion', respuesta.descripcion);
       setValue('categoria', respuesta.categoria);
     });
@@ -117,7 +117,7 @@ const EditarProducto = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPlatoPrecioViejo">
-          <Form.Label>Precio anterior</Form.Label>
+          <Form.Label>Precio Anterior</Form.Label>
           <Form.Control
             type="number"
             placeholder="Ingrese el precio anterior"
@@ -166,7 +166,7 @@ const EditarProducto = () => {
           <Form.Label>Categoria*</Form.Label>
           <Form.Select
             {...register("categoria", {
-              required: "la categoria es obligatoria",
+              required: "La categoría es obligatoria",
             })}
           >
             <option value="">Seleccione una opcion</option>

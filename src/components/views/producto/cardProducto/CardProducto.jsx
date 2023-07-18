@@ -1,10 +1,10 @@
-import { Card, Col, Row, Button } from "react-bootstrap";
+import { Card, Col, Button } from "react-bootstrap";
 import "./cardProducto.css"; 
 import { Link } from "react-router-dom";
 import notImage from "../../../../assets/notImage.png"
 
 const CardProducto = ({producto}) => {
-  const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
+  const {id, nombreProducto, precioAnterior, precioNuevo, imagen} = {...producto};
     return (
         <Col sm={6} md={4} lg={3} className="mb-3">
         <Card className="rounded-0 border-0 h-100 shadow p-3 p-md-2 p-lg-3">
@@ -20,9 +20,9 @@ const CardProducto = ({producto}) => {
           </Card.Body>
           <Card.Footer className="border-0 bg-white px-0">
           <Card.Text className="pb-1 text-dark">
-            {precioViejo > 0 && (
+            {precioAnterior > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
-                ${producto.precioViejo}
+                ${producto.precioAnterior}
               </span>
             )}
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>

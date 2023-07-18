@@ -38,8 +38,8 @@ const Detalle = () => {
                     <p className='pb-xl-4'>{producto.descripcion}</p>
                     <div className='d-flex'>
                         <p className='pe-5 fw-bold fs-5'>Precio: ${producto.precioNuevo}</p>
-                        {producto.precioViejo && (
-                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioViejo}</p>
+                        {producto.precioAnterior && (
+                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioAnterior}</p>
                         )}
                     </div>
                     <>
