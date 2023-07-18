@@ -10,7 +10,7 @@ const AdministradorUsuario = () => {
     const [usuario ,setUsuario] = useState([])
     useEffect(()=>{
       obtenerUsuario().then((respuesta)=>{
-        console.log(respuesta)
+
         if(respuesta){
           setUsuario(respuesta);
         }else{

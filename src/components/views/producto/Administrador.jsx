@@ -14,7 +14,6 @@ const Administrador = () => {
   const [producto ,setProductos] = useState([])
   useEffect(()=>{
     obtenerProductos().then((respuesta)=>{
-      console.log(respuesta)
       if(respuesta){
         setProductos(respuesta);
       }else{

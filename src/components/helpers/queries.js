@@ -188,6 +188,20 @@ export const editarUsuario = async(usuario ,id)=>{
         console.log(error);
     }
 }
+export const eliminarUsuariosAdministrador =async(id)=>{
+    try {
+        //para borrar debemos crear una peticion con un id para borrar 
+        const respuesta=await fetch(`${URL_usuario}/${id}`, {
+            method: "DELETE"
+        });
+        return respuesta;
+       
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 /*Admin Pedidos */
 export  const  obtenerPedidos = async ()=>{
     try {
