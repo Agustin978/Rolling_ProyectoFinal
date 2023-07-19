@@ -1,8 +1,18 @@
 import { Button, Table } from 'react-bootstrap';
 import React from "react";
 import ItemCarrito from './ItemCarrito';
+import Swal from 'sweetalert2';
 
 const Pedidos = () => {
+
+  const confirmarPedido = () =>{
+    Swal.fire({
+      icon: 'success',
+      title: 'Su pedido fue realizado!',
+      showConfirmButton: true,
+      confirmButtonColor: "#42D84B",
+    })
+  }
 
   return (
     <section className="container vh-100">
@@ -36,7 +46,7 @@ const Pedidos = () => {
           <h2 className="ms-auto">Monto Total: $0,00</h2>
         </div>
         <div className="d-flex justify-content-center pt-5">
-          <Button className="btn btn-danger fs-2" >Confirmar Pedido</Button>
+          <Button className="btn btn-danger fs-2" onClick={confirmarPedido}>Confirmar Pedido</Button>
         </div>
       </div>
     </section>
