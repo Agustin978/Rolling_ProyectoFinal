@@ -11,7 +11,7 @@ import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
 import SobreNosotros from './components/views/SobreNosotros';
 import favicon from './assets/miniPng.png';
-import Pedidos from './components/views/Pedidos';
+import Pedidos from './components/views/carrito/Pedidos';
 
 function App() {
   const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
