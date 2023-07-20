@@ -1,7 +1,7 @@
 import { obtenerProductos } from "../helpers/queries";
 import BannerInicio from "./BannerInicio";
 import CardProducto from "./producto/cardProducto/CardProducto";
-import Categorias from "./Categorias";
+import Categorias from "./categorias/Categorias"
 import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
