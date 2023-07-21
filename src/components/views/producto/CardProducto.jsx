@@ -2,9 +2,29 @@ import { Card, Col, Row, Button } from "react-bootstrap";
 import "./CardProducto.css"; 
 import { Link } from "react-router-dom";
 import notImage from "../../../assets/notImage.png"
+import Swal from "sweetalert2";
+import AgregaDetalles from "../Pedidos/AgregaDetalles";
+import { useState } from "react";
 
-const CardProducto = ({producto}) => {
+const CardProducto = ({producto, usuarioLogueado}) => {
   const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
+  const [showDetalles, setShowDetalles] = useState(false);
+  const handleCloseDetalles = () => setShowDetalles(false);
+  const handleShowDetalles = () => setShowDetalles(true);
+  const agregaAcarrito = () => 
+  {
+    //console.log(producto);
+    if(Object.keys(usuarioLogueado).length===0)
+    {
+      Swal.fire('Error', 'Debe iniciar secion antes de realizar un pedido.', 'error');
+      console.log('No hay usuarios logueados actualmente');
+    }else
+    {
+      console.log('Vamos a agregar tu pedido');
+      handleShowDetalles();
+      //showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles}></AgregaDetalles>
+    }
+  }
     return (
         <Col sm={6} md={4} lg={3} className="mb-3">
         <Card className="rounded-0 border-0 h-100 shadow p-3 p-md-2 p-lg-3">
@@ -27,13 +47,14 @@ const CardProducto = ({producto}) => {
             )}
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
           </Card.Text>
-          <Button variant="dark" className="w-100 rounded-0 py-3 fs-5">Agregar al carrito</Button>
+          <Button variant="dark" className="w-100 rounded-0 py-3 fs-5" onClick={agregaAcarrito}>Agregar al carrito</Button>
+          {
+            showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles}></AgregaDetalles>
+          }
           </Card.Footer>
-         
         </Card>
       </Col>
-
-
+      
     );
 };
 
