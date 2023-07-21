@@ -4,7 +4,7 @@ import CardProducto from "./producto/CardProducto";
 import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-const Inicio = () => {
+const Inicio = ({usuarioLogueado}) => {
   const [productos, setProductos] = useState([]);
   useEffect(() => {
     obtenerProductos().then((resp) => {
@@ -17,8 +17,7 @@ const Inicio = () => {
       <Container>
         <Row className="mt-3">
           {
-            
-        productos.map((producto)=>  <CardProducto key={producto.id} producto={producto}></CardProducto>)
+            productos.map((producto)=>  <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado}></CardProducto>)
           }
         </Row>
         <section className="mb-0">
