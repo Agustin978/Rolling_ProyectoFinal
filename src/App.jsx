@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
       <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}/>
       <Routes>
-        <Route exact path='/' element={<Inicio></Inicio>}></Route>
+        <Route exact path='/' element={<Inicio usuarioLogueado={usuarioLogueado}></Inicio>}></Route>
         <Route exact path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
         <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
         <Route path='/administrador/*' element={
