@@ -1,4 +1,3 @@
-import React from "react";
 import { TrashFill } from 'react-bootstrap-icons';
 import Swal from "sweetalert2";
 
