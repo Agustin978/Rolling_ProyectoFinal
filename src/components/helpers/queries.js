@@ -227,3 +227,9 @@ export const editarPedidos = async(pedido ,id)=>{
         console.log(error);
     }
 }
+
+/*Pedidos Carrito*/
+export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
+{
+    
+}
