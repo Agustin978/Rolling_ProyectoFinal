@@ -6,7 +6,7 @@ import notImage from "../../../../assets/notImage.png"
 const CardProducto = ({producto}) => {
   const {id, nombreProducto, precioAnterior, precioNuevo, imagen} = {...producto};
     return (
-        <Col sm={6} md={4} lg={3} className="mb-3">
+        // <Col sm={6} md={4} lg={3} className="mb-3">
         <Card className="rounded-0 border-0 h-100 shadow p-3 p-md-2 p-lg-3">
           <Link to={`/detalle/${id}`}>
           <Card.Img  className="rounded-0 imgCard"
@@ -31,7 +31,7 @@ const CardProducto = ({producto}) => {
           </Card.Footer>
          
         </Card>
-      </Col>
+      // </Col>
 
 
     );

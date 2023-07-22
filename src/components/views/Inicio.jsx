@@ -6,23 +6,23 @@ import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 const Inicio = () => {
-  const [productos, setProductos] = useState([]);
-  useEffect(() => {
-    obtenerProductos().then((resp) => {
-          setProductos(resp);
-      });
-  }, []);
+  // const [productos, setProductos] = useState([]);
+  // useEffect(() => {
+  //   obtenerProductos().then((resp) => {
+  //         setProductos(resp);
+  //     });
+  // }, []);
   return (
     <section>
       <BannerInicio></BannerInicio>
       <Container>
         <Categorias></Categorias>
-        <Row className="mt-3">
+        {/* <Row className="mt-3">
           {
             
         productos.map((producto)=>  <CardProducto key={producto.id} producto={producto}></CardProducto>)
           }
-        </Row>
+        </Row> */}
         <section className="mb-0">
           <iframe
             style={{ width: "100%", height: "360px" }}

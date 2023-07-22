@@ -4,53 +4,40 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { obtenerProductosPorCategoria } from "./filtradoCategorias";
+import { obtenerProductos } from "../../helpers/queries";
 import CardProducto from "../producto/cardProducto/CardProducto";
+import { Row , Col} from "react-bootstrap";
 
-function OffcanvasExample() {
+function Categorias() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
-    const [todosLosProductos, setTodosLosProductos] = useState([]);
-  
+    const [productos, setProductos] = useState([]);
     useEffect(() => {
-      const obtenerProductos = async () => {
-        try {
-          const todosLosProductos = await obtenerProductosPorCategoria({});
-          setTodosLosProductos(todosLosProductos);
-          setProductosFiltrados(todosLosProductos);
-          console.log(todosLosProductos); // Agregar esta línea para mostrar todos los productos al inicio.
-        } catch (error) {
-          console.error("Error al obtener todos los productos:", error);
-        }
-      };
-      obtenerProductos();
-    }, []);
+        obtenerProductos().then((resp) => {
+          setProductos(resp);
+          console.log(resp)
+        });
+      }, []);
   
-    useEffect(() => {
-      if (categoriaSeleccionada !== null) {
-        const obtenerProductosPorCategoriaSeleccionada = async () => {
-          try {
-            const productosFiltrados = await obtenerProductosPorCategoria(categoriaSeleccionada);
-            setProductosFiltrados(productosFiltrados);
-          } catch (error) {
-            console.error("Error al obtener productos por categoría:", error);
-            setProductosFiltrados([]); // En caso de error, establecer productos filtrados como una lista vacía.
+      useEffect(() => {
+        if (categoriaSeleccionada !== null) {
+            obtenerProductosPorCategoria(categoriaSeleccionada)
+              .then((productosFiltrados) => {
+                setProductosFiltrados(productosFiltrados);
+              })
+              .catch((error) => {
+                console.error("Error al obtener productos por categoría:", error);
+                setProductosFiltrados([]);
+              });
+          } else {
+            setProductosFiltrados(productos);
           }
-        };
-        obtenerProductosPorCategoriaSeleccionada();
-      } else {
-        setProductosFiltrados(todosLosProductos); // Mostrar todos los productos cuando no hay categoría seleccionada.
-      }
-    }, [categoriaSeleccionada, todosLosProductos]);
-  
-    const manejarCambioCategoria = (categoria) => {
-      setCategoriaSeleccionada(categoria);
-    };
-  
+        }, [categoriaSeleccionada, productos]);
 
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} expand={expand} className="pt-5">
+        <Navbar key={expand} expand={false} className="pt-5">
           <Container fluid>
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
@@ -75,40 +62,40 @@ function OffcanvasExample() {
                   <Nav.Link
                     
                     className="nav-item nav-link"
-                    onClick={() => manejarCambioCategoria(null)}
+                    onClick={() => setProductosFiltrados(productos)}
                   >
                     Todos los productos
                   </Nav.Link>
                   <Nav.Link
                    
                     className="nav-item nav-link"
-                    onClick={() => manejarCambioCategoria("ofertaDia")}
+                    onClick={() => setCategoriaSeleccionada("ofertas del dia")}
                   >
                     Ofertas de día
                   </Nav.Link>
                   <Nav.Link
                     
                     className="nav-item nav-link"
-                    onClick={() => manejarCambioCategoria("entrada")}
+                    onClick={() => setCategoriaSeleccionada("entrada")}
                   >
                     Entrada
                   </Nav.Link>
-                  <Nav.Link  className="nav-item nav-link" onClick={() => manejarCambioCategoria("platoFuerte")}>
+                  <Nav.Link  className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("plato fuerte")}>
                     Plato Fuerte
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => manejarCambioCategoria("acompaniamiento")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("acompaniamientos")}>
                     Acompañamiento
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => manejarCambioCategoria("postre")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("postre")}>
                     Postre
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => manejarCambioCategoria("bebidaCaliente")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida caliente")}>
                     Bebida Caliente
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => manejarCambioCategoria("bebidaFria")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida fria")}>
                     Bebida Fría
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => manejarCambioCategoria("bebidaConAlcohol")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida con alcohol")}>
                     Bebida con alcohol
                   </Nav.Link>
                 </Nav>
@@ -119,17 +106,17 @@ function OffcanvasExample() {
       ))}
       <div>
         <h3>Productos:</h3>
-        <ul>
+        <Row className="justify-content-start">
           {productosFiltrados.map((producto) => (
-            <li key={producto.id}>
-              {/* Renderiza el componente CardProducto solo si está configurado correctamente */}
+            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
               <CardProducto producto={producto} />
-            </li>
+            </Col>
           ))}
-        </ul>
+        </Row>
+
       </div>
     </>
   );
 }
 
-export default OffcanvasExample;
+export default Categorias;
