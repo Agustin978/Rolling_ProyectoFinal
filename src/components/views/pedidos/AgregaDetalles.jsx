@@ -27,7 +27,7 @@ const AgregaDetalles = ({showDetalles, handleCloseDetalles, producto, usuarioLog
     return (
         <Modal show={showDetalles} onHide={handleCloseDetalles}>
             <Modal.Header>
-                <Modal.Title>Agregue los detalles de su pedido :)</Modal.Title>
+                <Modal.Title>Agregue los detalles de su pedido :) Base: {producto.nombreProducto}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit(onSubmit)}>
