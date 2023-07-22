@@ -14,32 +14,37 @@ function Categorias() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
     const [productos, setProductos] = useState([]);
+    
     useEffect(() => {
-        obtenerProductos().then((resp) => {
-          setProductos(resp);
-          console.log(resp)
-        });
-      }, []);
+      obtenerProductos().then((resp) => {
+        setProductos(resp);
+      });
+    }, []);
+
+    useEffect(() => {
+      if (categoriaSeleccionada === "ofertas del dia") {
+        const ofertasDelDia = productos.filter(
+          (producto) => producto.precioAnterior && producto.precioAnterior > 0
+        );
+        setProductosFiltrados(ofertasDelDia);
+      } else if (categoriaSeleccionada) {
+        obtenerProductosPorCategoria(categoriaSeleccionada)
+          .then((productosFiltrados) => {
+            setProductosFiltrados(productosFiltrados);
+          })
+          .catch((error) => {
+            console.error("Error al obtener productos por categoría:", error);
+            setProductosFiltrados([]);
+          });
+      } else {
+        setProductosFiltrados(productos);
+      }
+    }, [categoriaSeleccionada, productos]);
+
+    const handleCategoriaSeleccionada = (categoria) => {
+      setCategoriaSeleccionada(categoria);
+    };
   
-      useEffect(() => {
-        if (categoriaSeleccionada === "ofertas del dia") {
-          const ofertasDelDia = productos.filter(
-            (producto) => producto.precioAnterior && producto.precioAnterior > 0
-          );
-          setProductosFiltrados(ofertasDelDia);
-        } else if (categoriaSeleccionada) {
-          obtenerProductosPorCategoria(categoriaSeleccionada)
-            .then((productosFiltrados) => {
-              setProductosFiltrados(productosFiltrados);
-            })
-            .catch((error) => {
-              console.error("Error al obtener productos por categoría:", error);
-              setProductosFiltrados([]);
-            });
-        } else {
-          setProductosFiltrados(productos);
-        }
-      }, [categoriaSeleccionada, productos]);
   return (
     <>
       {[false].map((expand) => (
@@ -68,40 +73,40 @@ function Categorias() {
                   <Nav.Link
                     
                     className="nav-item nav-link"
-                    onClick={() => setProductosFiltrados(productos)}
+                    onClick={() => handleCategoriaSeleccionada(null)}
                   >
                     Todos los productos
                   </Nav.Link>
                   <Nav.Link
                    
                     className="nav-item nav-link text-danger fw-bolder"
-                    onClick={() => setCategoriaSeleccionada("ofertas del dia")}
+                    onClick={() => handleCategoriaSeleccionada("ofertas del dia")}
                   >
                     Ofertas de día!
                   </Nav.Link>
                   <Nav.Link
                     
                     className="nav-item nav-link"
-                    onClick={() => setCategoriaSeleccionada("entrada")}
+                    onClick={() => handleCategoriaSeleccionada("entrada")}
                   >
                     Entrada
                   </Nav.Link>
-                  <Nav.Link  className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("plato fuerte")}>
+                  <Nav.Link  className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("plato fuerte")}>
                     Plato Fuerte
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("acompaniamientos")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("acompaniamientos")}>
                     Acompañamiento
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("postre")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("postre")}>
                     Postre
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida caliente")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida caliente")}>
                     Bebida Caliente
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida fria")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida fria")}>
                     Bebida Fría
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => setCategoriaSeleccionada("bebida con alcohol")}>
+                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida con alcohol")}>
                     Bebida con alcohol
                   </Nav.Link>
                 </Nav>
