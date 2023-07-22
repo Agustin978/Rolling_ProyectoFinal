@@ -259,3 +259,24 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
         return 400;
     }
 }
+
+export const confirmaPedidos = async(pedido) =>
+{
+    try
+    {
+        pedido.estado = 'Pendiente';
+        const respuesta = await fetch(URL_PEDIDOS,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(pedido)
+            });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error: ',error);
+        return 400;
+    }
+}
