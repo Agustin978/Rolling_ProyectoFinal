@@ -106,13 +106,18 @@ function Categorias() {
       ))}
       <div>
         <h3>Productos:</h3>
-        <Row className="justify-content-start">
-          {productosFiltrados.map((producto) => (
-            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-              <CardProducto producto={producto} />
-            </Col>
-          ))}
-        </Row>
+        {productosFiltrados.length === 0 ? (
+          <p>No hay productos disponibles en esta categoría.</p>
+        ) : (
+          <Row className="justify-content-start">
+            {productosFiltrados.map((producto) => (
+              <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
+                {/* Renderiza el componente CardProducto solo si está configurado correctamente */}
+                <CardProducto producto={producto} />
+              </Col>
+            ))}
+          </Row>
+        )}
 
       </div>
     </>
