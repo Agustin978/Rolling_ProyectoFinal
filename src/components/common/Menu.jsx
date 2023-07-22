@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
-import sobreNosotros from '../views/SobreNosotros';
 import { Cart4 } from 'react-bootstrap-icons';
 
 
@@ -19,6 +18,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     const logout = () => 
     {
         sessionStorage.removeItem('user');
+        localStorage.removeItem('carritoCompras');
         setUsuarioLogueado({});
         navigate('/');
     }
