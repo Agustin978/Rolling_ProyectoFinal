@@ -20,20 +20,26 @@ function Categorias() {
       }, []);
   
       useEffect(() => {
-        if (categoriaSeleccionada !== null) {
-            obtenerProductosPorCategoria(categoriaSeleccionada)
-              .then((productosFiltrados) => {
-                setProductosFiltrados(productosFiltrados);
-              })
-              .catch((error) => {
-                console.error("Error al obtener productos por categoría:", error);
-                setProductosFiltrados([]);
-              });
-          } else {
-            setProductosFiltrados(productos);
-          }
-        }, [categoriaSeleccionada, productos]);
-
+        if (categoriaSeleccionada === "ofertas del dia") {
+          // Filtrar productos para obtener las ofertas del día
+          const ofertasDelDia = productos.filter(
+            (producto) => producto.precioAnterior && producto.precioAnterior > 0
+          );
+          setProductosFiltrados(ofertasDelDia);
+        } else if (categoriaSeleccionada) {
+          // Filtrar productos por categoría seleccionada
+          obtenerProductosPorCategoria(categoriaSeleccionada)
+            .then((productosFiltrados) => {
+              setProductosFiltrados(productosFiltrados);
+            })
+            .catch((error) => {
+              console.error("Error al obtener productos por categoría:", error);
+              setProductosFiltrados([]);
+            });
+        } else {
+          setProductosFiltrados(productos);
+        }
+      }, [categoriaSeleccionada, productos]);
   return (
     <>
       {[false].map((expand) => (
