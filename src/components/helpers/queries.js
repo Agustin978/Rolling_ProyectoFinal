@@ -228,8 +228,28 @@ export const editarPedidos = async(pedido ,id)=>{
     }
 }
 
-/*Pedidos Carrito*/
+/*Pedidos Carrito: los pedidos guardados en el carrito se almacenan siempre en el LOCALSTORAGE
+luego que el cliente los confirme se guardaran el el db.json o en la base de datos mas adelante*/
 export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
 {
-    
+    try
+    {
+        let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+        let pedido = {
+            idUsuario: usuario.id,
+            idProducto: producto.id,
+            nombreUsuario: usuario.nombreUsuario,
+            email: usuario.email,
+            nombreProducto: producto.nombreProducto,
+            precioUnidad: producto.precioNuevo,
+            ...detalles
+        };
+        listadoPedidos.push(pedido);
+        localStorage.setItem('carritoCompras', JSON.stringify(listadoPedidos));
+        return 200;
+    }catch(error)
+    {
+        console.log('A ocurrido un error. Info: ',error);
+        return 400;
+    }
 }
