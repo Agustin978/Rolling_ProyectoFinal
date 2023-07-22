@@ -21,13 +21,11 @@ function Categorias() {
   
       useEffect(() => {
         if (categoriaSeleccionada === "ofertas del dia") {
-          // Filtrar productos para obtener las ofertas del día
           const ofertasDelDia = productos.filter(
             (producto) => producto.precioAnterior && producto.precioAnterior > 0
           );
           setProductosFiltrados(ofertasDelDia);
         } else if (categoriaSeleccionada) {
-          // Filtrar productos por categoría seleccionada
           obtenerProductosPorCategoria(categoriaSeleccionada)
             .then((productosFiltrados) => {
               setProductosFiltrados(productosFiltrados);
@@ -113,12 +111,11 @@ function Categorias() {
       <div>
         <h3>Productos:</h3>
         {productosFiltrados.length === 0 ? (
-          <p>No hay productos disponibles en esta categoría.</p>
+          <p className="display-6 text-danger">No hay productos disponibles en esta categoría ☹️</p>
         ) : (
           <Row className="justify-content-start">
             {productosFiltrados.map((producto) => (
               <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-                {/* Renderiza el componente CardProducto solo si está configurado correctamente */}
                 <CardProducto producto={producto} />
               </Col>
             ))}
