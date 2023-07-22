@@ -30,7 +30,7 @@ const Detalle = () => {
         <Container>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
+                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBorde rounded-4 imgDetail' alt={producto.nombreProducto} />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">

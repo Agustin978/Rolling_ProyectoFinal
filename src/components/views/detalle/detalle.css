@@ -1,6 +1,9 @@
 .inputDetail{
     width: 70px;
 }
+.colorBorde{
+    background: #E60012;
+}
 @media all and (max-width: 575px){
     .imgDetail{
         width: 100%;
