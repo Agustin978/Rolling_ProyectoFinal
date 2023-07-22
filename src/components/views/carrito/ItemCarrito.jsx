@@ -1,7 +1,7 @@
 import { TrashFill } from 'react-bootstrap-icons';
 import Swal from "sweetalert2";
 
-const ItemCarrito = () => {
+const ItemCarrito = ({pedido, eliminarPedido}) => {
   const borrarItemCarrito = () =>{
     Swal.fire({
       title: '¿Estás seguro(a) de que quieres eliminar este producto?',
@@ -12,6 +12,7 @@ const ItemCarrito = () => {
       confirmButtonText: 'Si, eliminar!'
     }).then((result) => {
       if (result.isConfirmed) {
+        eliminarPedido(pedido);
         Swal.fire(
           'Eliminado!',
           'El producto fue eliminado!',
@@ -21,21 +22,18 @@ const ItemCarrito = () => {
     })
   }
 
-
-
   return (
     <tr>
       <td className="col-1">
         <img
-          src="https://www.eltucumano.com/fotos/cache/notas/2023/02/28/818x460_230228193026_74237.jpg"
-          alt=""
+          src={pedido.imagen ? pedido.imagen : notImage} alt={pedido.nombreProducto}
           className="w-100 img-fluid"
         />
       </td>
-      <td className="col-3 text-truncate pt-4">Sandwich de Milanesa</td>
-      <td className="col-2 text-truncate pt-4">$ 1300</td>
-      <td className="col-2 text-truncate pt-4">2</td>
-      <td className="col-3 text-truncate pt-4">$ 2600</td>
+      <td className="col-3 text-truncate pt-4">{pedido.nombreProducto}</td>
+      <td className="col-2 text-truncate pt-4">$ {pedido.precioUnidad}</td>
+      <td className="col-2 text-truncate pt-4">{pedido.cantidad}</td>
+      <td className="col-3 text-truncate pt-4">$ {Number(pedido.precioUnidad) * Number(pedido.cantidad)}</td>
       <td className="col-1 text-truncate pt-4">
         <button className="btn btn-outline-danger" onClick={borrarItemCarrito}>
           <TrashFill />
@@ -45,4 +43,4 @@ const ItemCarrito = () => {
   );
 };
 
-export default ItemCarrito;
+export default ItemCarrito; 

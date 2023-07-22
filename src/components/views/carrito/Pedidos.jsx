@@ -1,9 +1,34 @@
 import { Button, Table } from 'react-bootstrap';
-import React from "react";
+import { useState, useEffect } from "react";
 import ItemCarrito from './ItemCarrito';
 import Swal from 'sweetalert2';
 
 const Pedidos = () => {
+  const [pedidos, setPedidos] = useState([]);
+  const [totalPaga, setTotalPaga] = useState(0);
+  const actualizaTotal = (precio) =>
+  {
+    setTotalPaga(totalPaga + precio);
+  }
+
+  useEffect(() =>
+  {
+    const listaPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+    setPedidos(listaPedidos);
+    let total = 0;
+    listaPedidos.forEach((pedido) => {
+      total += Number(pedido.precioUnidad) * Number(pedido.cantidad);
+    });
+    setTotalPaga(total);
+  },[]);
+
+  const eliminarPedido = (pedidoElimina) =>
+  {
+    const actualizaLista = pedidos.filter((pedido) => pedido.idPedido !== pedidoElimina.idPedido);
+    setPedidos(actualizaLista);
+    actualizaTotal(-(Number(pedidoElimina.precioUnidad) * Number(pedidoElimina.cantidad)));
+    localStorage.setItem('carritoCompras', JSON.stringify(actualizaLista));
+  }
 
   const confirmarPedido = () =>{
     Swal.fire({
@@ -37,13 +62,24 @@ const Pedidos = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemCarrito></ItemCarrito>
-            <ItemCarrito></ItemCarrito>
-            <ItemCarrito></ItemCarrito>
+           {/* Mostrar mensaje cuando no hay pedidos */}
+           {pedidos.length === 0 && (
+              <tr>
+                <td colSpan="6" className="text-center">
+                  <div className="alert alert-warning" role="alert">
+                    No has agregado ningún pedido aún.
+                  </div>
+                </td>
+              </tr>
+            )}
+            {/* Renderizar los items del carrito si hay pedidos */}
+            {pedidos.map((pedido) => (
+              <ItemCarrito key={pedido.idPedido} pedido={pedido} eliminarPedido={eliminarPedido}/>
+            ))}
           </tbody>
         </Table>
         <div className="d-flex justify-content-end">
-          <h2 className="ms-auto">Monto Total: $0,00</h2>
+          <h2 className="ms-auto">Monto Total: ${totalPaga}</h2>
         </div>
         <div className="d-flex justify-content-center pt-5">
           <Button className="btn btn-danger fs-2" onClick={confirmarPedido}>Confirmar Pedido</Button>
