@@ -58,60 +58,6 @@
       "descripcion": "Deliciosa combinación de manzanas frescas, canela y masa quebrada artesanal. Un postre irresistible que te transportará a momentos de placer y nostalgia en cada bocado. ¡Disfruta su sabor único!",
       "categoria": "postre",
       "id": 4
-    },
-    {
-      "nombreProducto": "-sdfk-",
-      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
-      "precioNuevo": "2345",
-      "precioAnterior": "2354",
-      "descripcion": "wfdgsfd sergr",
-      "categoria": "bebida fria",
-      "id": 5
-    },
-    {
-      "nombreProducto": "wetryt  wre",
-      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      "precioNuevo": "343",
-      "precioAnterior": "424",
-      "descripcion": "wert dsfd sdf",
-      "categoria": "entrada",
-      "id": 6
-    },
-    {
-      "nombreProducto": "pfskdl slkdfj",
-      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      "precioNuevo": "432",
-      "precioAnterior": "",
-      "descripcion": "sñdflkj sñldfkj",
-      "categoria": "entrada",
-      "id": 7
-    },
-    {
-      "nombreProducto": "qpoeru",
-      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "precioNuevo": "4398",
-      "precioAnterior": "",
-      "descripcion": "eñr sñldfkj",
-      "categoria": "acompaniamientos",
-      "id": 8
-    },
-    {
-      "nombreProducto": "sldkfvm",
-      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      "precioNuevo": "9403",
-      "precioAnterior": "",
-      "descripcion": "sñdlkv sldkfj",
-      "categoria": "postre",
-      "id": 9
-    },
-    {
-      "nombreProducto": "ñwoejf",
-      "imagen": "https://roldanonline.com.ar/wp-content/uploads/2022/05/original.jpg",
-      "precioNuevo": "294",
-      "precioAnterior": "",
-      "descripcion": "pieorfjñs sld f",
-      "categoria": "bebida caliente",
-      "id": 10
     }
   ],
   "pedidos": [

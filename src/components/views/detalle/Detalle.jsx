@@ -27,7 +27,7 @@ const Detalle = () => {
     }, [])
 
     return (
-        <Container>
+        <Container className='mainSection'>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
                     <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBorde rounded-4 imgDetail' alt={producto.nombreProducto} />
