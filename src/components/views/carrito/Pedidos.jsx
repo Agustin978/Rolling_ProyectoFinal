@@ -2,6 +2,7 @@ import { Button, Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import ItemCarrito from './ItemCarrito';
 import Swal from 'sweetalert2';
+import { confirmaPedidos } from '../../helpers/queries';
 
 const Pedidos = () => {
   const [pedidos, setPedidos] = useState([]);
@@ -31,6 +32,13 @@ const Pedidos = () => {
   }
 
   const confirmarPedido = () =>{
+    pedidos.forEach((pedido)=>confirmaPedidos(pedido).then(respuesta=>
+      {
+        if(respuesta === 400)
+        { 
+          Swal.fire('Error',`A ocurrido un error al enviar el pedido ${pedido.nombreProducto}`,'error');
+        }
+      }));
     Swal.fire({
       icon: 'success',
       title: 'Su pedido fue realizado!',
