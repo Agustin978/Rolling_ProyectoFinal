@@ -3,9 +3,9 @@ import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import "./Detalle.css"
-import { obtenerProductosEditar } from '../helpers/queries';
-import notImage from "../../assets/notImage.png";
+import "./detalle.css"
+import { obtenerProductosEditar } from '../../helpers/queries';
+import notImage from "../../../assets/notImage.png";
 
 const Detalle = () => {
     const {
@@ -27,10 +27,10 @@ const Detalle = () => {
     }, [])
 
     return (
-        <Container>
+        <Container className='mainSection'>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
+                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBorde rounded-4 imgDetail' alt={producto.nombreProducto} />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
@@ -38,8 +38,8 @@ const Detalle = () => {
                     <p className='pb-xl-4'>{producto.descripcion}</p>
                     <div className='d-flex'>
                         <p className='pe-5 fw-bold fs-5'>Precio: ${producto.precioNuevo}</p>
-                        {producto.precioViejo && (
-                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioViejo}</p>
+                        {producto.precioAnterior && (
+                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioAnterior}</p>
                         )}
                     </div>
                     <>

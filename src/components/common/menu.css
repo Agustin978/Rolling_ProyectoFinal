@@ -1,0 +1,12 @@
+.imgLogo{
+    height: 60px;
+}
+
+.dropdown-menu{
+    --bs-dropdown-bg: #212529;
+   
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fcfdfe;
+    
+}

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
 import sobreNosotros from '../views/SobreNosotros';
+import logoNav from '../../assets/logo-nav.png'
+import './menu.css'
 
 const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     const [showLogin, setShowLogin] = useState(false);
@@ -22,9 +24,11 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     }
 
     return (
-        <Navbar className='colorBase' variant="dark" expand="lg">
+        <Navbar className='bg-dark navbar-dark fs-5'  expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to={'/'}>RollingFoods</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>
+                    <img src={logoNav} alt="logo" className='imgLogo pt-2' />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
@@ -38,18 +42,18 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                     usuarioLogueado.type === 'admin' ?(
                                         <>
                                             {/*<NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>*/}
-                                            <NavDropdown title='Administrador' className='' id="dropdownAdministrador">
-                                                <NavDropdown.Item>
-                                                    <NavLink end className='nav-item nav-link text-dark' to={'/administrador'}>Platillos</NavLink>
+                                            <NavDropdown title='Administrador'   id="dropdownAdministrador">
+                                                <NavDropdown.Item className='bg-dark'>
+                                                    <NavLink end className='nav-item nav-link' to={'/administrador'}>Platillos</NavLink>
                                                 </NavDropdown.Item>
-                                                <NavDropdown.Item>
-                                                    <NavLink end className='nav-item nav-link text-dark' to={'administrador/pedidos'}>Pedidos</NavLink>
+                                                <NavDropdown.Item className='bg-dark'>
+                                                    <NavLink end className='nav-item nav-link ' to={'administrador/pedidos'}>Pedidos</NavLink>
                                                 </NavDropdown.Item>
-                                                <NavDropdown.Item>
-                                                    <NavLink end className='nav-item nav-link text-dark' to={'administrador/usuarios'}>Usuarios</NavLink>
+                                                <NavDropdown.Item className='bg-dark'>
+                                                    <NavLink end className='nav-item nav-link ' to={'administrador/usuarios'}>Usuarios</NavLink>
                                                 </NavDropdown.Item>
                                             </NavDropdown>
-                                            <Button variant="dark" onClick={logout}>Logout</Button>
+                                            <Button variant="dark fs-5" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
                                         <>
