@@ -22,7 +22,6 @@
       "id": 3
     }
   ],
-
   "productos": [
     {
       "nombreProducto": "Pulpo a la plancha",
@@ -76,6 +75,36 @@
       "email": "usuario2@usuario2.com",
       "detallePedido": "2 Carne a la parrilla ,3 Sanguche de milanesa",
       "id": 3
+    },
+    {
+      "idPedido": 1,
+      "idUsuario": 2,
+      "idProducto": 2,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Carne a la parrilla",
+      "precioUnidad": "1800",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "detallePedido": "",
+      "direccionPedido": "dsadsadsad",
+      "cantidad": "2",
+      "estado": "Pendiente",
+      "id": 4
+    },
+    {
+      "idPedido": 2,
+      "idUsuario": 2,
+      "idProducto": 1,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Pulpo a la plancha",
+      "precioUnidad": "3",
+      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
+      "detallePedido": "",
+      "direccionPedido": "dsadsa dasdsa",
+      "cantidad": "3",
+      "estado": "Pendiente",
+      "id": 5
     }
   ]
 }
