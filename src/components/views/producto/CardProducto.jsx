@@ -4,25 +4,17 @@ import { Link } from "react-router-dom";
 import notImage from "../../../assets/notImage.png"
 import Swal from "sweetalert2";
 import AgregaDetalles from "../Pedidos/AgregaDetalles";
-import { useState } from "react";
 
-const CardProducto = ({producto, usuarioLogueado}) => {
+const CardProducto = ({producto, usuarioLogueado, showDetalles, handleCloseDetalles, handleShowDetalles}) => {
   const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
-  const [showDetalles, setShowDetalles] = useState(false);
-  const handleCloseDetalles = () => setShowDetalles(false);
-  const handleShowDetalles = () => setShowDetalles(true);
   const agregaAcarrito = () => 
   {
-    //console.log(producto);
     if(Object.keys(usuarioLogueado).length===0)
     {
       Swal.fire('Error', 'Debe iniciar secion antes de realizar un pedido.', 'error');
-      console.log('No hay usuarios logueados actualmente');
     }else
     {
-      console.log('Vamos a agregar tu pedido');
       handleShowDetalles();
-      //showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles}></AgregaDetalles>
     }
   }
     return (
@@ -49,7 +41,7 @@ const CardProducto = ({producto, usuarioLogueado}) => {
           </Card.Text>
           <Button variant="dark" className="w-100 rounded-0 py-3 fs-5" onClick={agregaAcarrito}>Agregar al carrito</Button>
           {
-            showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles}></AgregaDetalles>
+            showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} producto={producto} usuarioLogueado={usuarioLogueado}></AgregaDetalles>
           }
           </Card.Footer>
         </Card>
