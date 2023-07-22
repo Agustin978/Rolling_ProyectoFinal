@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 import notImage from "../../../assets/notImage.png"
 import Swal from "sweetalert2";
 import AgregaDetalles from "../Pedidos/AgregaDetalles";
+import { useState } from "react";
 
-const CardProducto = ({producto, usuarioLogueado, showDetalles, handleCloseDetalles, handleShowDetalles}) => {
+const CardProducto = ({producto, usuarioLogueado}) => {
   const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
+  const [showDetalles, setShowDetalles] = useState(false);
+  const handleCloseDetalles = () => setShowDetalles(false);
+  const handleShowDetalles = () => setShowDetalles(true);
   const agregaAcarrito = () => 
   {
     if(Object.keys(usuarioLogueado).length===0)
