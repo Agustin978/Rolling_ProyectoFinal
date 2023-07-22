@@ -46,7 +46,7 @@ function Categorias() {
         <Navbar key={expand} expand={false} className="pt-5">
           <Container fluid>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className="ms-auto">
-              <span className="fw-bold">Filtrar</span>
+              <span className="fw-bold fs-4">Categorías</span>
             </Navbar.Toggle>
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -111,9 +111,9 @@ function Categorias() {
         </Navbar>
       ))}
       <div>
-        <h3>Productos:</h3>
+        <h2>Productos:</h2>
         {productosFiltrados.length === 0 ? (
-          <p className="display-6 text-danger">No hay productos disponibles en esta categoría ☹️</p>
+          <p className="display-6 text-danger py-5 text-center">No hay productos disponibles en esta categoría ☹️</p>
         ) : (
           <Row className="justify-content-start">
             {productosFiltrados.map((producto) => (

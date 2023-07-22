@@ -53,7 +53,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                                     <NavLink end className='nav-item nav-link ' to={'administrador/usuarios'}>Usuarios</NavLink>
                                                 </NavDropdown.Item>
                                             </NavDropdown>
-                                            <Button variant="dark" onClick={logout}>Logout</Button>
+                                            <Button variant="dark fs-5" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
                                         <>
