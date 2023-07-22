@@ -33,7 +33,6 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                     <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
                     <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
                     <NavLink end className='nav-item nav-link' to={'/sobreNosotros'}>Sobre Nosotros</NavLink>
-                    <NavLink end className='nav-item nav-link' to={'/pedidos'}><Cart4/></NavLink>
                     {
                         usuarioLogueado.type ?(
                             <>
@@ -50,6 +49,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                         </>
                                     ) : (
                                         <>
+                                            <NavLink end className='nav-item nav-link' to={'/pedidos'}><Cart4/></NavLink>
                                             <Button variant="dark" onClick={logout}>Logout</Button>
                                         </>
                                     )
