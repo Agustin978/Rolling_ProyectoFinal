@@ -7,6 +7,8 @@ import { obtenerProductosPorCategoria } from "./filtradoCategorias";
 import { obtenerProductos } from "../../helpers/queries";
 import CardProducto from "../producto/cardProducto/CardProducto";
 import { Row , Col} from "react-bootstrap";
+import logo from "../../../assets/logo.png"
+import "./categorias.css"
 
 function Categorias() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
@@ -43,21 +45,21 @@ function Categorias() {
       {[false].map((expand) => (
         <Navbar key={expand} expand={false} className="pt-5">
           <Container fluid>
-            <Navbar.Brand href="#"></Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className="ms-auto">
               <span className="fw-bold">Filtrar</span>
             </Navbar.Toggle>
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
-              className="text-dark ps-3"
+              className="text-dark ps-3 border border-4 border-dark rounded-start-4"
             >
               <Offcanvas.Header closeButton className="pb-0">
                 <Offcanvas.Title
                   className="fs-4"
                   id={`offcanvasNavbarLabel-expand-${expand}`}
                 >
+                    <img src={logo} alt="logo" className="logo mb-4"/>
                   Categorías
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -72,10 +74,10 @@ function Categorias() {
                   </Nav.Link>
                   <Nav.Link
                    
-                    className="nav-item nav-link"
+                    className="nav-item nav-link text-danger fw-bolder"
                     onClick={() => setCategoriaSeleccionada("ofertas del dia")}
                   >
-                    Ofertas de día
+                    Ofertas de día!
                   </Nav.Link>
                   <Nav.Link
                     
