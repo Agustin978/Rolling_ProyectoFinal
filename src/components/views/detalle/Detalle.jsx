@@ -2,11 +2,11 @@ import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import "./Detalle.css"
-import { obtenerProductosEditar } from '../helpers/queries';
-import notImage from "../../assets/notImage.png";
+import "./detalle.css";
+import { obtenerProductosEditar } from '../../helpers/queries';
+import notImage from "./../../../assets/notImage.png";
 import Swal from "sweetalert2";
-import AgregaDetalles from "./Pedidos/AgregaDetalles";
+import AgregaDetalles from "../Pedidos/AgregaDetalles";
 
 const Detalle = ({usuarioLogueado, showDetalles, handleCloseDetalles, handleShowDetalles}) => {
     const {
