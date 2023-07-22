@@ -265,6 +265,7 @@ export const confirmaPedidos = async(pedido) =>
     try
     {
         pedido.estado = 'Pendiente';
+        delete pedido.idPedido;
         const respuesta = await fetch(URL_PEDIDOS,
             {
                 method: "POST",
