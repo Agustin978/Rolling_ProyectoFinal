@@ -10,6 +10,8 @@ export const login = async (usuario) =>
         const respuesta = await fetch(URL_usuario);
         const listaUsuarios = await respuesta.json();
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
+        localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
         if(usuarioBuscado)
         {
             if(usuarioBuscado.password === usuario.password)
@@ -235,17 +237,21 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
     try
     {
         let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+        let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
         let pedido = {
+            idPedido: contadorPedidos + 1,
             idUsuario: usuario.id,
             idProducto: producto.id,
             nombreUsuario: usuario.nombreUsuario,
             email: usuario.email,
             nombreProducto: producto.nombreProducto,
             precioUnidad: producto.precioNuevo,
+            imagen:producto.imagen,
             ...detalles
         };
         listadoPedidos.push(pedido);
         localStorage.setItem('carritoCompras', JSON.stringify(listadoPedidos));
+        localStorage.setItem('contadorPedidos', String(contadorPedidos + 1));
         return 200;
     }catch(error)
     {
