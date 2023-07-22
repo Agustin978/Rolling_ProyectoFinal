@@ -15,6 +15,8 @@ function Categorias() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
     const [productos, setProductos] = useState([]);
+    const [paginaActual, setPaginaActual] = useState(1);
+    const productosPorPagina = 12;
     
     useEffect(() => {
       obtenerProductos().then((resp) => {
@@ -45,6 +47,17 @@ function Categorias() {
     const handleCategoriaSeleccionada = (categoria) => {
       setCategoriaSeleccionada(categoria);
     };
+
+    const manejarCambioPagina = (numeroPagina) => {
+        setPaginaActual(numeroPagina);
+      };
+
+    const indiceUltimoProducto = paginaActual * productosPorPagina;
+    const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
+    const productosActuales = productosFiltrados.slice(
+    indicePrimerProducto,
+    indiceUltimoProducto
+  );
   
   return (
     <>
@@ -122,15 +135,21 @@ function Categorias() {
           <p className="display-6 text-danger py-5 text-center">No hay productos disponibles en esta categoría ☹️</p>
         ) : (
           <Row className="justify-content-start">
-            {productosFiltrados.map((producto) => (
-              <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-                <CardProducto producto={producto} />
-              </Col>
-            ))}
+          {productosActuales.map((producto) => (
+            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
+              <CardProducto producto={producto} />
+            </Col>
+          ))}
           </Row>
+          
         )}
+        <Paginacion
+          paginaActual={paginaActual}
+          totalPaginas={Math.ceil(productosFiltrados.length / productosPorPagina)}
+          cambiarPagina={manejarCambioPagina}
+        />
       </div>
-      <Paginacion></Paginacion>
+      
     </>
   );
 }

@@ -1,24 +1,23 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 
-const Paginacion = () => {
+const Paginacion = ({paginaActual, totalPaginas, cambiarPagina}) => {
+    const manejarCambioPagina = (numeroPagina) =>{
+        cambiarPagina(numeroPagina)
+    }
     return (
-        <Pagination className='justify-content-center py-5'>
-        <Pagination.First />
-        <Pagination.Prev />
-        <Pagination.Item>{1}</Pagination.Item>
-        <Pagination.Ellipsis />
-  
-        <Pagination.Item>{10}</Pagination.Item>
-        <Pagination.Item>{11}</Pagination.Item>
-        <Pagination.Item active>{12}</Pagination.Item>
-        <Pagination.Item>{13}</Pagination.Item>
-        <Pagination.Item disabled>{14}</Pagination.Item>
-  
-        <Pagination.Ellipsis />
-        <Pagination.Item>{20}</Pagination.Item>
-        <Pagination.Next />
-        <Pagination.Last />
+        <Pagination className='justify-content-center py-5' size="lg">
+        <Pagination.First onClick={()=>manejarCambioPagina(1)}/>
+        <Pagination.Prev onClick={()=>manejarCambioPagina(paginaActual-1)}
+        disabled={paginaActual ===1}/>
+        {[...Array(totalPaginas)].map((item, index)=>(
+            <Pagination.Item key={`page-${index+1}`} active={paginaActual === index + 1} onClick={() => manejarCambioPagina(index + 1)}
+            >{index + 1}</Pagination.Item>
+        ))}
+
+        <Pagination.Next onClick={() => manejarCambioPagina(paginaActual + 1)}
+        disabled={paginaActual === totalPaginas}/>
+        <Pagination.Last onClick={() => manejarCambioPagina(totalPaginas)}/>
       </Pagination>
       );
 };
