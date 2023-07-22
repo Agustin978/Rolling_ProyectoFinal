@@ -19,6 +19,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     {
         sessionStorage.removeItem('user');
         localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
         setUsuarioLogueado({});
         navigate('/');
     }
