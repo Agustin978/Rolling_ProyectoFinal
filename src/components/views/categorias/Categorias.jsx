@@ -9,6 +9,7 @@ import CardProducto from "../producto/cardProducto/CardProducto";
 import { Row , Col} from "react-bootstrap";
 import logo from "../../../assets/logo.png"
 import "./categorias.css"
+import Paginacion from "../paginacion/paginacion";
 
 function Categorias() {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
@@ -128,8 +129,8 @@ function Categorias() {
             ))}
           </Row>
         )}
-
       </div>
+      <Paginacion></Paginacion>
     </>
   );
 }
