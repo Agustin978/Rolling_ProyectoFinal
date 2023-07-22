@@ -22,7 +22,12 @@ function Categorias() {
       obtenerProductos().then((resp) => {
         setProductos(resp);
       });
+      const paginaGuardada = localStorage.getItem("paginaActual");
+      if (paginaGuardada) {
+        setPaginaActual(parseInt(paginaGuardada, 10));
+      }
     }, []);
+    
 
     useEffect(() => {
       if (categoriaSeleccionada === "ofertas del dia") {
@@ -46,10 +51,13 @@ function Categorias() {
 
     const handleCategoriaSeleccionada = (categoria) => {
       setCategoriaSeleccionada(categoria);
+      setPaginaActual(1);
+      localStorage.setItem("paginaActual", 1);
     };
 
     const manejarCambioPagina = (numeroPagina) => {
         setPaginaActual(numeroPagina);
+        localStorage.setItem("paginaActual", numeroPagina);
       };
 
     const indiceUltimoProducto = paginaActual * productosPorPagina;
