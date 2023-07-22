@@ -77,7 +77,6 @@
       "id": 3
     },
     {
-      "idPedido": 1,
       "idUsuario": 2,
       "idProducto": 2,
       "nombreUsuario": "usuario1",
@@ -92,7 +91,6 @@
       "id": 4
     },
     {
-      "idPedido": 2,
       "idUsuario": 2,
       "idProducto": 1,
       "nombreUsuario": "usuario1",
