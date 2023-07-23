@@ -1,4 +1,4 @@
-import React from 'react';
+import "./paginacion.css"
 import Pagination from 'react-bootstrap/Pagination';
 
 const Paginacion = ({paginaActual, totalPaginas, cambiarPagina}) => {

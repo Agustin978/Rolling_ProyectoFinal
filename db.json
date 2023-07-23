@@ -58,33 +58,6 @@
       "descripcion": "Deliciosa combinación de manzanas frescas, canela y masa quebrada artesanal. Un postre irresistible que te transportará a momentos de placer y nostalgia en cada bocado. ¡Disfruta su sabor único!",
       "categoria": "postre",
       "id": 4
-    },
-    {
-      "nombreProducto": "ñlskdfgjñlj",
-      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "precioNuevo": "9658",
-      "precioAnterior": "",
-      "descripcion": "lfkg lñdgkjf",
-      "categoria": "entrada",
-      "id": 5
-    },
-    {
-      "nombreProducto": "iwrju io",
-      "imagen": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      "precioNuevo": "9849",
-      "precioAnterior": "4899",
-      "descripcion": "lñkjñk ñdslfkj",
-      "categoria": "postre",
-      "id": 42
-    },
-    {
-      "nombreProducto": "iosdfu ",
-      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "precioNuevo": "3445",
-      "precioAnterior": "2455",
-      "descripcion": "asjdf aksdj",
-      "categoria": "entrada",
-      "id": 43
     }
   ],
   "pedidos": [
