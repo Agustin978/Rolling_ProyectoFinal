@@ -46,9 +46,9 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                         <>
                                             {/*<NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>*/}
                                             <NavDropdown title='Administrador' className='' id="dropdownAdministrador">
-                                                <NavLink end className='nav-item nav-link text-dark nav-link' to={'/administrador'}>Platillos</NavLink>
-                                                <NavLink end className='nav-item nav-link text-dark nav-link' to={'administrador/pedidos'}>Pedidos</NavLink>
-                                                <NavLink end className='nav-item nav-link text-dark nav-link' to={'administrador/usuarios'}>Usuarios</NavLink>
+                                                <NavLink end className='nav-item nav-link nav-link' to={'/administrador'}>Platillos</NavLink>
+                                                <NavLink end className='nav-item nav-link nav-link' to={'administrador/pedidos'}>Pedidos</NavLink>
+                                                <NavLink end className='nav-item nav-link nav-link' to={'administrador/usuarios'}>Usuarios</NavLink>
                                             </NavDropdown>
                                             <Button variant="dark fs-5" onClick={logout}>Logout</Button>
                                         </>
