@@ -16,7 +16,7 @@ function Categorias() {
   const [productosFiltrados, setProductosFiltrados] = useState([]);
   const [productos, setProductos] = useState([]);
   const [paginaActual, setPaginaActual] = useState(1);
-  const productosPorPagina = 12;
+  const productosPorPagina = 8;
 
   useEffect(() => {
     obtenerProductos().then((resp) => {
