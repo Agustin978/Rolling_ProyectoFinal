@@ -2,11 +2,16 @@ import { Button, Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
 import ItemCarrito from './ItemCarrito';
 import Swal from 'sweetalert2';
-import { confirmaPedidos } from '../../helpers/queries';
+import { useNavigate } from 'react-router-dom';
+import AgregaDireccion from './AgregaDireccion';
 
 const Pedidos = () => {
   const [pedidos, setPedidos] = useState([]);
   const [totalPaga, setTotalPaga] = useState(0);
+  const [showDireccion, setShowDireccion] = useState(false);
+  const handleShowDireccion = () => setShowDireccion(true);
+  const handleCloseDireccion = () => setShowDireccion(false);
+  const navigate = useNavigate();
   const actualizaTotal = (precio) =>
   {
     setTotalPaga(totalPaga + precio);
@@ -32,6 +37,16 @@ const Pedidos = () => {
   }
 
   const confirmarPedido = () =>{
+    if(pedidos.length === 0)
+    {
+      Swal.fire('Error', 'Aun no se ingreso ningun plato. Agregue platos del menu a su pedido :)', 'error');
+      navigate('/');
+    }else
+    {
+      handleShowDireccion();
+    }
+  }    
+    /*
     pedidos.forEach((pedido)=>confirmaPedidos(pedido).then(respuesta=>
       {
         if(respuesta === 400)
@@ -44,8 +59,7 @@ const Pedidos = () => {
       title: 'Su pedido fue realizado!',
       showConfirmButton: true,
       confirmButtonColor: "#42D84B",
-    })
-  }
+    })*/
 
   return (
     <section className="container vh-100">
@@ -82,7 +96,7 @@ const Pedidos = () => {
             )}
             {/* Renderizar los items del carrito si hay pedidos */}
             {pedidos.map((pedido) => (
-              <ItemCarrito key={pedido.idPedido} pedido={pedido} eliminarPedido={eliminarPedido}/>
+              <ItemCarrito key={pedido.idPedido || Math.random()} pedido={pedido} eliminarPedido={eliminarPedido}/>
             ))}
           </tbody>
         </Table>
@@ -91,6 +105,10 @@ const Pedidos = () => {
         </div>
         <div className="d-flex justify-content-center pt-5">
           <Button className="btn btn-danger fs-2" onClick={confirmarPedido}>Confirmar Pedido</Button>
+          {
+            //Aqui se muestra el modal para agregar direccion
+            showDireccion && <AgregaDireccion pedidos={pedidos} showDireccion={showDireccion} handleCloseDireccion={handleCloseDireccion}></AgregaDireccion>
+          }
         </div>
       </div>
     </section>
