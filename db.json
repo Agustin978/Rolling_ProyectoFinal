@@ -62,30 +62,6 @@
   ],
   "pedidos": [
     {
-      "estado": "Entregado",
-      "fecha": "18/06/2023",
-      "nombreUsuario": "usuario1",
-      "email": "usuario1@usuario1.com",
-      "detallePedido": "3 Pulpo cocido , 2 Carne a la parrilla",
-      "id": 1
-    },
-    {
-      "estado": "Pendiente",
-      "fecha": "17/06/2023",
-      "nombreUsuario": "usuario2",
-      "email": "usuario2@usuario2.com",
-      "detallePedido": "2 Carne a la parrilla ,1 Sanguche de milanesa",
-      "id": 2
-    },
-    {
-      "estado": "Cancelado",
-      "fecha": "16/06/2023",
-      "nombreUsuario": "usuario2",
-      "email": "usuario2@usuario2.com",
-      "detallePedido": "2 Carne a la parrilla ,3 Sanguche de milanesa",
-      "id": 3
-    },
-    {
       "idUsuario": 2,
       "idProducto": 2,
       "nombreUsuario": "usuario1",
@@ -94,10 +70,10 @@
       "precioUnidad": "1800",
       "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
       "detallePedido": "",
-      "direccionPedido": "dsadsadsad",
-      "cantidad": "2",
+      "cantidad": "4",
+      "direccion": "Un lugar del mundo",
       "estado": "Pendiente",
-      "id": 4
+      "id": 1
     },
     {
       "idUsuario": 2,
@@ -105,13 +81,41 @@
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
       "nombreProducto": "Pulpo a la plancha",
-      "precioUnidad": "3",
+      "precioUnidad": "1700",
       "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "detallePedido": "",
-      "direccionPedido": "dsadsa dasdsa",
+      "detallePedido": "Carne extra",
       "cantidad": "3",
+      "direccion": "La luna",
       "estado": "Pendiente",
-      "id": 5
+      "id": 2
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "detallePedido": "Manzana extra",
+      "cantidad": "1",
+      "direccion": "Algo +",
+      "estado": "Pendiente",
+      "id": 3
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "detallePedido": "Lala",
+      "cantidad": "1",
+      "direccion": "Un lugar del mundo",
+      "estado": "Pendiente",
+      "id": 4
     }
   ]
 }
