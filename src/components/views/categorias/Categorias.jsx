@@ -6,73 +6,75 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { obtenerProductosPorCategoria } from "./filtradoCategorias";
 import { obtenerProductos } from "../../helpers/queries";
 import CardProducto from "../producto/cardProducto/CardProducto";
-import { Row , Col} from "react-bootstrap";
-import logo from "../../../assets/logo.png"
-import "./categorias.css"
+import { Row, Col } from "react-bootstrap";
+import logo from "../../../assets/logo.png";
+import "./categorias.css";
 import Paginacion from "../paginacion/paginacion";
 
 function Categorias() {
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-    const [productosFiltrados, setProductosFiltrados] = useState([]);
-    const [productos, setProductos] = useState([]);
-    const [paginaActual, setPaginaActual] = useState(1);
-    const productosPorPagina = 12;
-    
-    useEffect(() => {
-      obtenerProductos().then((resp) => {
-        setProductos(resp);
-      });
-      const paginaGuardada = localStorage.getItem("paginaActual");
-      if (paginaGuardada) {
-        setPaginaActual(parseInt(paginaGuardada, 10));
-      }
-    }, []);
-    
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [productosFiltrados, setProductosFiltrados] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [paginaActual, setPaginaActual] = useState(1);
+  const productosPorPagina = 12;
 
-    useEffect(() => {
-      if (categoriaSeleccionada === "ofertas del dia") {
-        const ofertasDelDia = productos.filter(
-          (producto) => producto.precioAnterior && producto.precioAnterior > 0
-        );
-        setProductosFiltrados(ofertasDelDia);
-      } else if (categoriaSeleccionada) {
-        obtenerProductosPorCategoria(categoriaSeleccionada)
-          .then((productosFiltrados) => {
-            setProductosFiltrados(productosFiltrados);
-          })
-          .catch((error) => {
-            console.error("Error al obtener productos por categoría:", error);
-            setProductosFiltrados([]);
-          });
-      } else {
-        setProductosFiltrados(productos);
-      }
-    }, [categoriaSeleccionada, productos]);
+  useEffect(() => {
+    obtenerProductos().then((resp) => {
+      setProductos(resp);
+    });
+    const paginaGuardada = localStorage.getItem("paginaActual");
+    if (paginaGuardada) {
+      setPaginaActual(parseInt(paginaGuardada, 10));
+    }
+  }, []);
 
-    const handleCategoriaSeleccionada = (categoria) => {
-      setCategoriaSeleccionada(categoria);
-      setPaginaActual(1);
-      localStorage.setItem("paginaActual", 1);
-    };
+  useEffect(() => {
+    if (categoriaSeleccionada === "ofertas del dia") {
+      const ofertasDelDia = productos.filter(
+        (producto) => producto.precioAnterior && producto.precioAnterior > 0
+      );
+      setProductosFiltrados(ofertasDelDia);
+    } else if (categoriaSeleccionada) {
+      obtenerProductosPorCategoria(categoriaSeleccionada)
+        .then((productosFiltrados) => {
+          setProductosFiltrados(productosFiltrados);
+        })
+        .catch((error) => {
+          console.error("Error al obtener productos por categoría:", error);
+          setProductosFiltrados([]);
+        });
+    } else {
+      setProductosFiltrados(productos);
+    }
+  }, [categoriaSeleccionada, productos]);
 
-    const manejarCambioPagina = (numeroPagina) => {
-        setPaginaActual(numeroPagina);
-        localStorage.setItem("paginaActual", numeroPagina);
-      };
+  const handleCategoriaSeleccionada = (categoria) => {
+    setCategoriaSeleccionada(categoria);
+    setPaginaActual(1);
+    localStorage.setItem("paginaActual", 1);
+  };
 
-    const indiceUltimoProducto = paginaActual * productosPorPagina;
-    const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
-    const productosActuales = productosFiltrados.slice(
+  const manejarCambioPagina = (numeroPagina) => {
+    setPaginaActual(numeroPagina);
+    localStorage.setItem("paginaActual", numeroPagina);
+  };
+
+  const indiceUltimoProducto = paginaActual * productosPorPagina;
+  const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
+  const productosActuales = productosFiltrados.slice(
     indicePrimerProducto,
     indiceUltimoProducto
   );
-  
+
   return (
     <>
       {[false].map((expand) => (
         <Navbar key={expand} expand={false} className="pt-5">
           <Container fluid>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} className="ms-auto">
+            <Navbar.Toggle
+              aria-controls={`offcanvasNavbar-expand-${expand}`}
+              className="ms-auto"
+            >
               <span className="fw-bold fs-4">Categorías</span>
             </Navbar.Toggle>
             <Navbar.Offcanvas
@@ -86,49 +88,77 @@ function Categorias() {
                   className="fs-4"
                   id={`offcanvasNavbarLabel-expand-${expand}`}
                 >
-                    <img src={logo} alt="logo" className="logo mb-4"/>
+                  <img src={logo} alt="logo" className="logo mb-4" />
                   Categorías
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3 fs-4">
                   <Nav.Link
-                    
                     className="nav-item nav-link"
                     onClick={() => handleCategoriaSeleccionada(null)}
                   >
                     Todos los productos
                   </Nav.Link>
                   <Nav.Link
-                   
                     className="nav-item nav-link text-danger fw-bolder"
-                    onClick={() => handleCategoriaSeleccionada("ofertas del dia")}
+                    onClick={() =>
+                      handleCategoriaSeleccionada("ofertas del dia")
+                    }
                   >
                     Ofertas de día!
                   </Nav.Link>
                   <Nav.Link
-                    
                     className="nav-item nav-link"
                     onClick={() => handleCategoriaSeleccionada("entrada")}
                   >
                     Entrada
                   </Nav.Link>
-                  <Nav.Link  className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("plato fuerte")}>
+                  <Nav.Link
+                    className="nav-item nav-link"
+                    onClick={() => handleCategoriaSeleccionada("plato fuerte")}
+                  >
                     Plato Fuerte
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("acompaniamientos")}>
+                  <Nav.Link
+                    href="#"
+                    className="nav-item nav-link"
+                    onClick={() =>
+                      handleCategoriaSeleccionada("acompaniamientos")
+                    }
+                  >
                     Acompañamiento
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("postre")}>
+                  <Nav.Link
+                    href="#"
+                    className="nav-item nav-link"
+                    onClick={() => handleCategoriaSeleccionada("postre")}
+                  >
                     Postre
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida caliente")}>
+                  <Nav.Link
+                    href="#"
+                    className="nav-item nav-link"
+                    onClick={() =>
+                      handleCategoriaSeleccionada("bebida caliente")
+                    }
+                  >
                     Bebida Caliente
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida fria")}>
+                  <Nav.Link
+                    href="#"
+                    className="nav-item nav-link"
+                    onClick={() => handleCategoriaSeleccionada("bebida fria")}
+                  >
                     Bebida Fría
                   </Nav.Link>
-                  <Nav.Link href="#" className="nav-item nav-link" onClick={() => handleCategoriaSeleccionada("bebida con alcohol")}>
+                  <Nav.Link
+                    href="#"
+                    className="nav-item nav-link"
+                    onClick={() =>
+                      handleCategoriaSeleccionada("bebida con alcohol")
+                    }
+                  >
                     Bebida con alcohol
                   </Nav.Link>
                 </Nav>
@@ -140,24 +170,28 @@ function Categorias() {
       <div>
         <h2>Productos:</h2>
         {productosFiltrados.length === 0 ? (
-          <p className="display-6 text-danger py-5 text-center">No hay productos disponibles en esta categoría ☹️</p>
+          <p className="display-6 text-danger py-5 text-center">
+            No hay productos disponibles en esta categoría ☹️
+          </p>
         ) : (
           <Row className="justify-content-start">
-          {productosActuales.map((producto) => (
-            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-              <CardProducto producto={producto} />
-            </Col>
-          ))}
+            {productosActuales.map((producto) => (
+              <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
+                <CardProducto producto={producto} />
+              </Col>
+            ))}
           </Row>
-          
         )}
-        <Paginacion
-          paginaActual={paginaActual}
-          totalPaginas={Math.ceil(productosFiltrados.length / productosPorPagina)}
-          cambiarPagina={manejarCambioPagina}
-        />
+        {productosFiltrados.length > 0 && productos.length > 0 && (
+          <Paginacion
+            paginaActual={paginaActual}
+            totalPaginas={Math.ceil(
+              productosFiltrados.length / productosPorPagina
+            )}
+            cambiarPagina={manejarCambioPagina}
+          />
+        )}
       </div>
-      
     </>
   );
 }
