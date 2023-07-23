@@ -27,7 +27,7 @@ const AgregaDetalles = ({showDetalles, handleCloseDetalles, producto, usuarioLog
     return (
         <Modal show={showDetalles} onHide={handleCloseDetalles}>
             <Modal.Header>
-                <Modal.Title>Agregue los detalles de su pedido :) Base: {producto.nombreProducto}</Modal.Title>
+                <Modal.Title>Agregue los detalles de su pedido: {producto.nombreProducto}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit(onSubmit)}>
@@ -51,26 +51,6 @@ const AgregaDetalles = ({showDetalles, handleCloseDetalles, producto, usuarioLog
                             {errors.detallePedido?.message}
                         </Form.Text>
                     </FloatingLabel>
-                    <Form.Group className="mb-3" controlId="formBasicDireccion">
-                        <Form.Control
-                            type="text"
-                            placeholder="Ingrese su direccion."
-                            {...register('direccionPedido',{
-                                required:'La direccion es obligatoria para saber a donde se debe realizar el pedido :)',
-                                minLength:{
-                                    value:5,
-                                    message:'La direccion debe tener como minimo 5 caracteres.'
-                                },
-                                maxLength:{
-                                    value:100,
-                                    message:'La direccion debe tener como maximo 100 caracteres.'
-                                }
-                            })}
-                        />
-                        <Form.Text className="text-danger">
-                            {errors.direccionPedido?.message}
-                        </Form.Text>
-                    </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicCantidad">
                         <Form.Control
