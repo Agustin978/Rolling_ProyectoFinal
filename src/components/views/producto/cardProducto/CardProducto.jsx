@@ -7,7 +7,7 @@ import AgregaDetalles from "../../Pedidos/AgregaDetalles";
 import { useState } from "react";
 
 const CardProducto = ({producto, usuarioLogueado}) => {
-  const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
+  const {id, nombreProducto, precioAnterior, precioNuevo, imagen} = {...producto};
   const [showDetalles, setShowDetalles] = useState(false);
   const handleCloseDetalles = () => setShowDetalles(false);
   const handleShowDetalles = () => setShowDetalles(true);
@@ -35,9 +35,9 @@ const CardProducto = ({producto, usuarioLogueado}) => {
           </Card.Body>
           <Card.Footer className="border-0 bg-white px-0">
           <Card.Text className="pb-1 text-dark">
-            {precioViejo > 0 && (
+            {precioAnterior > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
-                ${producto.precioViejo}
+                ${producto.precioAnterior}
               </span>
             )}
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
