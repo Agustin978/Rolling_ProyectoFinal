@@ -17,10 +17,9 @@ function Categorias({usuarioLogueado}) {
     useEffect(() => {
         obtenerProductos().then((resp) => {
           setProductos(resp);
-          console.log(resp)
         });
       }, []);
-  
+
       useEffect(() => {
         if (categoriaSeleccionada === "ofertas del dia") {
           const ofertasDelDia = productos.filter(
