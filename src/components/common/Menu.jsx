@@ -4,7 +4,9 @@ import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
 import { Cart4 } from 'react-bootstrap-icons';
-
+import sobreNosotros from '../views/SobreNosotros';
+import logoNav from '../../assets/logo-nav.png'
+import './menu.css'
 
 const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     const [showLogin, setShowLogin] = useState(false);
@@ -25,9 +27,11 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     }
 
     return (
-        <Navbar className='colorBase' variant="dark" expand="lg">
+        <Navbar className='bg-dark navbar-dark fs-5'  expand="lg">
             <Container>
-                <Navbar.Brand as={Link} to={'/'}>RollingFoods</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>
+                    <img src={logoNav} alt="logo" className='imgLogo pt-2' />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
@@ -46,7 +50,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                                 <NavLink end className='nav-item nav-link text-dark nav-link' to={'administrador/pedidos'}>Pedidos</NavLink>
                                                 <NavLink end className='nav-item nav-link text-dark nav-link' to={'administrador/usuarios'}>Usuarios</NavLink>
                                             </NavDropdown>
-                                            <Button variant="dark" onClick={logout}>Logout</Button>
+                                            <Button variant="dark fs-5" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
                                         <>

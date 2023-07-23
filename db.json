@@ -26,9 +26,9 @@
     {
       "nombreProducto": "Pulpo a la plancha",
       "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
-      "precioNuevo": "3",
-      "precioViejo": "4",
-      "descripcion": "Pulpo cocido 3 tentáculos o patas-Puré de patatas al gusto-Dientes de ajo para la ajada 2-Pimentón dulce para la ajada-Aceite de oliva virgen extra para la ajada, 4 cucharadas soperas-Sal en escamas para servir",
+      "precioNuevo": "1700",
+      "precioAnterior": "1900",
+      "descripcion": "Saborea en la comodidad de tu hogar nuestra deliciosa especialidad. Tierno, jugoso y lleno de sabores mediterráneos, cocinado a la perfección. ¡Haz tu pedido y disfruta de esta experiencia gastronómica única en casa!",
       "categoria": "plato fuerte",
       "id": 1
     },
@@ -37,7 +37,7 @@
       "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
       "precioNuevo": "1800",
       "precioAnterior": "1500",
-      "descripcion": "Carne a la parrilla.\nIngredientes: -Vacío - Cebolla - Ajo - Papas criollas",
+      "descripcion": "Saborea cortes selectos sazonados y cocinados a la perfección en la comodidad de tu hogar. Una experiencia gastronómica inigualable que te llevamos directo a tu puerta. ¡Haz tu pedido y disfruta en casa de nuestra deliciosa oferta culinaria!",
       "categoria": "plato fuerte",
       "id": 2
     },
@@ -46,9 +46,18 @@
       "imagen": "https://www.eltucumano.com/fotos/cache/notas/2023/02/28/818x460_230228193026_74237.jpg",
       "precioNuevo": "1800",
       "precioAnterior": "",
-      "descripcion": "Sanguche de Milanesa.\nIngredientes: - Pan - Milanesas - Lechuga - Cebolla - Papas fritas",
+      "descripcion": "Llevamos hasta tu puerta el auténtico sabor argentino. Disfruta de nuestra sabrosa milanesa en pan fresco, acompañada de lechuga, tomate y una deliciosa mayonesa. Haz tu pedido. ¡Anímate a probarlo ahora mismo!",
       "categoria": "plato fuerte",
       "id": 3
+    },
+    {
+      "nombreProducto": "Tarta de Manzana",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "precioNuevo": "1500",
+      "precioAnterior": "2000",
+      "descripcion": "Deliciosa combinación de manzanas frescas, canela y masa quebrada artesanal. Un postre irresistible que te transportará a momentos de placer y nostalgia en cada bocado. ¡Disfruta su sabor único!",
+      "categoria": "postre",
+      "id": 4
     }
   ],
   "pedidos": [

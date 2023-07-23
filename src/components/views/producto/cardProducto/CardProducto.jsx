@@ -1,9 +1,9 @@
-import { Card, Col, Row, Button } from "react-bootstrap";
-import "./CardProducto.css"; 
+import { Card, Col, Button } from "react-bootstrap";
+import "./cardProducto.css"; 
 import { Link } from "react-router-dom";
-import notImage from "../../../assets/notImage.png"
+import notImage from "../../../../assets/notImage.png";
 import Swal from "sweetalert2";
-import AgregaDetalles from "../Pedidos/AgregaDetalles";
+import AgregaDetalles from "../../Pedidos/AgregaDetalles";
 import { useState } from "react";
 
 const CardProducto = ({producto, usuarioLogueado}) => {
@@ -22,8 +22,7 @@ const CardProducto = ({producto, usuarioLogueado}) => {
     }
   }
     return (
-        <Col sm={6} md={4} lg={3} className="mb-3">
-        <Card className="rounded-0 border-0 h-100 shadow p-3 p-md-2 p-lg-3">
+        <Card className="rounded-4  border-4 h-100 shadow p-3 p-md-2 p-lg-3">
           <Link to={`/detalle/${id}`}>
           <Card.Img  className="rounded-0 imgCard"
             variant="top"
@@ -34,7 +33,7 @@ const CardProducto = ({producto, usuarioLogueado}) => {
           <Card.Body className="text-white px-0 pb-0">
             <Card.Title className="pb-1 text-dark fw-bold">{producto.nombreProducto}</Card.Title>
           </Card.Body>
-          <Card.Footer className="border-0 bg-white">
+          <Card.Footer className="border-0 bg-white px-0">
           <Card.Text className="pb-1 text-dark">
             {precioViejo > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
@@ -49,7 +48,6 @@ const CardProducto = ({producto, usuarioLogueado}) => {
           }
           </Card.Footer>
         </Card>
-      </Col>
       
     );
 };

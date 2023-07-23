@@ -39,10 +39,10 @@ const Detalle = ({usuarioLogueado, showDetalles, handleCloseDetalles, handleShow
     }
 
     return (
-        <Container>
+        <Container className='mainSection'>
             <Row className='mt-3 mb-4'>
                 <Col md={5} lg={6} className="p-0 d-flex justify-content-center px-4 px-md-0 h-100">
-                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBase imgDetail' alt={producto.nombreProducto} />
+                    <img src={producto.imagen ? producto.imagen : notImage}className='p-md-3 colorBorde rounded-4 imgDetail' alt={producto.nombreProducto} />
 
                 </Col>
                 <Col md={7} lg={6} className="px-4 h-100">
@@ -50,8 +50,8 @@ const Detalle = ({usuarioLogueado, showDetalles, handleCloseDetalles, handleShow
                     <p className='pb-xl-4'>{producto.descripcion}</p>
                     <div className='d-flex'>
                         <p className='pe-5 fw-bold fs-5'>Precio: ${producto.precioNuevo}</p>
-                        {producto.precioViejo && (
-                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioViejo}</p>
+                        {producto.precioAnterior && (
+                            <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioAnterior}</p>
                         )}
                     </div>
                     <Button variant="dark" className="w-100 rounded-0 py-3 mt-xl-3" onClick={agregaAcarrito}>Agregar al carrito</Button> 
