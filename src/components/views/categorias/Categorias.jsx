@@ -11,60 +11,61 @@ import logo from "../../../assets/logo.png";
 import "./categorias.css";
 import Paginacion from "../paginacion/paginacion";
 
-function Categorias() {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
-  const [productosFiltrados, setProductosFiltrados] = useState([]);
-  const [productos, setProductos] = useState([]);
-  const [paginaActual, setPaginaActual] = useState(1);
-  const productosPorPagina = 8;
 
-  useEffect(() => {
-    obtenerProductos().then((resp) => {
-      setProductos(resp);
-    });
-    const paginaGuardada = localStorage.getItem("paginaActual");
-    if (paginaGuardada) {
-      setPaginaActual(parseInt(paginaGuardada, 10));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (categoriaSeleccionada === "ofertas del dia") {
-      const ofertasDelDia = productos.filter(
-        (producto) => producto.precioAnterior && producto.precioAnterior > 0
-      );
-      setProductosFiltrados(ofertasDelDia);
-    } else if (categoriaSeleccionada) {
-      obtenerProductosPorCategoria(categoriaSeleccionada)
-        .then((productosFiltrados) => {
-          setProductosFiltrados(productosFiltrados);
-        })
-        .catch((error) => {
-          console.error("Error al obtener productos por categoría:", error);
-          setProductosFiltrados([]);
-        });
-    } else {
-      setProductosFiltrados(productos);
-    }
-  }, [categoriaSeleccionada, productos]);
-
-  const handleCategoriaSeleccionada = (categoria) => {
-    setCategoriaSeleccionada(categoria);
-    setPaginaActual(1);
-    localStorage.setItem("paginaActual", 1);
-  };
-
-  const manejarCambioPagina = (numeroPagina) => {
-    setPaginaActual(numeroPagina);
-    localStorage.setItem("paginaActual", numeroPagina);
-  };
-
-  const indiceUltimoProducto = paginaActual * productosPorPagina;
-  const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
-  const productosActuales = productosFiltrados.slice(
-    indicePrimerProducto,
-    indiceUltimoProducto
-  );
+function Categorias({usuarioLogueado}) {
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+    const [productosFiltrados, setProductosFiltrados] = useState([]);
+    const [productos, setProductos] = useState([]);
+    const [paginaActual, setPaginaActual] = useState(1);
+    const productosPorPagina = 8;
+  
+    useEffect(() => {
+      obtenerProductos().then((resp) => {
+        setProductos(resp);
+      });
+      const paginaGuardada = localStorage.getItem("paginaActual");
+      if (paginaGuardada) {
+        setPaginaActual(parseInt(paginaGuardada, 10));
+      }
+    }, []);
+  
+    useEffect(() => {
+      if (categoriaSeleccionada === "ofertas del dia") {
+        const ofertasDelDia = productos.filter(
+          (producto) => producto.precioAnterior && producto.precioAnterior > 0
+        );
+        setProductosFiltrados(ofertasDelDia);
+      } else if (categoriaSeleccionada) {
+        obtenerProductosPorCategoria(categoriaSeleccionada)
+          .then((productosFiltrados) => {
+            setProductosFiltrados(productosFiltrados);
+          })
+          .catch((error) => {
+            console.error("Error al obtener productos por categoría:", error);
+            setProductosFiltrados([]);
+          });
+      } else {
+        setProductosFiltrados(productos);
+      }
+    }, [categoriaSeleccionada, productos]);
+  
+    const handleCategoriaSeleccionada = (categoria) => {
+      setCategoriaSeleccionada(categoria);
+      setPaginaActual(1);
+      localStorage.setItem("paginaActual", 1);
+    };
+  
+    const manejarCambioPagina = (numeroPagina) => {
+      setPaginaActual(numeroPagina);
+      localStorage.setItem("paginaActual", numeroPagina);
+    };
+  
+    const indiceUltimoProducto = paginaActual * productosPorPagina;
+    const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
+    const productosActuales = productosFiltrados.slice(
+      indicePrimerProducto,
+      indiceUltimoProducto
+    );
 
   return (
     <>
@@ -177,7 +178,7 @@ function Categorias() {
           <Row className="justify-content-start">
             {productosActuales.map((producto) => (
               <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-                <CardProducto producto={producto} />
+                <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado} />
               </Col>
             ))}
           </Row>

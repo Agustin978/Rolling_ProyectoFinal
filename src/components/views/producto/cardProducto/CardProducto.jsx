@@ -1,12 +1,27 @@
 import { Card, Col, Button } from "react-bootstrap";
 import "./cardProducto.css"; 
 import { Link } from "react-router-dom";
-import notImage from "../../../../assets/notImage.png"
+import notImage from "../../../../assets/notImage.png";
+import Swal from "sweetalert2";
+import AgregaDetalles from "../../Pedidos/AgregaDetalles";
+import { useState } from "react";
 
-const CardProducto = ({producto}) => {
-  const {id, nombreProducto, precioAnterior, precioNuevo, imagen} = {...producto};
+const CardProducto = ({producto, usuarioLogueado}) => {
+  const {id, nombreProducto, precioViejo, precioNuevo, imagen} = {...producto};
+  const [showDetalles, setShowDetalles] = useState(false);
+  const handleCloseDetalles = () => setShowDetalles(false);
+  const handleShowDetalles = () => setShowDetalles(true);
+  const agregaAcarrito = () => 
+  {
+    if(Object.keys(usuarioLogueado).length===0)
+    {
+      Swal.fire('Error', 'Debe iniciar secion antes de realizar un pedido.', 'error');
+    }else
+    {
+      handleShowDetalles();
+    }
+  }
     return (
-        // <Col sm={6} md={4} lg={3} className="mb-3">
         <Card className="rounded-4  border-4 h-100 shadow p-3 p-md-2 p-lg-3">
           <Link to={`/detalle/${id}`}>
           <Card.Img  className="rounded-0 imgCard"
@@ -20,20 +35,20 @@ const CardProducto = ({producto}) => {
           </Card.Body>
           <Card.Footer className="border-0 bg-white px-0">
           <Card.Text className="pb-1 text-dark">
-            {precioAnterior > 0 && (
+            {precioViejo > 0 && (
               <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
-                ${producto.precioAnterior}
+                ${producto.precioViejo}
               </span>
             )}
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
           </Card.Text>
-          <Button variant="dark" className="w-100 rounded-0 py-3 fs-md-6 fs-lg-5">Agregar al carrito</Button>
+          <Button variant="dark" className="w-100 rounded-0 py-3 fs-5" onClick={agregaAcarrito}>Agregar al carrito</Button>
+          {
+            showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} producto={producto} usuarioLogueado={usuarioLogueado}></AgregaDetalles>
+          }
           </Card.Footer>
-         
         </Card>
-      // </Col>
-
-
+      
     );
 };
 

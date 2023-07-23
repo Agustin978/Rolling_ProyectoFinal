@@ -5,7 +5,7 @@ import Categorias from "./categorias/Categorias"
 import { Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-const Inicio = () => {
+const Inicio = ({usuarioLogueado}) => {
   // const [productos, setProductos] = useState([]);
   // useEffect(() => {
   //   obtenerProductos().then((resp) => {
@@ -16,11 +16,10 @@ const Inicio = () => {
     <section>
       <BannerInicio></BannerInicio>
       <Container>
-        <Categorias></Categorias>
+        <Categorias usuarioLogueado={usuarioLogueado}></Categorias>
         {/* <Row className="mt-3">
           {
-            
-        productos.map((producto)=>  <CardProducto key={producto.id} producto={producto}></CardProducto>)
+            productos.map((producto)=>  <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado}></CardProducto>)
           }
         </Row> */}
         <section className="mb-0">

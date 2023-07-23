@@ -1,13 +1,14 @@
-import React from 'react';
 import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import "./detalle.css"
+import "./detalle.css";
 import { obtenerProductosEditar } from '../../helpers/queries';
-import notImage from "../../../assets/notImage.png";
+import notImage from "./../../../assets/notImage.png";
+import Swal from "sweetalert2";
+import AgregaDetalles from "../Pedidos/AgregaDetalles";
 
-const Detalle = () => {
+const Detalle = ({usuarioLogueado, showDetalles, handleCloseDetalles, handleShowDetalles}) => {
     const {
         register,
         handleSubmit,
@@ -24,7 +25,18 @@ const Detalle = () => {
           setProductos(respuesta);
         }
       })
-    }, [])
+    }, []);
+
+    const agregaAcarrito = () =>
+    {
+        if(Object.keys(usuarioLogueado).length===0)
+        {
+            Swal.fire('Error', 'Debe iniciar secion antes de realizar un pedido.', 'error');
+        }else
+        {
+            handleShowDetalles();
+        }
+    }
 
     return (
         <Container className='mainSection'>
@@ -42,34 +54,10 @@ const Detalle = () => {
                             <p className='fw-bold text-decoration-line-through text-danger fs-6'>Antes: ${producto.precioAnterior}</p>
                         )}
                     </div>
-                    <>
-                    <Form>
-                        <Form.Group className="mb-3 d-flex" controlId="formCantidad">
-                            <Form.Label className='pe-3'>Cantidad: </Form.Label>
-                            <Form.Control
-                                type="number"
-                                defaultValue="1"
-                                className='inputDetail'
-                                {...register("cantidad", {
-                                    required: "La cantidad debe ser 1 o más",
-                                    min: {
-                                        value: 1,
-                                        message: "La cantidad minimo es de 1",
-                                    },
-                                    max: {
-                                        value: 50,
-                                        message: "La cantidad ingresada supera el stock disponible",
-                                    },
-                                })}
-                            />
-                            <Form.Text className="text-danger">
-                                {errors.cantidad?.message}
-                            </Form.Text>
-                        </Form.Group>
-                    </Form>
-                    
-                    </>
-                    <Button variant="dark" className="w-100 rounded-0 py-3 mt-xl-3">Agregar al carrito</Button>
+                    <Button variant="dark" className="w-100 rounded-0 py-3 mt-xl-3" onClick={agregaAcarrito}>Agregar al carrito</Button> 
+                    {
+                        showDetalles && <AgregaDetalles showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} producto={producto} usuarioLogueado={usuarioLogueado}></AgregaDetalles>
+                    } 
                 </Col>
 
             </Row>
