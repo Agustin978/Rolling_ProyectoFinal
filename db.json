@@ -58,6 +58,51 @@
       "descripcion": "Deliciosa combinación de manzanas frescas, canela y masa quebrada artesanal. Un postre irresistible que te transportará a momentos de placer y nostalgia en cada bocado. ¡Disfruta su sabor único!",
       "categoria": "postre",
       "id": 4
+    },
+    {
+      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
+      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
+      "precioNuevo": "345",
+      "precioAnterior": "567",
+      "descripcion": "iuopiu ñiupi",
+      "categoria": "plato fuerte",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Empanadas de Carne Criolla",
+      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
+      "precioNuevo": "454",
+      "precioAnterior": "768",
+      "descripcion": "ertydht dfgh g h d",
+      "categoria": "plato fuerte",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Asado de carne vacuna",
+      "imagen": "https://www.clarin.com/img/2022/03/07/nt5D4YWDb_1256x620__2.jpg",
+      "precioNuevo": "456",
+      "precioAnterior": "5788",
+      "descripcion": "fghd dfhgd dgh",
+      "categoria": "plato fuerte",
+      "id": 7
+    },
+    {
+      "nombreProducto": "Ñoquis con Salsa Bolognesa",
+      "imagen": "https://www.cronista.com/files/image/344/344537/6102a22b72760.jpg",
+      "precioNuevo": "999",
+      "precioAnterior": "1299",
+      "descripcion": "klsjf añslkdj",
+      "categoria": "plato fuerte",
+      "id": 8
+    },
+    {
+      "nombreProducto": "Tallarines con Tuco",
+      "imagen": "https://www.organizacionsolarte.com.co/cms/sites/default/files/spaghettibolognesa.png",
+      "precioNuevo": "834",
+      "precioAnterior": "960",
+      "descripcion": "fgki fkjg ifj",
+      "categoria": "plato fuerte",
+      "id": 9
     }
   ],
   "pedidos": [
