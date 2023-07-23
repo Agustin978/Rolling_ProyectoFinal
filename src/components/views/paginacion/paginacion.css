@@ -1,7 +1,7 @@
 
 .pagination .page-item.active .page-link {
     background-color: white;
-    border:  3px solid #e60013bd;
+    border:  3px solid #E60012;
     color: black;
 
 }
@@ -27,7 +27,7 @@ a.page-link{
     --bs-pagination-focus-bg:none;
 }
 
-:root, [data-bs-theme=light] {
+ul{
      --bs-border-color: #E60012;
      --bs-link-hover-color: #E60012;
 }
