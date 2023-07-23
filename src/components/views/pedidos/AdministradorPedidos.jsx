@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect , } from "react";
 import { obtenerPedidos } from "../../helpers/queries";
@@ -41,7 +40,7 @@ const AdministradorProductos = () => {
               </tr>
           </thead>
           <tbody>{
-          pedido.map((ped )=> <ItenPedido key={ped.id} pedido={ped} setPedido={setPedido}></ItenPedido>)
+            pedido.map((ped )=> <ItenPedido key={ped.id} pedido={ped} setPedido={setPedido}></ItenPedido>)
           }
         
         </tbody>
