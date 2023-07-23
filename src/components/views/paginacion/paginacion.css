@@ -1,0 +1,33 @@
+
+.pagination .page-item.active .page-link {
+    background-color: white;
+    border:  3px solid #E60012;
+    color: black;
+
+}
+span.page-link{
+    border-radius: 50%!important;
+    margin: 0 10px 0 10px;
+    border:none;
+    font-weight: bolder;
+    font-size: 30px;
+
+}
+a.page-link{
+    margin: 0 10px 0 10px;
+    border-radius: 50%!important;
+    border:none;
+    color: black;
+    font-weight: bolder;
+    font-size: 30px;
+}
+.pagination {
+    --bs-pagination-disabled-bg: none;
+    --bs-pagination-focus-box-shadow: #E60012;
+    --bs-pagination-focus-bg:none;
+}
+
+ul{
+     --bs-border-color: #E60012;
+     --bs-link-hover-color: #E60012;
+}
