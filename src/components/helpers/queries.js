@@ -10,6 +10,8 @@ export const login = async (usuario) =>
         const respuesta = await fetch(URL_usuario);
         const listaUsuarios = await respuesta.json();
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
+        localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
         if(usuarioBuscado)
         {
             if(usuarioBuscado.password === usuario.password)
@@ -225,5 +227,57 @@ export const editarPedidos = async(pedido ,id)=>{
         return respuesta;
     }catch (error){
         console.log(error);
+    }
+}
+
+/*Pedidos Carrito: los pedidos guardados en el carrito se almacenan siempre en el LOCALSTORAGE
+luego que el cliente los confirme se guardaran el el db.json o en la base de datos mas adelante*/
+export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
+{
+    try
+    {
+        let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
+        let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
+        let pedido = {
+            idPedido: contadorPedidos + 1,
+            idUsuario: usuario.id,
+            idProducto: producto.id,
+            nombreUsuario: usuario.nombreUsuario,
+            email: usuario.email,
+            nombreProducto: producto.nombreProducto,
+            precioUnidad: producto.precioNuevo,
+            imagen:producto.imagen,
+            ...detalles
+        };
+        listadoPedidos.push(pedido);
+        localStorage.setItem('carritoCompras', JSON.stringify(listadoPedidos));
+        localStorage.setItem('contadorPedidos', String(contadorPedidos + 1));
+        return 200;
+    }catch(error)
+    {
+        console.log('A ocurrido un error. Info: ',error);
+        return 400;
+    }
+}
+
+export const confirmaPedidos = async(pedido) =>
+{
+    try
+    {
+        pedido.estado = 'Pendiente';
+        delete pedido.idPedido;
+        const respuesta = await fetch(URL_PEDIDOS,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(pedido)
+            });
+        return respuesta;
+    }catch(error)
+    {
+        console.log('A ocurrido un error: ',error);
+        return 400;
     }
 }

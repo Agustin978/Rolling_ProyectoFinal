@@ -10,17 +10,16 @@ import { Row , Col} from "react-bootstrap";
 import logo from "../../../assets/logo.png"
 import "./categorias.css"
 
-function Categorias() {
+function Categorias({usuarioLogueado}) {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
     const [productos, setProductos] = useState([]);
     useEffect(() => {
         obtenerProductos().then((resp) => {
           setProductos(resp);
-          console.log(resp)
         });
       }, []);
-  
+
       useEffect(() => {
         if (categoriaSeleccionada === "ofertas del dia") {
           const ofertasDelDia = productos.filter(
@@ -118,7 +117,7 @@ function Categorias() {
           <Row className="justify-content-start">
             {productosFiltrados.map((producto) => (
               <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-                <CardProducto producto={producto} />
+                <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado} />
               </Col>
             ))}
           </Row>

@@ -29,7 +29,7 @@
       "precioNuevo": "1700",
       "precioAnterior": "1900",
       "descripcion": "Saborea en la comodidad de tu hogar nuestra deliciosa especialidad. Tierno, jugoso y lleno de sabores mediterráneos, cocinado a la perfección. ¡Haz tu pedido y disfruta de esta experiencia gastronómica única en casa!",
-      "categoria": "plato fuerte",
+      "categoria": "entrada",
       "id": 1
     },
     {
@@ -62,28 +62,60 @@
   ],
   "pedidos": [
     {
-      "estado": "Entregado",
-      "fecha": "18/06/2023",
+      "idUsuario": 2,
+      "idProducto": 2,
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
-      "detallePedido": "3 Pulpo cocido , 2 Carne a la parrilla",
+      "nombreProducto": "Carne a la parrilla",
+      "precioUnidad": "1800",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "detallePedido": "",
+      "cantidad": "4",
+      "direccion": "Un lugar del mundo",
+      "estado": "Pendiente",
       "id": 1
     },
     {
+      "idUsuario": 2,
+      "idProducto": 1,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Pulpo a la plancha",
+      "precioUnidad": "1700",
+      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
+      "detallePedido": "Carne extra",
+      "cantidad": "3",
+      "direccion": "La luna",
       "estado": "Pendiente",
-      "fecha": "17/06/2023",
-      "nombreUsuario": "usuario2",
-      "email": "usuario2@usuario2.com",
-      "detallePedido": "2 Carne a la parrilla ,1 Sanguche de milanesa",
       "id": 2
     },
     {
-      "estado": "Cancelado",
-      "fecha": "16/06/2023",
-      "nombreUsuario": "usuario2",
-      "email": "usuario2@usuario2.com",
-      "detallePedido": "2 Carne a la parrilla ,3 Sanguche de milanesa",
+      "idUsuario": 2,
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "detallePedido": "Manzana extra",
+      "cantidad": "1",
+      "direccion": "Algo +",
+      "estado": "Pendiente",
       "id": 3
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "detallePedido": "Lala",
+      "cantidad": "1",
+      "direccion": "Un lugar del mundo",
+      "estado": "Pendiente",
+      "id": 4
     }
   ]
 }

@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
+import { Cart4 } from 'react-bootstrap-icons';
 import sobreNosotros from '../views/SobreNosotros';
 import logoNav from '../../assets/logo-nav.png'
 import './menu.css'
@@ -19,6 +20,8 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
     const logout = () => 
     {
         sessionStorage.removeItem('user');
+        localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
         setUsuarioLogueado({});
         navigate('/');
     }
@@ -42,21 +45,16 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
                                     usuarioLogueado.type === 'admin' ?(
                                         <>
                                             {/*<NavLink end className='nav-item nav-link' to={'/administrador'}>Administrador</NavLink>*/}
-                                            <NavDropdown title='Administrador'   id="dropdownAdministrador">
-                                                <NavDropdown.Item className='bg-dark'>
-                                                    <NavLink end className='nav-item nav-link' to={'/administrador'}>Platillos</NavLink>
-                                                </NavDropdown.Item>
-                                                <NavDropdown.Item className='bg-dark'>
-                                                    <NavLink end className='nav-item nav-link ' to={'administrador/pedidos'}>Pedidos</NavLink>
-                                                </NavDropdown.Item>
-                                                <NavDropdown.Item className='bg-dark'>
-                                                    <NavLink end className='nav-item nav-link ' to={'administrador/usuarios'}>Usuarios</NavLink>
-                                                </NavDropdown.Item>
+                                            <NavDropdown title='Administrador' className='' id="dropdownAdministrador">
+                                                <NavLink end className='nav-item nav-link nav-link' to={'/administrador'}>Platillos</NavLink>
+                                                <NavLink end className='nav-item nav-link nav-link' to={'administrador/pedidos'}>Pedidos</NavLink>
+                                                <NavLink end className='nav-item nav-link nav-link' to={'administrador/usuarios'}>Usuarios</NavLink>
                                             </NavDropdown>
                                             <Button variant="dark fs-5" onClick={logout}>Logout</Button>
                                         </>
                                     ) : (
                                         <>
+                                            <NavLink end className='nav-item nav-link' to={'/pedidos'}><Cart4/></NavLink>
                                             <Button variant="dark" onClick={logout}>Logout</Button>
                                         </>
                                     )
