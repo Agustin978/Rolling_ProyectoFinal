@@ -2,7 +2,6 @@ import { Card, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import "./cardProducto.css";
 import { Link } from "react-router-dom";
-import notImage from "../../../../assets/notImage.png";
 import Swal from "sweetalert2";
 import AgregaDetalles from "../../Pedidos/AgregaDetalles";
 import Placeholder from "react-bootstrap/Placeholder";
@@ -45,7 +44,7 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
             src={imagen ? imagen : notImage} alt={nombreProducto}
           /> */}
         {cargando || !imagen ? ( // Si está cargando o no hay imagen, muestra el marcador de posición
-          <Placeholder as={Card.Img} bg="secondary" className="rounded-0 imgCard opacity-25" animation="glow" xs={12}/>
+          <Placeholder as={Card.Img} bg="secondary" className="rounded-0 imgCard opacity-25" xs={12}/>
         ) : (
           <Card.Img
             className="rounded-0 imgCard"

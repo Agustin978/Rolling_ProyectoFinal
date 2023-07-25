@@ -5,7 +5,7 @@ import Menu from './components/common/Menu';
 import Footer from './components/common/Footer';
 import Inicio from './components/views/Inicio';
 import Error404 from './components/views/Error404';
-import Detalle from './components/views/detalle/Detalle';
+import Detalle from './components/views/detalleProducto/Detalle';
 import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
