@@ -6,14 +6,15 @@ import { editarPedidos } from "../../helpers/queries";
 import Modal from "react-bootstrap/Modal";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-
-const ItenProducto = (pedido,) => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+const ItenProducto = (pedido) => {
+  const [show, setShow] = useState(false);
+  const [showDatos, setShowDatos] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleCloseDatos = () => setShowDatos(false);
+  const handleShowDatos = () => setShowDatos(true);
 
   const {
     register,
@@ -23,15 +24,10 @@ const ItenProducto = (pedido,) => {
   } = useForm();
 
   const onSubmit = (pedidoEditado) => {
-
-    pedidoEditado.fecha=`${pedido.pedido.fecha}`
-    pedidoEditado.nombreUsuario=`${pedido.pedido.nombreUsuario}`
-    pedidoEditado.email=`${pedido.pedido.email}`
-    pedidoEditado.detallePedido=`${pedido.pedido.detallePedido}`
-
-    
-   
-    
+    pedidoEditado.fecha = `${pedido.pedido.fecha}`;
+    pedidoEditado.nombreUsuario = `${pedido.pedido.nombreUsuario}`;
+    pedidoEditado.email = `${pedido.pedido.email}`;
+    pedidoEditado.detallePedido = `${pedido.pedido.detallePedido}`;
 
     editarPedidos(pedidoEditado, pedido.pedido.id).then((result) => {
       if (result.status === 200 && result) {
@@ -52,51 +48,86 @@ const ItenProducto = (pedido,) => {
       <td>{pedido.pedido.fecha}</td>
       <td>{pedido.pedido.nombreUsuario}</td>
       <td>{pedido.pedido.detallePedido}</td>
-      <td>
-        {pedido.pedido.estado}
-      </td>
+      <td>{pedido.pedido.estado}</td>
       <td>
         <div>
           {" "}
-          
-          <Button variant="ms-auto btnAgregar btn btn-warning" onClick={handleShow}>
-          Editar
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modificar Tipo de usuario</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form  onSubmit={handleSubmit(onSubmit)}>
-            
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-               <Form.Select
+          <Button
+            variant="ms-auto btnAgregar btn btn-warning"
+            onClick={handleShow}
+          >
+            Editar
+          </Button>
+          <Button variant="primary" onClick={handleShowDatos}>
+            ver datos
+          </Button>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modificar Tipo de usuario</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlTextarea1"
+                >
+                  <Form.Select
                     aria-label="Default select example"
                     {...register("estado", {
-                        required: "el estado es obligatorio",
-                      })}
-                    
+                      required: "el estado es obligatorio",
+                    })}
                   >
                     <option value="Entregado">Entregado</option>
                     <option value="Pendiente">Pendiente</option>
                     <option value="Cancelado">Cancelado</option>
                   </Form.Select>
-            </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose} type="submit">
-           Guardar 
-          </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
+                </Form.Group>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cerrar
+                </Button>
+                <Button variant="primary" onClick={handleClose} type="submit">
+                  Guardar
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+          <Modal
+            show={showDatos}
+            onHide={handleCloseDatos}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Modal title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Pedidos</p>
+              <div><span className="fw-bold"> Nombre de Usuario: </span> 
+              {  pedido.pedido.nombreUsuario}</div>
+              <div><span className="fw-bold"> Email: </span> 
+              {  pedido.pedido.email}</div>
+              <div><span className="fw-bold"> Precio: </span> 
+              {  pedido.pedido.precioUnidad}</div>
+              <div><span className="fw-bold"> imagen: </span> 
+              <img src={  pedido.pedido.imagen} alt="" className="imgAdministrador"/></div>
+              <div><span className="fw-bold"> Detalle de Pedido: </span> 
+              {  pedido.pedido.detallePedido}</div>
+              <div><span className="fw-bold"> Cantidad: </span> 
+              {  pedido.pedido.cantidad}</div>
+              <div><span className="fw-bold"> Direccion: </span> 
+              {  pedido.pedido.direccion}</div>
+              <div><span className="fw-bold"> estado: </span> 
+              {  pedido.pedido.estado}</div> 
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseDatos}>
+                Close
+              </Button>
+              <Button variant="primary">Understood</Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </td>
-      
     </tr>
   );
 };
