@@ -33,7 +33,8 @@ function App() {
           </RutasProtegidas>
         }></Route>
         <Route exact path="/detalle/:id" element={<Detalle usuarioLogueado={usuarioLogueado} showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} handleShowDetalles={handleShowDetalles}></Detalle>}></Route>
-        <Route exact path='*' element={<Error404></Error404>}></Route>
+        <Route exact path="/error" element={<Error404 />}></Route>
+        <Route path="*" element={<Error404 />}></Route>
       </Routes>
      
       <Footer/>

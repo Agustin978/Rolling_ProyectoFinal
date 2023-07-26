@@ -19,15 +19,19 @@ const EditarProducto = () => {
   const navegacion = useNavigate();
   useEffect(() => {
     obtenerProductosEditar(id).then((respuesta) => {
-      console.log(respuesta)
-      setValue('nombreProducto', respuesta.nombreProducto);
-      setValue('imagen', respuesta.imagen);
-      setValue('precioNuevo', respuesta.precioNuevo);
-      setValue('precioAnterior', respuesta.precioAnterior);
-      setValue('descripcion', respuesta.descripcion);
-      setValue('categoria', respuesta.categoria);
+      console.log(respuesta);
+      if (!respuesta) {
+        navegacion('/error');
+      } else {
+        setValue('nombreProducto', respuesta.nombreProducto);
+        setValue('imagen', respuesta.imagen);
+        setValue('precioNuevo', respuesta.precioNuevo);
+        setValue('precioAnterior', respuesta.precioAnterior);
+        setValue('descripcion', respuesta.descripcion);
+        setValue('categoria', respuesta.categoria);
+      }
     });
-  }, []);
+  }, [id, navegacion]);
 
   const onSubmit = (productoEditado) => {
     console.log(productoEditado);

@@ -66,7 +66,7 @@ function Categorias({usuarioLogueado}) {
   
     const indiceUltimoProducto = paginaActual * productosPorPagina;
     const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
-    const productosActuales = productosFiltrados.slice(
+    const productosActuales = productosFiltrados && productosFiltrados.slice(
       indicePrimerProducto,
       indiceUltimoProducto
     );
