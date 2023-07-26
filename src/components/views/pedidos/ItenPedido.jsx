@@ -98,10 +98,9 @@ const ItenProducto = (pedido) => {
             keyboard={false}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Modal title</Modal.Title>
+              <Modal.Title>Pedidos</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>Pedidos</p>
               <div><span className="fw-bold"> Nombre de Usuario: </span> 
               {  pedido.pedido.nombreUsuario}</div>
               <div><span className="fw-bold"> Email: </span> 
@@ -121,9 +120,8 @@ const ItenProducto = (pedido) => {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseDatos}>
-                Close
+                cerrar
               </Button>
-              <Button variant="primary">Understood</Button>
             </Modal.Footer>
           </Modal>
         </div>
