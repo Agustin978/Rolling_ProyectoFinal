@@ -189,7 +189,7 @@ export const eliminarProductoSeccionStorage =async(id)=>{
     }
 }
 /*Admin Usuarios */
-export  const  obtenerUsuario = async ()=>{
+export  const  obtenerUsuarios = async ()=>{
     try {
         const respuesta=await fetch(URL_USUARIO);
         const listaProducto = await respuesta.json();
