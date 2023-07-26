@@ -261,6 +261,7 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
     {
         let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
         let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
+        let fechaActual = new Date();
         let pedido = {
             idPedido: contadorPedidos + 1,
             idUsuario: usuario.id,
@@ -270,6 +271,7 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
             nombreProducto: producto.nombreProducto,
             precioUnidad: producto.precioNuevo,
             imagen:producto.imagen,
+            fechaPedido: fechaActual,
             ...detalles
         };
         listadoPedidos.push(pedido);

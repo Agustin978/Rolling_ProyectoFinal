@@ -203,6 +203,34 @@
       "direccion": "A marte",
       "estado": "Pendiente",
       "id": 7
+    },
+    {
+      "idProducto": 2,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Carne a la parrilla",
+      "precioUnidad": "1800",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "fechaPedido": "2023-07-26T14:36:20.326Z",
+      "detallePedido": "Con salsa golf",
+      "cantidad": "2",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 8
+    },
+    {
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "fechaPedido": "2023-07-26T14:36:42.389Z",
+      "detallePedido": "Con pera",
+      "cantidad": "1",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 9
     }
   ]
 }
