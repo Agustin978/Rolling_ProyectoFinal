@@ -1,7 +1,7 @@
 import error404Image from "../../assets/error404.jpg";
 import React from "react";
 import { Link } from "react-router-dom";
-const NotFound = () => {
+const Error404 = () => {
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="text-center">
@@ -19,4 +19,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Error404;

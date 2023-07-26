@@ -126,16 +126,16 @@ export  const  obtenerProductos = async ()=>{
     }
 }
 
-export  const  obtenerProductosEditar = async (id)=>{
+export const obtenerProductosEditar = async (id) => {
     try {
-        const respuesta = await fetch(`${URL_PRODUCTO}/${id}`);
-        const productoEditar = await respuesta.json();
-        return productoEditar;
+      const respuesta = await fetch(`${URL_PRODUCTO}/${id}`);
+      return respuesta.ok ? await respuesta.json() : null;
     } catch (error) {
-        console.log(error);
-        
+      console.log("Error al obtener el producto:", error);
+      return null;
     }
-}
+  };
+
 
 export const editarProducto = async(producto ,id)=>{
     try{

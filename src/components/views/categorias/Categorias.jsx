@@ -18,10 +18,14 @@ function Categorias({usuarioLogueado}) {
     const [productos, setProductos] = useState([]);
     const [paginaActual, setPaginaActual] = useState(1);
     const productosPorPagina = 8;
+
+    const [cargando, setCargando] = useState(true); // Agregar estado para "cargando"
+  
   
     useEffect(() => {
       obtenerProductos().then((resp) => {
         setProductos(resp);
+        setCargando(false);
       });
       const paginaGuardada = localStorage.getItem("paginaActual");
       if (paginaGuardada) {
@@ -62,7 +66,7 @@ function Categorias({usuarioLogueado}) {
   
     const indiceUltimoProducto = paginaActual * productosPorPagina;
     const indicePrimerProducto = indiceUltimoProducto - productosPorPagina;
-    const productosActuales = productosFiltrados.slice(
+    const productosActuales = productosFiltrados && productosFiltrados.slice(
       indicePrimerProducto,
       indiceUltimoProducto
     );
@@ -170,11 +174,20 @@ function Categorias({usuarioLogueado}) {
       ))}
       <div>
         <h2>Productos:</h2>
-        {productosFiltrados.length === 0 ? (
-          <p className="display-6 text-danger py-5 text-center">
+        {cargando && productosFiltrados.length === 0 ? (
+          <Row className="justify-content-start">
+          {productosActuales.map((producto) => (
+            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
+              <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado} />
+            </Col>
+          ))}
+        </Row>
+
+        ) : productosFiltrados.length === 0 ? (
+            <p className="display-6 text-danger py-5 text-center">
             No hay productos disponibles en esta categoría ☹️
           </p>
-        ) : (
+        ) :(
           <Row className="justify-content-start">
             {productosActuales.map((producto) => (
               <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
