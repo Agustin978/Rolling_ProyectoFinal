@@ -11,7 +11,6 @@ const Registrarse = ({show, handleClose, setUsuarioLogueado}) => {
     const onSubmit = (usuarioNuevo) =>
     {
         registrarUsuario(usuarioNuevo).then(respuesta => {
-            console.log(respuesta);
             if(respuesta === 201)
             {
                 Swal.fire('Su usuario se creo exitosamente', ':)', 'success');
