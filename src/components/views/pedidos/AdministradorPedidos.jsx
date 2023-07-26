@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect , } from "react";
 import { obtenerPedidos } from "../../helpers/queries";

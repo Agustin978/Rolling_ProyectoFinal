@@ -107,17 +107,11 @@
   ],
   "pedidos": [
     {
-      "idUsuario": 2,
-      "idProducto": 2,
+      "estado": "Entregado",
+      "fecha": "undefined",
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
-      "nombreProducto": "Carne a la parrilla",
-      "precioUnidad": "1800",
-      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
       "detallePedido": "",
-      "cantidad": "4",
-      "direccion": "Un lugar del mundo",
-      "estado": "Pendiente",
       "id": 1
     },
     {
