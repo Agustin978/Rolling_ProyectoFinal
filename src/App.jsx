@@ -12,6 +12,8 @@ import RutasProtegidas from './components/Routes/RutasProtegidas';
 import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
 import SobreNosotros from './components/views/SobreNosotros';
 import Pedidos from './components/views/carrito/Pedidos';
+import Categorias from './components/views/categorias/Categorias';
+import Paginacion from './components/views/paginacion/paginacion';
 
 function App() {
   const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
@@ -33,6 +35,8 @@ function App() {
             <RutasAdministrador></RutasAdministrador>
           </RutasProtegidas>
         }></Route>
+        <Route path="/categorias" element={<Categorias usuarioLogueado={usuarioLogueado} />} />
+        <Route path="/categorias/:numeroPagina" element={<Categorias usuarioLogueado={usuarioLogueado} />} />
         <Route path="/pedidos/*" element={<RutasProtegidasCarrito><Pedidos /></RutasProtegidasCarrito>} />
         <Route exact path="/detalle/:id" element={<Detalle usuarioLogueado={usuarioLogueado} showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} handleShowDetalles={handleShowDetalles}></Detalle>}></Route>
         <Route exact path="/error" element={<Error404 />}></Route>
