@@ -9,6 +9,7 @@ import Detalle from './components/views/detalleProducto/Detalle';
 import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
+import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
 import SobreNosotros from './components/views/SobreNosotros';
 import Pedidos from './components/views/carrito/Pedidos';
 
@@ -26,12 +27,13 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Inicio usuarioLogueado={usuarioLogueado}></Inicio>}></Route>
         <Route exact path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
-        <Route exact path="/pedidos" element={<Pedidos></Pedidos>}></Route>
+        
         <Route path='/administrador/*' element={
           <RutasProtegidas>
             <RutasAdministrador></RutasAdministrador>
           </RutasProtegidas>
         }></Route>
+        <Route path="/pedidos/*" element={<RutasProtegidasCarrito><Pedidos /></RutasProtegidasCarrito>} />
         <Route exact path="/detalle/:id" element={<Detalle usuarioLogueado={usuarioLogueado} showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} handleShowDetalles={handleShowDetalles}></Detalle>}></Route>
         <Route exact path="/error" element={<Error404 />}></Route>
         <Route path="*" element={<Error404 />}></Route>
