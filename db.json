@@ -112,6 +112,7 @@
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
       "detallePedido": "",
+      "fechaPedido": "28/5/2023",
       "id": 1
     },
     {
@@ -126,6 +127,7 @@
       "cantidad": "3",
       "direccion": "La luna",
       "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
       "id": 2
     },
     {
@@ -140,34 +142,33 @@
       "cantidad": "1",
       "direccion": "Algo +",
       "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
       "id": 3
     },
     {
-      "idUsuario": 2,
-      "idProducto": 4,
+      "estado": "Entregado",
+      "fechaPedido": "28/5/2023",
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
+      "detallePedido": "Lala",
       "nombreProducto": "Tarta de Manzana",
       "precioUnidad": "1500",
-      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
-      "detallePedido": "Lala",
       "cantidad": "1",
       "direccion": "Un lugar del mundo",
-      "estado": "Pendiente",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
       "id": 4
     },
     {
-      "idUsuario": 2,
-      "idProducto": 4,
+      "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
       "nombreUsuario": "usuario1",
       "email": "usuario1@usuario1.com",
+      "detallePedido": "",
       "nombreProducto": "Tarta de Manzana",
       "precioUnidad": "1500",
-      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
-      "detallePedido": "",
       "cantidad": "1",
       "direccion": "iuyoi iuy",
-      "estado": "Pendiente",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
       "id": 5
     }
   ]
