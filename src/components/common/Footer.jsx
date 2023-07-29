@@ -1,6 +1,7 @@
 import { Facebook } from "react-bootstrap-icons";
 import { Instagram } from "react-bootstrap-icons";
 import { Twitter } from "react-bootstrap-icons";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -8,24 +9,24 @@ const Footer = () => {
           <section className="container">
             <article className="row">
               <aside className="col-12 col-md-4 text-center">
-                <a href="" className="text-decoration-none link-light">
+                <Link to="/" className="text-decoration-none link-light">
                   <div>
                     <img src="/src/assets/logo-nav.png" alt="logo-footer" className="img-fluid" />
                   </div>
-                </a>
+                </Link>
               </aside>
               <aside className="col-12 col-md-4">
                 <h5 className="text-center">¡Seguinos en nuestras redes!</h5>
                 <div className="text-center">
-                  <a href="" className="text-decoration-none iconFooter"> <Facebook className="fs-1 p-1 "></Facebook></a>
-                  <a href="" className="text-decoration-none iconFooter"> <Instagram className="fs-1 p-1"></Instagram></a>
-                  <a href="" className="text-decoration-none iconFooter"> <Twitter className="fs-1 p-1"></Twitter></a>
+                  <Link to="*" className="text-decoration-none iconFooter"> <Facebook className="fs-1 p-1 "></Facebook> </Link>
+                  <Link to="*" className="text-decoration-none iconFooter"> <Instagram className="fs-1 p-1 "></Instagram> </Link>
+                  <Link to="*" className="text-decoration-none iconFooter"> <Twitter className="fs-1 p-1 "></Twitter> </Link>
                 </div>
               </aside>
               <aside className="col-12 col-md-4 text-center">
                 <div className="text-center tex-md-start fs-4">
-                  <a href="" className="d-block fw-semibold text-decoration-none textoFooter">Sobre nosotros</a>
-                  <a href="" className="d-block fw-semibold text-decoration-none textoFooter">Contáctanos</a>
+                  <Link to="/sobreNosotros" className="d-block fw-semibold text-decoration-none textoFooter">Sobre nosotros</Link>
+                  <Link to="*" className="d-block fw-semibold text-decoration-none textoFooter">Contáctanos</Link>
                 </div>
 
               </aside>
