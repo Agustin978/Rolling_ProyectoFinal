@@ -24,10 +24,17 @@ const ItenProducto = (pedido) => {
   } = useForm();
 
   const onSubmit = (pedidoEditado) => {
-    pedidoEditado.fecha = `${pedido.pedido.fecha}`;
+
+    pedidoEditado.fechaPedido = `${pedido.pedido.fechaPedido}`;
     pedidoEditado.nombreUsuario = `${pedido.pedido.nombreUsuario}`;
     pedidoEditado.email = `${pedido.pedido.email}`;
     pedidoEditado.detallePedido = `${pedido.pedido.detallePedido}`;
+    pedidoEditado.nombreProducto = `${pedido.pedido.nombreProducto}`;
+    pedidoEditado.precioUnidad = `${pedido.pedido.precioUnidad}`;
+    pedidoEditado.cantidad = `${pedido.pedido.cantidad}`;
+    pedidoEditado.direccion = `${pedido.pedido.direccion}`;
+    pedidoEditado.imagen = `${pedido.pedido.imagen}`;
+
 
     editarPedidos(pedidoEditado, pedido.pedido.id).then((result) => {
       if (result.status === 200 && result) {
@@ -40,12 +47,12 @@ const ItenProducto = (pedido) => {
       } else {
         Swal.fire("ERROR !", `Intente nueva mente`, "error");
       }
-    });
+    })
   };
 
   return (
     <tr>
-      <td>{pedido.pedido.fecha}</td>
+      <td>{pedido.pedido.fechaPedido}</td>
       <td>{pedido.pedido.nombreUsuario}</td>
       <td>{pedido.pedido.detallePedido}</td>
       <td>{pedido.pedido.estado}</td>
@@ -105,6 +112,10 @@ const ItenProducto = (pedido) => {
               {  pedido.pedido.nombreUsuario}</div>
               <div><span className="fw-bold"> Email: </span> 
               {  pedido.pedido.email}</div>
+              <div><span className="fw-bold"> Fecha del Pedido: </span> 
+              {  pedido.pedido.fechaPedido}</div>
+              <div><span className="fw-bold"> Nombre del Producto: </span> 
+              {  pedido.pedido.nombreProducto}</div>
               <div><span className="fw-bold"> Precio: </span> 
               {  pedido.pedido.precioUnidad}</div>
               <div><span className="fw-bold"> imagen: </span> 
@@ -116,7 +127,8 @@ const ItenProducto = (pedido) => {
               <div><span className="fw-bold"> Direccion: </span> 
               {  pedido.pedido.direccion}</div>
               <div><span className="fw-bold"> estado: </span> 
-              {  pedido.pedido.estado}</div> 
+              {  pedido.pedido.estado }</div> 
+              
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseDatos}>
