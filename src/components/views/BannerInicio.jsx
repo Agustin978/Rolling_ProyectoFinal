@@ -1,8 +1,36 @@
+import React, { useState, useEffect } from 'react';
 import { Col, Container } from 'react-bootstrap';
 import imgBanner from '../../assets/arreglado1_auto_x2.jpg';
 import './BannerInicio.css';
 
 const BannerInicio = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [productos, setProductos] = useState([]);
+  const [filteredProductos, setFilteredProductos] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/productos')
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setProductos(data);
+          setFilteredProductos(data);
+        }
+      });
+  }, []);
+
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    if (Array.isArray(productos)) {
+      const filteredProductos = productos.filter((producto) =>
+        producto.nombreProducto.toLowerCase().includes(searchTerm)
+      );
+      setFilteredProductos(filteredProductos);
+    }
+  };
+
   return (
     <section className="colorBase position-relative">
       <img src={imgBanner} className="imgBannerInicio position-absolute" alt="comida" />
@@ -16,8 +44,11 @@ const BannerInicio = () => {
           type="text"
           placeholder="Buscar"
           className="form-control form-control-lg position-absolute bottom-0 mb-4 mb-sm-5 start-50 translate-middle-x mt-3 customInputInicio"
+          value={searchTerm}
+          onChange={handleSearchChange}
         />
       </Container>
+
     </section>
   );
 };
