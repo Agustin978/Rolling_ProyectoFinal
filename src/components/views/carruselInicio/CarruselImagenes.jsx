@@ -43,7 +43,7 @@ const CarruselImagenes = () => {
   };
 
   return (
-    <Container className="py-5">
+    <section className="py-5">
          <h2 className="pb-3">Imágenes Destacadas</h2>
       <Slider {...settings}>
         <div>
@@ -131,7 +131,7 @@ const CarruselImagenes = () => {
           />
         </div>
       </Slider>
-    </Container>
+    </section>
   );
 };
 
