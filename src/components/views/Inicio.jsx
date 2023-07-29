@@ -1,6 +1,7 @@
 import { obtenerProductos } from "../helpers/queries";
 import BannerInicio from "./BannerInicio";
 import CarruselInicio from "./carruselInicio/Carrusel";
+import CarruselImagenes from "./carruselInicio/CarruselImagenes";
 import Categorias from "./categorias/Categorias"
 import { Container} from "react-bootstrap";
 
@@ -12,6 +13,7 @@ const Inicio = ({usuarioLogueado}) => {
       <Container>
         <Categorias usuarioLogueado={usuarioLogueado}></Categorias>
         <CarruselInicio></CarruselInicio>
+        <CarruselImagenes></CarruselImagenes>
 
         <section className="mb-0">
           <iframe
