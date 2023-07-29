@@ -6,16 +6,16 @@
 
 }
 span.page-link{
-    border-radius: 50%!important;
+    border-radius: 40%!important;
     margin: 0 10px 0 10px;
     border:none;
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 28px;
 
 }
 a.page-link{
     margin: 0 10px 0 10px;
-    border-radius: 50%!important;
+    border-radius: 40%!important;
     border:none;
     color: black;
     font-weight: bolder;
