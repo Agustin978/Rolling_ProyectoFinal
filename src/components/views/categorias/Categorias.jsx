@@ -10,6 +10,7 @@ import { Row, Col } from "react-bootstrap";
 import logo from "../../../assets/logo.png";
 import "./categorias.css";
 import Paginacion from "../paginacion/paginacion";
+import { Funnel } from "react-bootstrap-icons";
 
 
 function Categorias({usuarioLogueado}) {
@@ -80,7 +81,7 @@ function Categorias({usuarioLogueado}) {
               aria-controls={`offcanvasNavbar-expand-${expand}`}
               className="ms-auto"
             >
-              <span className="fw-bold fs-4">Categorías</span>
+              <span className="fw-bold fs-5">Filtrar <Funnel/></span>
             </Navbar.Toggle>
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
