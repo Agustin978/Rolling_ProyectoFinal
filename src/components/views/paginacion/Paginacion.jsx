@@ -6,7 +6,7 @@ const Paginacion = ({paginaActual, totalPaginas, cambiarPagina}) => {
         cambiarPagina(numeroPagina)
     }
     return (
-        <Pagination className='justify-content-center py-5' size="lg">
+        <Pagination className='justify-content-center py-5'>
         <Pagination.First onClick={()=>manejarCambioPagina(1)}/>
         <Pagination.Prev onClick={()=>manejarCambioPagina(paginaActual-1)}
         disabled={paginaActual ===1}/>

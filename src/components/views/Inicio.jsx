@@ -1,27 +1,18 @@
 import { obtenerProductos } from "../helpers/queries";
 import BannerInicio from "./BannerInicio";
-import CardProducto from "./producto/cardProducto/CardProducto";
+import CarruselInicio from "./carruselInicio/Carrusel";
 import Categorias from "./categorias/Categorias"
-import { Container, Row } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { Container} from "react-bootstrap";
 
 const Inicio = ({usuarioLogueado}) => {
-  // const [productos, setProductos] = useState([]);
-  // useEffect(() => {
-  //   obtenerProductos().then((resp) => {
-  //         setProductos(resp);
-  //     });
-  // }, []);
+
   return (
     <section>
       <BannerInicio></BannerInicio>
       <Container>
         <Categorias usuarioLogueado={usuarioLogueado}></Categorias>
-        {/* <Row className="mt-3">
-          {
-            productos.map((producto)=>  <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado}></CardProducto>)
-          }
-        </Row> */}
+        <CarruselInicio></CarruselInicio>
+
         <section className="mb-0">
           <iframe
             style={{ width: "100%", height: "360px" }}

@@ -27,23 +27,18 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
   };
 
   useEffect(() => {
-    // Simulación de carga asincrónica con un delay de 1.5 segundos
     const demora = 800;
     const temporizador = setTimeout(() => {
       setCargando(false);
     }, demora);
 
-    return () => clearTimeout(temporizador); // Limpiamos el temporizador al desmontar el componente
+    return () => clearTimeout(temporizador);
   }, []);
   
   return (
-    <Card className="rounded-4  border-4 h-100 shadow p-3 p-md-2 p-lg-3">
+    <Card className="rounded-4  border-0 h-100 shadow p-3 p-md-2 p-lg-3">
       <Link to={`/detalle/${id}`}>
-        {/* <Card.Img  className="rounded-0 imgCard"
-            variant="top"
-            src={imagen ? imagen : notImage} alt={nombreProducto}
-          /> */}
-        {cargando || !imagen ? ( // Si está cargando o no hay imagen, muestra el marcador de posición
+        {cargando || !imagen ? ( 
           <Placeholder as={Card.Img} bg="secondary" className="rounded-0 imgCard opacity-25" xs={12}/>
         ) : (
           <Card.Img
@@ -55,7 +50,7 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
         )}
       </Link>
       <Card.Body className="text-white px-0 pb-0">
-        {cargando || !nombreProducto ? ( // Si está cargando o no hay nombre de producto, muestra el marcador de posición
+        {cargando || !nombreProducto ? ( 
           
           <Placeholder as={Card.Title}  animation="glow">
           <Placeholder xs={12} bg="secondary" />
@@ -70,12 +65,12 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
       <Card.Footer className="border-0 bg-white px-0">
         <Card.Text className="pb-1 text-dark">
 
-          {cargando || precioAnterior == null ? ( // Si está cargando o no hay precio anterior, muestra el marcador de posición
+          {cargando || precioAnterior == null ? ( 
               <Placeholder animation="glow">
               <Placeholder xs={3} className="me-2"/> 
               <Placeholder xs={3} /> 
               </Placeholder>
-          ) : precioAnterior > 0 ? ( // Si el precio anterior es mayor a 0, muestra el precio tachado
+          ) : precioAnterior > 0 ? ( 
             <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
               ${producto.precioAnterior}
             </span>
@@ -84,7 +79,7 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
             <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
           )}
         </Card.Text>
-        {cargando || !imagen ? ( // Si está cargando o no hay imagen, muestra el marcador de posición
+        {cargando || !imagen ? ( 
           <Placeholder.Button variant="dark" xs={12}/>
         ) : (
           <Button
