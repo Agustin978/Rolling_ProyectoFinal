@@ -21,6 +21,7 @@ function Categorias({usuarioLogueado}) {
     const productosPorPagina = 8;
 
     const [cargando, setCargando] = useState(true); // Agregar estado para "cargando"
+    const [searchTerm, setSearchTerm] = useState("");
   
   
     useEffect(() => {
@@ -53,6 +54,18 @@ function Categorias({usuarioLogueado}) {
         setProductosFiltrados(productos);
       }
     }, [categoriaSeleccionada, productos]);
+
+    const handleSearchChange = (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      setSearchTerm(searchTerm);
+
+      if (Array.isArray(productos)) {
+        const filteredProductos = productos.filter((producto) =>
+          producto.nombreProducto.toLowerCase().includes(searchTerm)
+        );
+        setProductosFiltrados(filteredProductos);
+      }
+    };
   
     const handleCategoriaSeleccionada = (categoria) => {
       setCategoriaSeleccionada(categoria);
@@ -74,6 +87,13 @@ function Categorias({usuarioLogueado}) {
 
   return (
     <>
+    <input
+        type="text"
+        placeholder="Buscar productos"
+        className="form-control form-control-lg mt-3"
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
       {[false].map((expand) => (
         <Navbar key={expand} expand={false} className="pt-5">
           <Container fluid>
