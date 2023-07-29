@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import "./paginacion.css"
 import Pagination from 'react-bootstrap/Pagination';
 
@@ -6,6 +7,7 @@ const Paginacion = ({paginaActual, totalPaginas, cambiarPagina}) => {
         cambiarPagina(numeroPagina)
     }
     return (
+        <Container>
         <Pagination className='justify-content-center py-5' size="lg">
         <Pagination.First onClick={()=>manejarCambioPagina(1)}/>
         <Pagination.Prev onClick={()=>manejarCambioPagina(paginaActual-1)}
@@ -19,6 +21,7 @@ const Paginacion = ({paginaActual, totalPaginas, cambiarPagina}) => {
         disabled={paginaActual === totalPaginas}/>
         <Pagination.Last onClick={() => manejarCambioPagina(totalPaginas)}/>
       </Pagination>
+      </Container>
       );
 };
 

@@ -1,4 +1,6 @@
-
+.card-title{
+    height: 58px!important;
+}
 @media all and (max-width: 575px){
     .imgCard{
         width: 100%;
