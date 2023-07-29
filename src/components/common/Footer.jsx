@@ -1,3 +1,6 @@
+import { Facebook } from "react-bootstrap-icons";
+import { Instagram } from "react-bootstrap-icons";
+import { Twitter } from "react-bootstrap-icons";
 
 const Footer = () => {
     return (
@@ -14,9 +17,9 @@ const Footer = () => {
               <aside className="col-12 col-md-4">
                 <h5 className="text-center">Seguinos en nuestras redes!</h5>
                 <div className="text-center">
-                  <a href=""><p>ICON</p></a>
-                  <a href=""><p>ICON</p></a>
-                  <a href=""><p>ICON</p></a>
+                  <a href=""> <Facebook></Facebook></a>
+                  <a href=""> <Instagram></Instagram></a>
+                  <a href=""> <Twitter></Twitter></a>
                 </div>
               </aside>
               <aside className="col-12 col-md-4 text-center">
