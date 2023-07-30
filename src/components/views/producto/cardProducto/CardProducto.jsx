@@ -7,7 +7,7 @@ import AgregaDetalles from "../../Pedidos/AgregaDetalles";
 import Placeholder from "react-bootstrap/Placeholder";
 
 const CardProducto = ({ producto, usuarioLogueado }) => {
-  const { id, nombreProducto, precioAnterior, precioNuevo, imagen } = {
+  const { _id, nombreProducto, precioAnterior, precioNuevo, imagen } = {
     ...producto,
   };
   const [showDetalles, setShowDetalles] = useState(false);
@@ -37,7 +37,7 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
   
   return (
     <Card className="rounded-4  border-0 h-100 shadow p-3 p-md-2 p-lg-3">
-      <Link to={`/detalle/${id}`}>
+      <Link to={`/detalle/${_id}`}>
         {cargando || !imagen ? ( 
           <Placeholder as={Card.Img} bg="secondary" className="rounded-0 imgCard opacity-25" xs={12}/>
         ) : (
