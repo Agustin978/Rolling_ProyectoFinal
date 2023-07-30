@@ -1,7 +1,9 @@
 const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
 const URL_USUARIO_NUEVO = import.meta.env.VITE_API_USUARIO_NUEVO;
 const URL_PRODUCTO = import.meta.env.VITE_API_PRODUCTO;
+const URL_PRODUCTO_NUEVO = import.meta.env.VITE_API_PRODUCTO_NUEVO;
 const URL_PEDIDOS = import.meta.env.VITE_API_PEDIDOS;
+const URL_PEDIDOS_NUEVO = import.meta.env.VITE_API_PEDIDOS_NUEVO;
 
 //Funcion para realizar el logueo en la pagina
 export const login = async (usuario) => 
@@ -124,7 +126,7 @@ const APICreaUsuario = async (nuevoUsuario) =>
 /*Admin PRODUCTOS */
 export const crearProducto = async (producto) => {
     try {
-      const respuesta = await fetch(URL_PRODUCTO, {
+      const respuesta = await fetch(URL_PRODUCTO_NUEVO, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -259,13 +261,14 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
 {
     try
     {
+        const date = new Date();
         let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
         let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
-        let fechaActual = new Date();
+        let fechaActual = date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear();
         let pedido = {
             idPedido: contadorPedidos + 1,
-            idUsuario: usuario.id,
-            idProducto: producto.id,
+            idUsuario: usuario._id,
+            idProducto: producto._id,
             nombreUsuario: usuario.nombreUsuario,
             email: usuario.email,
             nombreProducto: producto.nombreProducto,
