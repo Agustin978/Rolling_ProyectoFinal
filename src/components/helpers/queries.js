@@ -26,7 +26,7 @@ export const login = async (usuario) =>
             nombreUsuario: datos.nombreUsuario,
             type: datos.type,
             email: datos.email,
-            uid: datos._id
+            uid: datos.uid
         }
     }catch(error)
     {
@@ -126,10 +126,10 @@ const APICreaUsuario = async (nuevoUsuario) =>
 /*Admin PRODUCTOS */
 export const crearProducto = async (producto) => {
     try {
-      const respuesta = await fetch(URL_PRODUCTO_NUEVO, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+        const respuesta = await fetch(URL_PRODUCTO_NUEVO, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(producto),
       });
@@ -264,10 +264,10 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
         const date = new Date();
         let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
         let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
-        let fechaActual = date.getDay()+'/'+date.getMonth()+'/'+date.getFullYear();
+        let fechaActual = date.getDate()+'/'+date.getMonth()+'/'+date.getFullYear();
         let pedido = {
             idPedido: contadorPedidos + 1,
-            idUsuario: usuario._id,
+            idUsuario: usuario.uid,
             idProducto: producto._id,
             nombreUsuario: usuario.nombreUsuario,
             email: usuario.email,
@@ -294,7 +294,7 @@ export const confirmaPedidos = async(pedido) =>
     {
         pedido.estado = 'Pendiente';
         delete pedido.idPedido;
-        const respuesta = await fetch(URL_PEDIDOS,
+        const respuesta = await fetch(URL_PEDIDOS_NUEVO,
             {
                 method: "POST",
                 headers: {
