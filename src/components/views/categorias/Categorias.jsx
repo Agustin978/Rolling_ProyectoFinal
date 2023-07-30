@@ -90,7 +90,7 @@ function Categorias({usuarioLogueado}) {
     <input
         type="text"
         placeholder="Buscar productos"
-        className="form-control form-control-lg mt-3"
+        className="form-control border-3 border-dark form-control-lg mt-3"
         value={searchTerm}
         onChange={handleSearchChange}
       />
