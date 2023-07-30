@@ -1,4 +1,4 @@
-import { Card, Col, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import "./cardProducto.css";
 import { Link } from "react-router-dom";

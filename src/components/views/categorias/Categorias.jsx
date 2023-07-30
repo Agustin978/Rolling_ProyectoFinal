@@ -12,7 +12,6 @@ import "./categorias.css";
 import Paginacion from "../paginacion/paginacion";
 import { Funnel } from "react-bootstrap-icons";
 
-
 function Categorias({usuarioLogueado}) {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
