@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
@@ -6,7 +5,6 @@ import { editarPedidos } from "../../helpers/queries";
 import Modal from "react-bootstrap/Modal";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const ItenProducto = (pedido) => {
   const [show, setShow] = useState(false);
@@ -25,22 +23,13 @@ const ItenProducto = (pedido) => {
 
   const onSubmit = (pedidoEditado) => {
 
-    pedidoEditado.fechaPedido = `${pedido.pedido.fechaPedido}`;
-    pedidoEditado.nombreUsuario = `${pedido.pedido.nombreUsuario}`;
-    pedidoEditado.email = `${pedido.pedido.email}`;
-    pedidoEditado.detallePedido = `${pedido.pedido.detallePedido}`;
-    pedidoEditado.nombreProducto = `${pedido.pedido.nombreProducto}`;
-    pedidoEditado.precioUnidad = `${pedido.pedido.precioUnidad}`;
-    pedidoEditado.cantidad = `${pedido.pedido.cantidad}`;
-    pedidoEditado.direccion = `${pedido.pedido.direccion}`;
-    pedidoEditado.imagen = `${pedido.pedido.imagen}`;
+    pedido.pedido.estado = pedidoEditado.estado;
 
-
-    editarPedidos(pedidoEditado, pedido.pedido.id).then((result) => {
+    editarPedidos(pedido.pedido, pedido.pedido._id).then((result) => {
       if (result.status === 200 && result) {
         Swal.fire(
-          "Usuario Editada !",
-          `El usuario ${pedido.pedido.id}  es ${pedidoEditado.estado}`,
+          "El estado del pedido fue modificado exitosamente!",
+          `:)`,
           "success"
         );
         window.location.href = window.location.href;
@@ -52,6 +41,7 @@ const ItenProducto = (pedido) => {
 
   return (
     <tr>
+      <td>{pedido.contadorPedido}</td>
       <td>{pedido.pedido.fechaPedido}</td>
       <td>{pedido.pedido.nombreUsuario}</td>
       <td>{pedido.pedido.detallePedido}</td>
