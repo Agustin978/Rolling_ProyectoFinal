@@ -20,7 +20,7 @@ function Categorias({usuarioLogueado}) {
     const [paginaActual, setPaginaActual] = useState(1);
     const productosPorPagina = 8;
 
-    const [cargando, setCargando] = useState(true); // Agregar estado para "cargando"
+    const [cargando, setCargando] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
   
   
