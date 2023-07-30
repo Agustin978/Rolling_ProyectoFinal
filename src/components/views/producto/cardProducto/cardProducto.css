@@ -7,9 +7,7 @@
         height: 250px;
         object-fit: cover;
     }
-
 }
-
 @media all and (min-width: 575px) and (max-width: 990px){
     .imgCard{
         width: 100%;
