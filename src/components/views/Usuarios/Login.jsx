@@ -12,6 +12,20 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
     const onSubmit = (usuario) => {
         login(usuario).then(respuesta => 
             {
+                if(respuesta.status === 200)
+                {
+                    delete respuesta.status;
+                    sessionStorage.setItem('user', JSON.stringify(respuesta));
+                    setUsuarioLogueado(respuesta);
+                    Swal.fire('Bienvenido', ':)', 'success');
+                    navigate('/');
+                    handleClose();  
+                }else
+                {
+                    Swal.fire('Error', 'Email o password incorrectos.', 'error');
+                    reset();
+                }
+                /*
                 if(respuesta && respuesta != 0)
                 {
                     sessionStorage.setItem('user', JSON.stringify(respuesta));
@@ -26,7 +40,7 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
                 }else
                 {
                     Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
-                }
+                }*/
             });
     }
 

@@ -34,7 +34,6 @@ const EditarProducto = () => {
   }, [id, navegacion]);
 
   const onSubmit = (productoEditado) => {
-    console.log(productoEditado);
     editarProducto(productoEditado, id).then((result) => {
       if (result.status === 200 && result) {
         Swal.fire(

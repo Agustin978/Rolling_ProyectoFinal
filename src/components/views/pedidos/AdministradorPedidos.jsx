@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect , } from "react";
 import { obtenerPedidos } from "../../helpers/queries";
@@ -33,6 +33,7 @@ const AdministradorProductos = () => {
         <Table responsive striped bordered hover>
           <thead>
           <tr>
+                <th>N° Pedido</th>
                 <th>Fecha</th>
                 <th>Usuario</th>
                 <th>Detalle de Pedido</th>
@@ -41,7 +42,7 @@ const AdministradorProductos = () => {
               </tr>
           </thead>
           <tbody>{
-            pedido.map((ped )=> <ItenPedido key={ped.id} pedido={ped} setPedido={setPedido}></ItenPedido>)
+            pedido.map((ped, index )=> <ItenPedido key={ped._id} pedido={ped} setPedido={setPedido} contadorPedido={index+1}></ItenPedido>)
           }
         
         </tbody>

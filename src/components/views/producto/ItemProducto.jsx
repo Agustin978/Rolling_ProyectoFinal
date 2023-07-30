@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { eliminarProductoSeccionStorage, obtenerProductos } from '../../helpers/queries';
 import notImage from "../../../assets/notImage.png"
-const ItemProducto = ({producto,setProductos}) => {
+const ItemProducto = ({producto,setProductos,contadorProductos}) => {
 
   const borrarProducto = (producto)=>{
     const swalWithBootstrapButtons = Swal.mixin({
@@ -27,7 +27,7 @@ const ItemProducto = ({producto,setProductos}) => {
       if (result.isConfirmed) {
         
        //aqui realizo la peticion delete
-       eliminarProductoSeccionStorage(producto.id).then((result)=>{
+       eliminarProductoSeccionStorage(producto._id).then((result)=>{
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
             'Producto borrado del menu!',
@@ -62,7 +62,7 @@ const ItemProducto = ({producto,setProductos}) => {
 
     return (
       <tr>
-      <td>{producto.id}</td>
+      <td>{contadorProductos}</td>
       <td>{producto.nombreProducto}</td>
       <td>{producto.precioNuevo}</td>
       <td>
@@ -75,7 +75,7 @@ const ItemProducto = ({producto,setProductos}) => {
         {producto.categoria}
       </td>
       <td>
-        <Link className="ms-auto btnAgregar btn btn-warning mx-2" to={`/administrador/editar/${producto.id}`}>
+        <Link className="ms-auto btnAgregar btn btn-warning mx-2 my-1" to={`/administrador/editar/${producto._id}`}>
           Editar
         </Link>
         <Button variant="danger" className="ms-auto btnAgregar" onClick={()=>borrarProducto(producto)}>

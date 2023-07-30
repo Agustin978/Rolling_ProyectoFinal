@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useEffect , } from "react";
-import { obtenerUsuario } from "../../helpers/queries";
+import {  obtenerUsuarios } from "../../helpers/queries";
 import { useNavigate } from "react-router-dom";
 import ItemUsarios from "./ItemUsarios";
 const AdministradorUsuario = () => {
@@ -9,16 +9,13 @@ const AdministradorUsuario = () => {
   
     const [usuario ,setUsuario] = useState([])
     useEffect(()=>{
-      obtenerUsuario().then((respuesta)=>{
+      obtenerUsuarios().then((respuesta)=>{
 
         if(respuesta){
           setUsuario(respuesta);
         }else{
           navegacion('/error404');
         }
-       
-        // todo: resolver la situacion cuando no puedo realizar la conexion a la API
-        
       })
     },[])
     return (
@@ -32,7 +29,7 @@ const AdministradorUsuario = () => {
       <Table responsive striped bordered hover>
         <thead>
         <tr>
-              <th>Cod</th>
+              <th>Numero</th>
               <th>Nombre</th>
               <th>email</th>
               <th>Tipo</th>
@@ -40,7 +37,7 @@ const AdministradorUsuario = () => {
             </tr>
         </thead>
         <tbody>{
-        usuario.map((usu )=> <ItemUsarios key={usu.id} usuario={usu} setUsuario={setUsuario}></ItemUsarios>)
+        usuario.map((usu, index)=> <ItemUsarios key={usu._id} usuario={usu} setUsuario={setUsuario} contadorUsuarios={index+1}></ItemUsarios>)
         }
       
       </tbody>

@@ -170,6 +170,62 @@
       "direccion": "iuyoi iuy",
       "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
       "id": 5
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 6,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Empanadas de Carne Criolla",
+      "precioUnidad": "454",
+      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
+      "detallePedido": "Que sean 3 de pollo ",
+      "cantidad": "1",
+      "direccion": "A marte",
+      "estado": "Pendiente",
+      "id": 6
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 5,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
+      "precioUnidad": "345",
+      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
+      "detallePedido": "Son supremas ",
+      "cantidad": "5",
+      "direccion": "A marte",
+      "estado": "Pendiente",
+      "id": 7
+    },
+    {
+      "idProducto": 2,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Carne a la parrilla",
+      "precioUnidad": "1800",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "fechaPedido": "2023-07-26T14:36:20.326Z",
+      "detallePedido": "Con salsa golf",
+      "cantidad": "2",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 8
+    },
+    {
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "fechaPedido": "2023-07-26T14:36:42.389Z",
+      "detallePedido": "Con pera",
+      "cantidad": "1",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 9
     }
   ]
 }

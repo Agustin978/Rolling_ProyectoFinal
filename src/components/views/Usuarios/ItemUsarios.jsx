@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
-import { editarUsuario, obtenerUsuario, eliminarUsuariosAdministrador } from "../../helpers/queries";
+import { editarUsuario, obtenerUsuarios, eliminarUsuariosAdministrador } from "../../helpers/queries";
 import Modal from "react-bootstrap/Modal";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const ItemUsarios = ({ usuario, setUsuario }) => {
+const ItemUsarios = ({ usuario, setUsuario, contadorUsuarios }) => {
     const [show, setShow] = useState(false);
     const navegacion = useNavigate();
     const handleClose = () => setShow(false);
@@ -40,7 +40,7 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
       if (result.isConfirmed) {
         
        //aqui realizo la peticion delete
-       eliminarUsuariosAdministrador(usu.id).then((result)=>{
+       eliminarUsuariosAdministrador(usu._id).then((result)=>{
         if(result.status === 200){
           swalWithBootstrapButtons.fire(
             'Usuario borrado del Sistema!',
@@ -48,7 +48,7 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
            'success'
          );
          //se actualiza el state para recargar los productos
-         obtenerUsuario().then((result)=>setUsuario(result))
+         obtenerUsuarios().then((result)=>setUsuario(result))
 
         }
         else{
@@ -88,11 +88,11 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
 
     
 
-    editarUsuario(usuarioEditado, usuario.id).then((result) => {
+    editarUsuario(usuarioEditado, usuario._id).then((result) => {
       if (result.status === 200 && result) {
         Swal.fire(
           "Usuario Editada !",
-          `El usuario ${usuario.id}  es ${usuarioEditado.type}`,
+          `El usuario ${usuario._id}  es ${usuarioEditado.type}`,
           "success"
         );
         window.location.href = window.location.href;
@@ -104,7 +104,7 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
 
   return (
     <tr>
-      <td>{usuario.id}</td>
+      <td>{contadorUsuarios}</td>
       <td>{usuario.nombreUsuario}</td>
       <td>{usuario.email}</td>
       <td>
@@ -112,50 +112,45 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
       </td>
       <td>
         <div>
-          {" "}
-          
-          <Button variant="ms-auto btnAgregar btn btn-warning" onClick={handleShow}>
-          Editar
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modificar Tipo de usuario</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form  onSubmit={handleSubmit(onSubmit)}>
-            
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-               <Form.Select
-                    aria-label="Default select example"
-                    {...register("type", {
-                        required: "la categoria es obligatoria",
-                      })}
-                    
-                  >
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario</option>
-                    <option value="bloqueado">Bloqueado</option>
-                  </Form.Select>
-            </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
-            Cerrar
+          <Button className="ms-auto btnAgregar btn btn-warning mx-2 my-1" onClick={handleShow}>
+            Editar
           </Button>
-          <Button variant="primary" onClick={handleClose} type="submit">
-           Guardar 
-          </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-        </div>
-        <div>
-          {" "}
-          <Button variant="danger" className="ms-auto btnAgregar" onClick={()=> borrarUsuario(usuario)}>
+          <Button variant="danger" className="ms-auto btnAgregar " onClick={()=> borrarUsuario(usuario)}>
             Borrar
-          </Button>{" "}
+          </Button>
         </div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modificar Tipo de usuario</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form  onSubmit={handleSubmit(onSubmit)}>
+                
+                <Form.Group
+                  className="mb-3"
+                  controlId="exampleForm.ControlTextarea1"
+                >
+                  <Form.Select
+                        aria-label="Default select example"
+                        {...register("type", {
+                            required: "la categoria es obligatoria",
+                          })}
+                        
+                      >
+                        <option value="admin">Administrador</option>
+                        <option value="user">Usuario</option>
+                        <option value="bloqueado">Bloqueado</option>
+                      </Form.Select>
+                </Form.Group>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cerrar
+                </Button>
+              <Button variant="primary" onClick={handleClose} type="submit">
+              Guardar 
+              </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
       </td>
       
     </tr>

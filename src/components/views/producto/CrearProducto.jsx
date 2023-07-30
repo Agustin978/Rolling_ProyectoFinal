@@ -6,6 +6,7 @@ import { crearProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const CrearProducto = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -13,8 +14,11 @@ const CrearProducto = () => {
     reset,
   } = useForm();
   const onSubmit = (productoNuevo) => {
+    if(!productoNuevo.precioAnterior)
+    {
+      productoNuevo.precioAnterior = null;
+    }
     crearProducto(productoNuevo).then((respuesta) => {
-      console.log(respuesta.status);
       if (respuesta.status == 201) {
         Swal.fire(
           "Producto Creado !",
@@ -22,6 +26,7 @@ const CrearProducto = () => {
           "success"
         );
         reset();
+        navigate('/administrador');
       } else {
         Swal.fire("ERROR !", `Intente nueva mente`, "error");
       }

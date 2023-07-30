@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import ItemProducto from "./ItemProducto";
 import { useEffect , } from "react";
 import { obtenerProductos } from "../../helpers/queries";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -46,7 +44,7 @@ const Administrador = () => {
           </tr>
       </thead>
       <tbody>{
-          producto.map((prod)=> <ItemProducto key={prod.id} producto={prod} setProductos={setProductos}></ItemProducto>)
+          producto.map((prod, index)=> <ItemProducto key={prod._id} producto={prod} setProductos={setProductos} contadorProductos={index+1}></ItemProducto>)
         }
       
       </tbody>

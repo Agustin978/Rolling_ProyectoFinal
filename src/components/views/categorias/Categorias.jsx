@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -197,8 +197,8 @@ function Categorias({usuarioLogueado}) {
         {cargando && productosFiltrados.length === 0 ? (
           <Row className="justify-content-start">
           {productosActuales.map((producto) => (
-            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-              <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado} />
+            <Col key={producto._id} sm={6} md={4} lg={3} className="mb-3">
+              <CardProducto key={producto._id} producto={producto} usuarioLogueado={usuarioLogueado} />
             </Col>
           ))}
         </Row>
@@ -210,8 +210,8 @@ function Categorias({usuarioLogueado}) {
         ) :(
           <Row className="justify-content-start">
             {productosActuales.map((producto) => (
-              <Col key={producto.id} sm={6} md={4} lg={3} className="mb-3">
-                <CardProducto key={producto.id} producto={producto} usuarioLogueado={usuarioLogueado} />
+              <Col key={producto._id} sm={6} md={4} lg={3} className="mb-3">
+                <CardProducto key={producto._id} producto={producto} usuarioLogueado={usuarioLogueado} />
               </Col>
             ))}
           </Row>
