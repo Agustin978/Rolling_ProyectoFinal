@@ -16,9 +16,6 @@ const AdministradorUsuario = () => {
         }else{
           navegacion('/error404');
         }
-       
-        // todo: resolver la situacion cuando no puedo realizar la conexion a la API
-        
       })
     },[])
     return (
@@ -32,6 +29,7 @@ const AdministradorUsuario = () => {
       <Table responsive striped bordered hover>
         <thead>
         <tr>
+              <th>Numero</th>
               <th>Nombre</th>
               <th>email</th>
               <th>Tipo</th>
@@ -39,7 +37,7 @@ const AdministradorUsuario = () => {
             </tr>
         </thead>
         <tbody>{
-        usuario.map((usu )=> <ItemUsarios key={usu._id} usuario={usu} setUsuario={setUsuario}></ItemUsarios>)
+        usuario.map((usu, index)=> <ItemUsarios key={usu._id} usuario={usu} setUsuario={setUsuario} contadorUsuarios={index+1}></ItemUsarios>)
         }
       
       </tbody>

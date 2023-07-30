@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const ItemUsarios = ({ usuario, setUsuario }) => {
+const ItemUsarios = ({ usuario, setUsuario, contadorUsuarios }) => {
     const [show, setShow] = useState(false);
     const navegacion = useNavigate();
     const handleClose = () => setShow(false);
@@ -104,6 +104,7 @@ const ItemUsarios = ({ usuario, setUsuario }) => {
 
   return (
     <tr>
+      <td>{contadorUsuarios}</td>
       <td>{usuario.nombreUsuario}</td>
       <td>{usuario.email}</td>
       <td>
