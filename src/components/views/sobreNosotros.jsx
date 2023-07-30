@@ -71,7 +71,7 @@ const SobreNosotros = () => {
             />
             <div className="card-body">
               <h5 className="card-title">Martin Serrano</h5>
-              <p className="card-text">Rolling code</p>
+              <p className="card-text">-Ing. Sistemas (Estudiante)</p>
             </div>
           </div>
         </Col>
