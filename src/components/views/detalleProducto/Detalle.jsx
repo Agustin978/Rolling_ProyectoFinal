@@ -60,13 +60,13 @@ const Detalle = ({
           {producto.imagen ? (
             <img
               src={producto.imagen}
-              className="p-md-3 colorBorde rounded-4 imgDetail"
+              className="p-md-3 colorBorde rounded-4 imgDetalle"
               alt={producto.nombreProducto}
             />
           ) : (
             <img
               src={notImage}
-              className="p-md-3 colorBorde rounded-4 imgDetail"
+              className="p-md-3 colorBorde rounded-4 imgDetalle"
               alt="Imagen no disponible"
             />
           )}
