@@ -1,34 +1,10 @@
-/* @media all and (max-width: 575px){
-    .imgIconos{
-        height: 100px;
-      
-    }
-
-}
-
-@media all and (min-width: 575px) and (max-width: 990px){
-    .imgIconos{
-        height: 170px;
-    }
-
-}
-@media all and (min-width: 991px){
-    .imgIconos{
-        height: 200px;
-    }
-
-} */
-
 .imgIconos{
     height: 100px;
     width: 200px;
-  
 }
-
 .cardIconos{
     width: 260px;
 }
-
 .imgCarrusel{
     height: 330px;
     width: 100%;

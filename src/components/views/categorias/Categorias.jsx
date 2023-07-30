@@ -12,7 +12,6 @@ import "./categorias.css";
 import Paginacion from "../paginacion/paginacion";
 import { Funnel } from "react-bootstrap-icons";
 
-
 function Categorias({usuarioLogueado}) {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
@@ -20,7 +19,7 @@ function Categorias({usuarioLogueado}) {
     const [paginaActual, setPaginaActual] = useState(1);
     const productosPorPagina = 8;
 
-    const [cargando, setCargando] = useState(true); // Agregar estado para "cargando"
+    const [cargando, setCargando] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
   
   
@@ -90,7 +89,7 @@ function Categorias({usuarioLogueado}) {
     <input
         type="text"
         placeholder="Buscar productos"
-        className="form-control form-control-lg mt-3"
+        className="form-control border-3 border-dark form-control-lg mt-3"
         value={searchTerm}
         onChange={handleSearchChange}
       />

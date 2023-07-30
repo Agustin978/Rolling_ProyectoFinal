@@ -1,11 +1,8 @@
-.inputDetail{
-    width: 70px;
-}
 .colorBorde{
     background: #E60012;
 }
 @media all and (max-width: 575px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 270px;
         object-fit: cover;
@@ -14,7 +11,7 @@
 }
 
 @media all and (min-width: 575px) and (max-width: 767px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 300px;
         object-fit: cover;
@@ -22,7 +19,7 @@
 
 }
 @media all and (min-width: 768px) and (max-width: 991px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 400px;
         object-fit: cover;
@@ -30,7 +27,7 @@
 
 }
 @media all and (min-width: 992px) and (max-width: 1199px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 380px;
         object-fit: cover;
@@ -39,7 +36,7 @@
 }
 
 @media all and (min-width: 1200px) and (max-width: 1399px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 435px;
         object-fit: cover;
@@ -47,7 +44,7 @@
 }
 
 @media all and (min-width: 1400px){
-    .imgDetail{
+    .imgDetalle{
         width: 100%;
         height: 380px;
         object-fit: cover;
