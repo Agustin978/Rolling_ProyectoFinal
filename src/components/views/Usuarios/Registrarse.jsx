@@ -11,7 +11,7 @@ const Registrarse = ({show, handleClose, setUsuarioLogueado}) => {
     const onSubmit = (usuarioNuevo) =>
     {
         registrarUsuario(usuarioNuevo).then(respuesta => {
-            if(respuesta === 200)
+            if(respuesta === 201)
             {
                 Swal.fire('Su usuario se creo exitosamente', ':)', 'success');
                 navigate('/');
@@ -23,7 +23,7 @@ const Registrarse = ({show, handleClose, setUsuarioLogueado}) => {
                     });
             }else if(respuesta)
             {
-                Swal.fire('Error', respuesta, 'error');
+                Swal.fire('Error', 'Huvo un error al realizar las consultas en la base de datos', 'error');
             }else
             {
                 Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');

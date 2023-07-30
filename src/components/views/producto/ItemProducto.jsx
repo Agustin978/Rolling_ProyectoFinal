@@ -75,7 +75,7 @@ const ItemProducto = ({producto,setProductos}) => {
         {producto.categoria}
       </td>
       <td>
-        <Link className="ms-auto btnAgregar btn btn-warning mx-2" to={`/administrador/editar/${producto.id}`}>
+        <Link className="ms-auto btnAgregar btn btn-warning mx-2 my-1" to={`/administrador/editar/${producto.id}`}>
           Editar
         </Link>
         <Button variant="danger" className="ms-auto btnAgregar" onClick={()=>borrarProducto(producto)}>

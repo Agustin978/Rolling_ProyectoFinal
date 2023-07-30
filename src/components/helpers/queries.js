@@ -1,13 +1,44 @@
-const URL_usuario = import.meta.env.VITE_API_USUARIO;
+const URL_USUARIO = import.meta.env.VITE_API_USUARIO;
+const URL_USUARIO_NUEVO = import.meta.env.VITE_API_USUARIO_NUEVO;
 const URL_PRODUCTO = import.meta.env.VITE_API_PRODUCTO;
 const URL_PEDIDOS = import.meta.env.VITE_API_PEDIDOS;
 
 //Funcion para realizar el logueo en la pagina
+export const login = async (usuario) => 
+{
+    try
+    {
+        const respuesta = await fetch(URL_USUARIO,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(usuario)
+        });
+        const datos = await respuesta.json();
+        localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
+        return {
+            status: respuesta.status,
+            mensaje: respuesta.mensaje,
+            nombreUsuario: datos.nombreUsuario,
+            type: datos.type,
+            email: datos.email,
+            uid: datos._id
+        }
+    }catch(error)
+    {
+        console.log('A ocurrido un error: '+error);
+        return null;
+    }
+}
+
+/*
 export const login = async (usuario) =>
 {
     try
     {
-        const respuesta = await fetch(URL_usuario);
+        const respuesta = await fetch(URL_USUARIO);
         const listaUsuarios = await respuesta.json();
         const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
         localStorage.removeItem('carritoCompras');
@@ -17,13 +48,6 @@ export const login = async (usuario) =>
             if(usuarioBuscado.password === usuario.password)
             {
                 return usuarioBuscado;
-                /*return {
-                    status: respuesta.status,
-                    mensaje: respuesta.mensaje,
-                    usuario: respuesta.nombreUsuario,
-                    uid: respuesta.uid,
-                    type: 
-                }*/
             }else
             {
                 //Si las contraseñas no coinciden 
@@ -39,13 +63,13 @@ export const login = async (usuario) =>
         console.log('A ocurrido un error: '+error);
         return null;
     }
-}
+}*/
 
 export const registrarUsuario = async (nuevoUsuario) =>
 {
     try
     {
-        const respuesta = await fetch(URL_usuario);
+        const respuesta = await fetch(URL_USUARIO);
         const listaUsuarios = await respuesta.json();
         const existeNombreUsuario = listaUsuarios.find((itemUsuario) => itemUsuario.nombreUsuario === nuevoUsuario.nombreUsuario);
         const existeEmailUsuario = listaUsuarios.find((itemUsuario) => itemUsuario.email === nuevoUsuario.email);
@@ -55,8 +79,7 @@ export const registrarUsuario = async (nuevoUsuario) =>
             {
                 delete nuevoUsuario.password_r;
                 nuevoUsuario.type = 'user';
-                APICreaUsuario(nuevoUsuario);
-                return 200;
+                return APICreaUsuario(nuevoUsuario);
             }else
             {
                 return 'La confirmacion de la contraseña no coincide con la contraseña ingresada inicialmente.';
@@ -85,14 +108,14 @@ const APICreaUsuario = async (nuevoUsuario) =>
 {
     try
     {
-        const respuesta = await fetch(URL_usuario, {
+        const respuesta = await fetch(URL_USUARIO_NUEVO, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(nuevoUsuario)
         });
-        return respuesta;
+        return respuesta.status;
     }catch(error)
     {
         console.log('A ocurrido un error en metodo APICreaUsuario. Info de error: '+error);
@@ -166,9 +189,9 @@ export const eliminarProductoSeccionStorage =async(id)=>{
     }
 }
 /*Admin Usuarios */
-export  const  obtenerUsuario = async ()=>{
+export  const  obtenerUsuarios = async ()=>{
     try {
-        const respuesta=await fetch(URL_usuario);
+        const respuesta=await fetch(URL_USUARIO);
         const listaProducto = await respuesta.json();
         return listaProducto;
     } catch (error) {
@@ -178,7 +201,7 @@ export  const  obtenerUsuario = async ()=>{
 }
 export const editarUsuario = async(usuario ,id)=>{
     try{
-        const respuesta = await fetch(URL_usuario+'/'+id, {
+        const respuesta = await fetch(URL_USUARIO+'/'+id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -193,7 +216,7 @@ export const editarUsuario = async(usuario ,id)=>{
 export const eliminarUsuariosAdministrador =async(id)=>{
     try {
         //para borrar debemos crear una peticion con un id para borrar 
-        const respuesta=await fetch(`${URL_usuario}/${id}`, {
+        const respuesta=await fetch(`${URL_USUARIO}/${id}`, {
             method: "DELETE"
         });
         return respuesta;
@@ -238,6 +261,7 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
     {
         let listadoPedidos = JSON.parse(localStorage.getItem('carritoCompras')) || [];
         let contadorPedidos = parseInt(localStorage.getItem('contadorPedidos') || '0');
+        let fechaActual = new Date();
         let pedido = {
             idPedido: contadorPedidos + 1,
             idUsuario: usuario.id,
@@ -247,6 +271,7 @@ export const agregaPedidoACarrito = async(producto, usuario, detalles) =>
             nombreProducto: producto.nombreProducto,
             precioUnidad: producto.precioNuevo,
             imagen:producto.imagen,
+            fechaPedido: fechaActual,
             ...detalles
         };
         listadoPedidos.push(pedido);
