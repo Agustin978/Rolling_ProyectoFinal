@@ -51,7 +51,7 @@ const CarruselInicio = () => {
         <div className="d-flex justify-content-center cardIconos">
           <>
             <Card className="cardIconos border-0">
-              <Card.Img variant="top" src={reloj}  className="imgIconos ms-3 px-5 img-fluid d-block mx-auto"/>
+              <Card.Img variant="top" src={reloj}  className="imgIconos px-5 img-fluid d-block mx-auto"/>
               <Card.Body>
                 <Card.Title className="text-center fw-bold mb-0">ENTREGA RÁPIDA</Card.Title>
                 <Card.Text className="text-center">
@@ -65,7 +65,7 @@ const CarruselInicio = () => {
         <div className="d-flex justify-content-center cardIconos">
           <>
             <Card className="cardIconos border-0">
-              <Card.Img variant="top" src={bolsa}  className="imgIconos ms-3 px-5 img-fluid d-block mx-auto"/>
+              <Card.Img variant="top" src={bolsa}  className="imgIconos px-5 img-fluid d-block mx-auto"/>
               <Card.Body>
                 <Card.Title className="text-center fw-bold mb-0">COMPRA PROTEGIDA</Card.Title>
                 <Card.Text className="text-center">
@@ -79,7 +79,7 @@ const CarruselInicio = () => {
         <div className="d-flex justify-content-center">
           <>
             <Card className="cardIconos border-0">
-              <Card.Img variant="top" src={plato}  className="imgIconos ms-3 px-5 img-fluid d-block mx-auto "/>
+              <Card.Img variant="top" src={plato}  className="imgIconos px-5 img-fluid d-block mx-auto "/>
               <Card.Body>
                 <Card.Title className="text-center fw-bold mb-0">VARIEDAD DE COMIDAS</Card.Title>
                 <Card.Text className="text-center">

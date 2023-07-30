@@ -1,5 +1,3 @@
-import React from 'react';
-import { obtenerProductos } from '../helpers/queries';
 import BannerInicio from './BannerInicio';
 import CarruselInicio from './carruselInicio/Carrusel';
 import CarruselImagenes from './carruselInicio/CarruselImagenes';
