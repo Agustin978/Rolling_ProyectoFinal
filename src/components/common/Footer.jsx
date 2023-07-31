@@ -25,7 +25,7 @@ const Footer = () => {
               </aside>
               <aside className="col-12 col-md-4 text-center">
                 <div className="text-center tex-md-start fs-4">
-                  <Link to="/sobreNosotros" className="d-block fw-semibold text-decoration-none textoFooter">Sobre nosotros</Link>
+                  <Link to="/SobreNosotros" className="d-block fw-semibold text-decoration-none textoFooter">Sobre nosotros</Link>
                   <Link to="*" className="d-block fw-semibold text-decoration-none textoFooter">Contáctanos</Link>
                 </div>
 
