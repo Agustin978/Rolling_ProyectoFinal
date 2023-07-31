@@ -1,4 +1,4 @@
-import { Form, Button, Container, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from "react-router-dom";
@@ -20,27 +20,15 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
                     Swal.fire('Bienvenido', ':)', 'success');
                     navigate('/');
                     handleClose();  
+                }else if(respuesta)
+                {
+                    Swal.fire('Error', respuesta, 'error');
+                    navigate('/');
                 }else
                 {
                     Swal.fire('Error', 'Email o password incorrectos.', 'error');
                     reset();
                 }
-                /*
-                if(respuesta && respuesta != 0)
-                {
-                    sessionStorage.setItem('user', JSON.stringify(respuesta));
-                    setUsuarioLogueado(respuesta);
-                    Swal.fire('Bienvenido', ':)', 'success');
-                    navigate('/');
-                    handleClose();
-                }else if(respuesta === 0)
-                {
-                    Swal.fire('Error', 'Email o password incorrectos.', 'error');
-                    reset();
-                }else
-                {
-                    Swal.fire('Error', 'Hay inconvenientes para conectarse a la base de datos actualmente. Por favor, Intenta nuevamente mas tarde.', 'error');
-                }*/
             });
     }
 
