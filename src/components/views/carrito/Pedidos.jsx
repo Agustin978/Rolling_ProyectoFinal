@@ -73,7 +73,7 @@ const Pedidos = ({logout}) => {
   }  
 
   return (
-    <section className="container vh-100">
+    <section className="container">
       <div className="text-center">
         <h1 className="text-center fw-bold display-3 pt-5">Tu Carrito</h1>
         <a href="/" className="text-decoration-none text-danger fw-bolder ">
