@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import Menu from './components/common/Menu';
 import Footer from './components/common/Footer';
@@ -13,7 +13,7 @@ import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
 import SobreNosotros from './components/views/SobreNosotros';
 import Pedidos from './components/views/carrito/Pedidos';
 import Categorias from './components/views/categorias/Categorias';
-import Paginacion from './components/views/paginacion/paginacion';
+
 
 function App() {
   const usuarioEnLocalStorage = JSON.parse(sessionStorage.getItem('user')) || {};
@@ -22,10 +22,17 @@ function App() {
   const [showDetalles, setShowDetalles] = useState(false);
   const handleCloseDetalles = () => setShowDetalles(false);
   const handleShowDetalles = () => setShowDetalles(true);
+  const logout = () => 
+    {
+        sessionStorage.removeItem('user');
+        localStorage.removeItem('carritoCompras');
+        localStorage.removeItem('contadorPedidos');
+        setUsuarioLogueado({});
+    }
 
   return (
     <BrowserRouter>
-      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}/>
+      <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} logout={logout}/>
       <Routes>
         <Route exact path='/' element={<Inicio usuarioLogueado={usuarioLogueado}></Inicio>}></Route>
         <Route exact path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
@@ -37,7 +44,7 @@ function App() {
         }></Route>
         <Route path="/categorias" element={<Categorias usuarioLogueado={usuarioLogueado} />} />
         <Route path="/categorias/:numeroPagina" element={<Categorias usuarioLogueado={usuarioLogueado} />} />
-        <Route path="/pedidos/*" element={<RutasProtegidasCarrito><Pedidos /></RutasProtegidasCarrito>} />
+        <Route path="/pedidos/*" element={<RutasProtegidasCarrito><Pedidos logout={logout}/></RutasProtegidasCarrito>} />
         <Route exact path="/detalle/:id" element={<Detalle usuarioLogueado={usuarioLogueado} showDetalles={showDetalles} handleCloseDetalles={handleCloseDetalles} handleShowDetalles={handleShowDetalles}></Detalle>}></Route>
         <Route exact path="/error" element={<Error404 />}></Route>
         <Route path="*" element={<Error404 />}></Route>

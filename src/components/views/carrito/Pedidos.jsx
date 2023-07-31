@@ -4,11 +4,14 @@ import ItemCarrito from './ItemCarrito';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import AgregaDireccion from './AgregaDireccion';
+import { editarUsuario, obtenerPedidosDeUsuario, obrenerUsuarioPorID, editarPedidos } from '../../helpers/queries';
+import ItemCarritoConfirmado from './ItemCarritoConfirmado';
 
-const Pedidos = () => {
+const Pedidos = ({logout}) => {
   const [pedidos, setPedidos] = useState([]);
   const [totalPaga, setTotalPaga] = useState(0);
   const [showDireccion, setShowDireccion] = useState(false);
+  const [pedidosGuardados, setPedidosGuardados] = useState([]);
   const handleShowDireccion = () => setShowDireccion(true);
   const handleCloseDireccion = () => setShowDireccion(false);
   const navigate = useNavigate();
@@ -26,14 +29,34 @@ const Pedidos = () => {
       total += Number(pedido.precioUnidad) * Number(pedido.cantidad);
     });
     setTotalPaga(total);
+    obtenerPedidosDeUsuario().then((respuesta) => {
+      if(respuesta)
+      {
+        setPedidosGuardados(respuesta);
+      }
+    })
   },[]);
-
   const eliminarPedido = (pedidoElimina) =>
   {
     const actualizaLista = pedidos.filter((pedido) => pedido.idPedido !== pedidoElimina.idPedido);
     setPedidos(actualizaLista);
     actualizaTotal(-(Number(pedidoElimina.precioUnidad) * Number(pedidoElimina.cantidad)));
     localStorage.setItem('carritoCompras', JSON.stringify(actualizaLista));
+  }
+
+  const cancelarPedido = (pedidoCancelado) => 
+  {
+    const usuario = JSON.parse(sessionStorage.getItem('user'));
+    pedidoCancelado.estado = 'Cancelado';
+    editarPedidos(pedidoCancelado, pedidoCancelado._id);
+    obrenerUsuarioPorID(usuario.uid).then((respuesta) => 
+    {
+      respuesta.type = 'bloqueado';
+      console.log(respuesta);
+      editarUsuario(respuesta, respuesta._id);
+    });
+    logout();
+    navigate('/');
   }
 
   const confirmarPedido = () =>{
@@ -44,25 +67,13 @@ const Pedidos = () => {
     }else
     {
       handleShowDireccion();
+      localStorage.removeItem('carritoCompras');
+      localStorage.removeItem('contadorPedidos');
     }
-  }    
-    /*
-    pedidos.forEach((pedido)=>confirmaPedidos(pedido).then(respuesta=>
-      {
-        if(respuesta === 400)
-        { 
-          Swal.fire('Error',`A ocurrido un error al enviar el pedido ${pedido.nombreProducto}`,'error');
-        }
-      }));
-    Swal.fire({
-      icon: 'success',
-      title: 'Su pedido fue realizado!',
-      showConfirmButton: true,
-      confirmButtonColor: "#42D84B",
-    })*/
+  }  
 
   return (
-    <section className="container vh-100">
+    <section className="container">
       <div className="text-center">
         <h1 className="text-center fw-bold display-3 pt-5">Tu Carrito</h1>
         <a href="/" className="text-decoration-none text-danger fw-bolder ">
@@ -111,6 +122,44 @@ const Pedidos = () => {
           }
         </div>
       </div>
+      <section className="container">
+        <div className="text-center">
+          <h1 className="text-center fw-bold display-3 pt-5">Tus Pedidos Confirmados</h1>
+          <hr />
+        </div>
+        <div>
+          <h2>Productos</h2>
+          <Table responsive>
+            <thead>
+              <tr>
+                <th>IMAGEN</th>
+                <th>NOMBRE</th>
+                <th>PRECIO</th>
+                <th>CANTIDAD</th>
+                <th>SUBTOTAL</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {/*Renderiza los items del carrito almacenados en la base de datos*/}
+              {pedidosGuardados.length === 0 && (
+              <tr>
+                <td colSpan="6" className="text-center">
+                  <div className="alert alert-warning" role="alert">
+                    No has confirmado ningun pedido aún.
+                  </div>
+                </td>
+              </tr>
+            )}
+            {
+              pedidosGuardados.map((pedidoConf) => (
+                pedidoConf.estado!='Cancelado' && <ItemCarritoConfirmado key={pedidoConf._id} pedidoConfirmado={pedidoConf} cancelarPedido={cancelarPedido}/>
+              ))    
+            } 
+            </tbody>
+          </Table>
+        </div>
+      </section>
     </section>
   );
 };

@@ -1,30 +1,19 @@
 import { Navbar, Container, Nav, Button, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import Login from '../views/Usuarios/Login';
 import Registrarse from '../views/Usuarios/Registrarse';
 import { Cart4 } from 'react-bootstrap-icons';
-import sobreNosotros from '../views/SobreNosotros';
 import logoNav from '../../assets/logo-nav.png'
 import './menu.css'
 
-const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
+const Menu = ({usuarioLogueado, setUsuarioLogueado, logout}) => {
     const [showLogin, setShowLogin] = useState(false);
     const [showRegistro, setshowRegistro] = useState();
-    const navigate = useNavigate();
     const handleCloseLogin = () => setShowLogin(false);
     const handleShowLogin = () => setShowLogin(true);
     const handleCloseRegistro = () => setshowRegistro(false);
     const handleShowRegistro = () => setshowRegistro(true);
-
-    const logout = () => 
-    {
-        sessionStorage.removeItem('user');
-        localStorage.removeItem('carritoCompras');
-        localStorage.removeItem('contadorPedidos');
-        setUsuarioLogueado({});
-        navigate('/');
-    }
 
     return (
         <Navbar className='bg-dark navbar-dark fs-5'  expand="lg">

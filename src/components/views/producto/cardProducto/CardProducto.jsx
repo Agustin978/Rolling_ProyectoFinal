@@ -63,22 +63,28 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
         )}
       </Card.Body>
       <Card.Footer className="border-0 bg-white px-0">
-        <Card.Text className="pb-1 text-dark">
-
-          {cargando || precioAnterior == null ? ( 
-              <Placeholder animation="glow">
-              <Placeholder xs={3} className="me-2"/> 
-              <Placeholder xs={3} /> 
-              </Placeholder>
-          ) : precioAnterior > 0 ? ( 
-            <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
-              ${producto.precioAnterior}
-            </span>
-          ) : null}
-          {!cargando && producto.precioNuevo && (
-            <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
-          )}
-        </Card.Text>
+      <Card.Text className="pb-1 text-dark">
+        {cargando || !producto.precioNuevo ? ( 
+          <Placeholder animation="glow">
+            <Placeholder xs={3} className="me-2" />
+            <Placeholder xs={3} />
+          </Placeholder>
+        ) : (
+          <>
+            {precioAnterior && precioAnterior > 0 ? (
+              <>
+                <span className="text-danger pe-2 text-decoration-line-through fs-6 fw-bolder">
+                  ${precioAnterior}
+                </span>
+                <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
+              </>
+            ) : null}
+            {!precioAnterior && !cargando && producto.precioNuevo &&  (
+              <span className="fs-4 fw-bolder">${producto.precioNuevo}</span>
+            )}
+          </>
+        )}
+      </Card.Text>
         {cargando || !imagen ? ( 
           <Placeholder.Button variant="dark" xs={12}/>
         ) : (

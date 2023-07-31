@@ -4,6 +4,7 @@ const URL_PRODUCTO = import.meta.env.VITE_API_PRODUCTO;
 const URL_PRODUCTO_NUEVO = import.meta.env.VITE_API_PRODUCTO_NUEVO;
 const URL_PEDIDOS = import.meta.env.VITE_API_PEDIDOS;
 const URL_PEDIDOS_NUEVO = import.meta.env.VITE_API_PEDIDOS_NUEVO;
+const URL_PEDIDOS_USUARIO = import.meta.env.VITE_API_PEDIDOS_USUARIO;
 
 //Funcion para realizar el logueo en la pagina
 export const login = async (usuario) => 
@@ -20,13 +21,19 @@ export const login = async (usuario) =>
         const datos = await respuesta.json();
         localStorage.removeItem('carritoCompras');
         localStorage.removeItem('contadorPedidos');
-        return {
-            status: respuesta.status,
-            mensaje: respuesta.mensaje,
-            nombreUsuario: datos.nombreUsuario,
-            type: datos.type,
-            email: datos.email,
-            uid: datos.uid
+        if(datos.type != 'bloqueado')
+        {
+            return {
+                status: respuesta.status,
+                mensaje: respuesta.mensaje,
+                nombreUsuario: datos.nombreUsuario,
+                type: datos.type,
+                email: datos.email,
+                uid: datos.uid
+            }
+        }else
+        {
+            return 'Su usuario se encuentra momentaneamente inhabilitado para ingresar. Comuniquese al email admin@admin.com para mas informacion';
         }
     }catch(error)
     {
@@ -34,38 +41,6 @@ export const login = async (usuario) =>
         return null;
     }
 }
-
-/*
-export const login = async (usuario) =>
-{
-    try
-    {
-        const respuesta = await fetch(URL_USUARIO);
-        const listaUsuarios = await respuesta.json();
-        const usuarioBuscado = listaUsuarios.find((itemUsuario) => itemUsuario.email === usuario.email);
-        localStorage.removeItem('carritoCompras');
-        localStorage.removeItem('contadorPedidos');
-        if(usuarioBuscado)
-        {
-            if(usuarioBuscado.password === usuario.password)
-            {
-                return usuarioBuscado;
-            }else
-            {
-                //Si las contraseñas no coinciden 
-                return 0;
-            }
-        }else
-        {
-            //Si no se encuentra ningun usuario con ese mail almacenado
-            return 0;
-        }
-    }catch(error)
-    {
-        console.log('A ocurrido un error: '+error);
-        return null;
-    }
-}*/
 
 export const registrarUsuario = async (nuevoUsuario) =>
 {
@@ -201,6 +176,19 @@ export  const  obtenerUsuarios = async ()=>{
         return null;
     }
 }
+export const obrenerUsuarioPorID = async (id) => 
+{
+    try
+    {
+        const respuesta = await fetch(URL_USUARIO+'/'+id);
+        const usuario = await respuesta.json();
+        return usuario;
+    }catch(error)
+    {
+        console.log(error)
+    }
+}
+
 export const editarUsuario = async(usuario ,id)=>{
     try{
         const respuesta = await fetch(URL_USUARIO+'/'+id, {
@@ -236,6 +224,19 @@ export  const  obtenerPedidos = async ()=>{
         const listaPedidos = await respuesta.json();
         return listaPedidos;
     } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+export const obtenerPedidosDeUsuario = async () => {
+    try
+    {
+        const usuario = JSON.parse(sessionStorage.getItem('user'));
+        const respuesta = await fetch(`${URL_PEDIDOS_USUARIO}?uid=${usuario.uid}`);
+        const listaPedidos = await respuesta.json();
+        return listaPedidos;
+    }catch(error)
+    {
         console.log(error);
         return null;
     }
