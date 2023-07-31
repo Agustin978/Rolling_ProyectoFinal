@@ -10,7 +10,7 @@ import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
 import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
-import SobreNosotros from './components/views/SobreNosotros';
+import SobreNosotros from './components/views/SobreNosotros.jsx';
 import Pedidos from './components/views/carrito/Pedidos';
 import Categorias from './components/views/categorias/Categorias';
 
