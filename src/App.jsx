@@ -10,6 +10,7 @@ import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
 import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
+import SobreNosotros from './components/views/SobreNosotros';
 import Pedidos from './components/views/carrito/Pedidos';
 import Categorias from './components/views/categorias/Categorias';
 
@@ -34,6 +35,7 @@ function App() {
       <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} logout={logout}/>
       <Routes>
         <Route exact path='/' element={<Inicio usuarioLogueado={usuarioLogueado}></Inicio>}></Route>
+        <Route exact path='/SobreNosotros' element={<SobreNosotros></SobreNosotros>}></Route>
         
         <Route path='/administrador/*' element={
           <RutasProtegidas>
