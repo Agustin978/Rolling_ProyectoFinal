@@ -36,7 +36,6 @@ const Pedidos = ({logout}) => {
       }
     })
   },[]);
-
   const eliminarPedido = (pedidoElimina) =>
   {
     const actualizaLista = pedidos.filter((pedido) => pedido.idPedido !== pedidoElimina.idPedido);
