@@ -4,13 +4,15 @@ import imagenLean from "../../assets/sobreNosotros/leandroNavarro.jpg";
 import imagenAgus from "../../assets/sobreNosotros/agusLobo.jpeg";
 import imagenMartin from "../../assets/sobreNosotros/martinSerrano.jpg";
 import imagenLeo from "../../assets/sobreNosotros/leoQuilpildor.jpeg";
+import Equipo from "./Equipo";
 
 
 
 const SobreNosotros = () => {
   return (
     <Container fluid className="bg-about-us">
-      <div>
+      <Row className="justify-content-center">
+      <Col xs={12} md={12} lg={12} xl={5}>
         <h1 className="name-restaurante">Somos RollingFoods</h1>
         <h2 className="text-about-us">
           El punto de encuentro donde compartir buenos momentos. <br />
@@ -20,9 +22,16 @@ const SobreNosotros = () => {
           Ahora sumamos novedosas propuestas nocturnas: noches de música,
           excelente coctelería, tapeos y encantadoras cenas.
         </h2>
-      </div>
+      </Col>
+      <Col xs={12} md={12} lg={12} xl={6}>
+      <Equipo></Equipo>
+      </Col>
+      </Row>
+
+
       
-      <Row className="my-4 justify-content-center">
+      
+      {/* <Row className="my-4 justify-content-center">
         <Col xs={12} sm={6} md={4} lg={2} className="mb-3">
           <div className="card">
             <img
@@ -88,7 +97,9 @@ const SobreNosotros = () => {
             </div>
           </div>
         </Col>
-      </Row>
+      </Row> */}
+
+      
       
     </Container>
   );
