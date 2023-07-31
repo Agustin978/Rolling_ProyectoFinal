@@ -1,0 +1,231 @@
+{
+  "usuarios": [
+    {
+      "type": "admin",
+      "nombreUsuario": "admin",
+      "email": "admin@admin.com",
+      "password": "HolAdmin$45",
+      "id": 1
+    },
+    {
+      "type": "user",
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "password": "HolAdmin$45",
+      "id": 2
+    },
+    {
+      "type": "user",
+      "nombreUsuario": "usuario2",
+      "email": "usuario2@usuario2.com",
+      "password": "HolAdmin$45",
+      "id": 3
+    }
+  ],
+  "productos": [
+    {
+      "nombreProducto": "Pulpo a la plancha",
+      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
+      "precioNuevo": "1700",
+      "precioAnterior": "1900",
+      "descripcion": "Saborea en la comodidad de tu hogar nuestra deliciosa especialidad. Tierno, jugoso y lleno de sabores mediterráneos, cocinado a la perfección. ¡Haz tu pedido y disfruta de esta experiencia gastronómica única en casa!",
+      "categoria": "entrada",
+      "id": 1
+    },
+    {
+      "nombreProducto": "Carne a la parrilla",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "precioNuevo": "1800",
+      "precioAnterior": "1500",
+      "descripcion": "Saborea cortes selectos sazonados y cocinados a la perfección en la comodidad de tu hogar. Una experiencia gastronómica inigualable que te llevamos directo a tu puerta. ¡Haz tu pedido y disfruta en casa de nuestra deliciosa oferta culinaria!",
+      "categoria": "plato fuerte",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Sanguche de milanesa",
+      "imagen": "https://www.eltucumano.com/fotos/cache/notas/2023/02/28/818x460_230228193026_74237.jpg",
+      "precioNuevo": "1800",
+      "precioAnterior": "",
+      "descripcion": "Llevamos hasta tu puerta el auténtico sabor argentino. Disfruta de nuestra sabrosa milanesa en pan fresco, acompañada de lechuga, tomate y una deliciosa mayonesa. Haz tu pedido. ¡Anímate a probarlo ahora mismo!",
+      "categoria": "plato fuerte",
+      "id": 3
+    },
+    {
+      "nombreProducto": "Tarta de Manzana",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "precioNuevo": "1500",
+      "precioAnterior": "2000",
+      "descripcion": "Deliciosa combinación de manzanas frescas, canela y masa quebrada artesanal. Un postre irresistible que te transportará a momentos de placer y nostalgia en cada bocado. ¡Disfruta su sabor único!",
+      "categoria": "postre",
+      "id": 4
+    },
+    {
+      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
+      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
+      "precioNuevo": "345",
+      "precioAnterior": "567",
+      "descripcion": "iuopiu ñiupi",
+      "categoria": "plato fuerte",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Empanadas de Carne Criolla",
+      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
+      "precioNuevo": "454",
+      "precioAnterior": "768",
+      "descripcion": "ertydht dfgh g h d",
+      "categoria": "plato fuerte",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Asado de carne vacuna",
+      "imagen": "https://www.clarin.com/img/2022/03/07/nt5D4YWDb_1256x620__2.jpg",
+      "precioNuevo": "456",
+      "precioAnterior": "5788",
+      "descripcion": "fghd dfhgd dgh",
+      "categoria": "plato fuerte",
+      "id": 7
+    },
+    {
+      "nombreProducto": "Ñoquis con Salsa Bolognesa",
+      "imagen": "https://www.cronista.com/files/image/344/344537/6102a22b72760.jpg",
+      "precioNuevo": "999",
+      "precioAnterior": "1299",
+      "descripcion": "klsjf añslkdj",
+      "categoria": "plato fuerte",
+      "id": 8
+    },
+    {
+      "nombreProducto": "Tallarines con Tuco",
+      "imagen": "https://www.organizacionsolarte.com.co/cms/sites/default/files/spaghettibolognesa.png",
+      "precioNuevo": "834",
+      "precioAnterior": "960",
+      "descripcion": "fgki fkjg ifj",
+      "categoria": "plato fuerte",
+      "id": 9
+    }
+  ],
+  "pedidos": [
+    {
+      "estado": "Entregado",
+      "fecha": "undefined",
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "detallePedido": "",
+      "fechaPedido": "28/5/2023",
+      "id": 1
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 1,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Pulpo a la plancha",
+      "precioUnidad": "1700",
+      "imagen": "https://i.blogs.es/f0476b/pulpo-a-la-plancha-pakus-futurobloguero/1366_2000.jpg",
+      "detallePedido": "Carne extra",
+      "cantidad": "3",
+      "direccion": "La luna",
+      "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
+      "id": 2
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "detallePedido": "Manzana extra",
+      "cantidad": "1",
+      "direccion": "Algo +",
+      "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
+      "id": 3
+    },
+    {
+      "estado": "Entregado",
+      "fechaPedido": "28/5/2023",
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "detallePedido": "Lala",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "cantidad": "1",
+      "direccion": "Un lugar del mundo",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "id": 4
+    },
+    {
+      "estado": "Pendiente",
+      "fechaPedido": "28/5/2023",
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "detallePedido": "",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "cantidad": "1",
+      "direccion": "iuyoi iuy",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "id": 5
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 6,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Empanadas de Carne Criolla",
+      "precioUnidad": "454",
+      "imagen": "https://www.mdzol.com/u/fotografias/m/2022/9/12/f768x1-1280974_1281101_13.jpg",
+      "detallePedido": "Que sean 3 de pollo ",
+      "cantidad": "1",
+      "direccion": "A marte",
+      "estado": "Pendiente",
+      "id": 6
+    },
+    {
+      "idUsuario": 2,
+      "idProducto": 5,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Milanesa de Pollo con Papas Fritas",
+      "precioUnidad": "345",
+      "imagen": "https://pollolin.com/wp-content/uploads/2022/02/2021-11-Pollolin-milanesa-3g_MG_8103.jpg",
+      "detallePedido": "Son supremas ",
+      "cantidad": "5",
+      "direccion": "A marte",
+      "estado": "Pendiente",
+      "id": 7
+    },
+    {
+      "idProducto": 2,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Carne a la parrilla",
+      "precioUnidad": "1800",
+      "imagen": "https://simplementerecetas.com/wp-content/uploads/2020/08/Filete-de-carne-a-la-parrilla.jpg",
+      "fechaPedido": "2023-07-26T14:36:20.326Z",
+      "detallePedido": "Con salsa golf",
+      "cantidad": "2",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 8
+    },
+    {
+      "idProducto": 4,
+      "nombreUsuario": "usuario1",
+      "email": "usuario1@usuario1.com",
+      "nombreProducto": "Tarta de Manzana",
+      "precioUnidad": "1500",
+      "imagen": "https://imag.bonviveur.com/tarta-de-manzana.jpg",
+      "fechaPedido": "2023-07-26T14:36:42.389Z",
+      "detallePedido": "Con pera",
+      "cantidad": "1",
+      "direccion": "La rioja 500",
+      "estado": "Pendiente",
+      "id": 9
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+.imgIconos{
+    height: 100px;
+    width: 200px;
+}
+.cardIconos{
+    width: 260px;
+}
+.imgCarrusel{
+    height: 330px;
+    width: 100%;
+    object-fit: cover;
+}
