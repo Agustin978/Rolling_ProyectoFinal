@@ -2,9 +2,11 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { confirmaPedidos } from "../../helpers/queries";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AgregaDireccion = ({pedidos, showDireccion, handleCloseDireccion}) => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = (direccion) =>
     {
@@ -27,7 +29,7 @@ const AgregaDireccion = ({pedidos, showDireccion, handleCloseDireccion}) => {
             showConfirmButton: true,
             confirmButtonColor: "#42D84B",
         });
-        
+        navigate('/');
     }
 
     return( 
