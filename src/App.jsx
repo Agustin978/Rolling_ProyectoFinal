@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Menu from './components/common/Menu';
 import Footer from './components/common/Footer';
@@ -10,7 +10,7 @@ import RutasAdministrador from './components/Routes/RutasAdministrador';
 import { useState } from 'react';
 import RutasProtegidas from './components/Routes/RutasProtegidas';
 import RutasProtegidasCarrito from './components/Routes/RutasProtegidasCarrito';
-import SobreNosotros from './components/views/SobreNosotros.jsx';
+import SobreNosotros from './components/views/SobreNosotros';
 import Pedidos from './components/views/carrito/Pedidos';
 import Categorias from './components/views/categorias/Categorias';
 
