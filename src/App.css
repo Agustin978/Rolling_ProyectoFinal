@@ -21,17 +21,11 @@
 }
 
 .bg-about-us {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
   padding: 100px;
   background: linear-gradient(to bottom, rgba(0 0 0 / 0.7), rgba(0 0 0 / 0.7)),
-    url("https://img.freepik.com/foto-gratis/vista-lateral-plato-flameado-chef-masculino_23-2148763217.jpg?w=1060&t=st=1675112699~exp=1675113299~hmac=17b10cfee00a0556a2d1a725b8daa95e1ce3a291b55eaa832e20a194054197ac");
+    url("../src/assets/kitchen-cook-flame-food.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 95vh;
 }
 
 .name-restaurante {
@@ -67,21 +61,6 @@
 
 .textoFooter:hover{
   color: red;
-}
-
-/* Media queries */
-@media only screen and (max-width: 768px) {
-  .bg-about-us {
-    padding: 50px;
-  }
-
-  .name-restaurante {
-    font-size: 3rem;
-  }
-
-  .text-about-us {
-    font-size: 1rem;
-  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -154,4 +133,13 @@
       max-width: 90%;
       width: 550px;
     }
+}
+.cardEquipo{
+  height: 450px;
+  width: 170px;
+  margin-right: 5px;
+}
+.imgEquipo{
+  height: 260px;
+  object-fit: cover;
 }
