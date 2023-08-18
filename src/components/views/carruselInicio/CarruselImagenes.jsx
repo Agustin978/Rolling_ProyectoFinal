@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carrusel.css";
+import { Container } from "react-bootstrap";
 
 const CarruselImagenes = () => {
   const settings = {
@@ -42,7 +43,7 @@ const CarruselImagenes = () => {
   };
 
   return (
-    <section className="py-5">
+    <Container className="py-5">
          <h2 className="pb-3">Imágenes Destacadas</h2>
       <Slider {...settings}>
         <div>
@@ -130,7 +131,7 @@ const CarruselImagenes = () => {
           />
         </div>
       </Slider>
-    </section>
+    </Container>
   );
 };
 

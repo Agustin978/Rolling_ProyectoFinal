@@ -131,7 +131,7 @@ function Categorias({usuarioLogueado}) {
                       handleCategoriaSeleccionada("ofertas del dia")
                     }
                   >
-                    Ofertas de día!
+                    Ofertas del día!
                   </Nav.Link>
                   <Nav.Link
                     className="nav-item nav-link"
