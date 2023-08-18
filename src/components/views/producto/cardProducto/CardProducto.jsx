@@ -18,7 +18,7 @@ const CardProducto = ({ producto, usuarioLogueado }) => {
     if (Object.keys(usuarioLogueado).length === 0) {
       Swal.fire(
         "Error",
-        "Debe iniciar secion antes de realizar un pedido.",
+        "Debe iniciar sesion antes de realizar un pedido.",
         "error"
       );
     } else {
