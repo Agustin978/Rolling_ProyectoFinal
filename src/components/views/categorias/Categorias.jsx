@@ -106,7 +106,7 @@ function Categorias({usuarioLogueado}) {
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
-              className="text-dark ps-3 border border-4 border-dark rounded-start-4"
+              className="text-dark ps-0 border border-4 border-dark rounded-start-4"
             >
               <Offcanvas.Header closeButton className="pb-0">
                 <Offcanvas.Title
