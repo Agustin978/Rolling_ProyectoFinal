@@ -26,7 +26,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado, logout}) => {
                 <Nav className="ms-auto">
                     <NavLink end className='nav-item nav-link' to={'/'}>Inicio</NavLink>
                     <NavLink end className='nav-item nav-link' to={'*'}>Contacto</NavLink>
-                    <NavLink end className='nav-item nav-link' to={'/sobreNosotros'}>Sobre Nosotros</NavLink>
+                    <NavLink end className='nav-item nav-link' to={'/SobreNosotros'}>Sobre Nosotros</NavLink>
                     {
                         usuarioLogueado.type ?(
                             <>
