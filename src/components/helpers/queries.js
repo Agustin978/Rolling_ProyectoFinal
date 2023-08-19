@@ -18,6 +18,12 @@ export const login = async (usuario) =>
             },
             body: JSON.stringify(usuario)
         });
+        
+        if(respuesta.status === 400)
+        {
+            return respuesta;
+        }
+
         const datos = await respuesta.json();
         localStorage.removeItem('carritoCompras');
         localStorage.removeItem('contadorPedidos');

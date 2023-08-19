@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 
 const SobreNosotros = () => {
     return (
-        <Container fluid className="bg-about-us">
+        <Container fluid className="bg-about-us mainSection">
             <div>
                 <h1 className="name-restaurante">RollingFoods</h1>
                 <h2 className="text-about-us">
