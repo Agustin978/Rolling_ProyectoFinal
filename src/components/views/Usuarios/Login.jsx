@@ -20,10 +20,6 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
                     Swal.fire('Bienvenido', ':)', 'success');
                     navigate('/');
                     handleClose();  
-                }else if(respuesta)
-                {
-                    Swal.fire('Error', respuesta, 'error');
-                    navigate('/');
                 }else
                 {
                     Swal.fire('Error', 'Email o password incorrectos.', 'error');
@@ -88,7 +84,7 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
                                 message:'La contraseña debe contener como maximo 15 caracteres'
                                 },
                                 pattern:{
-                                value:/^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[a-z]).{6,}$/,
+                                value:/^(?=.*[A-Z])(?=.*[@#$%^&+=*'"`!¡])(?=.*[a-z]).{6,15}$/,
                                 message:'La contraseña proporcionada es invalida. La misma debe contener:\n-> Al menos una mayuscula.\n-> Al menos un caracter especial.\n-> Al menos una letra minuscula.\n-> Al menos 6 caracteres.'
                                 }
                             })}
