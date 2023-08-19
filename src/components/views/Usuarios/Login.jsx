@@ -20,10 +20,6 @@ const Login = ({show, handleClose, setUsuarioLogueado, handleShowRegistro}) => {
                     Swal.fire('Bienvenido', ':)', 'success');
                     navigate('/');
                     handleClose();  
-                }else if(respuesta)
-                {
-                    Swal.fire('Error', respuesta, 'error');
-                    navigate('/');
                 }else
                 {
                     Swal.fire('Error', 'Email o password incorrectos.', 'error');
